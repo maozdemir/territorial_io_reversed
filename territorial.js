@@ -50,7 +50,7 @@
                 htmlLoader.saveNumber(21, b_IsUISmall ? 1 : 0)) : b_IsUISmall = 1 === g || r < s
         } else
             5 <= d ? (g = htmlLoader.loadNumber(1),
-                2 === g ? (b_IsUISmall = !0,
+                2 === g ? (b_IsUISmall = true,
                     htmlLoader.saveNumber(1, b_IsUISmall ? 1 : 0)) : b_IsUISmall = 1 === g) : b_IsUISmall = 0 === f.g(4) || r < s
     }
     function u() {
@@ -78,10 +78,10 @@
         g = m.z(g.toString());
         return b ? (c.password = g,
             window.webkit.messageHandlers.iosCommandA.postMessage("password " + g),
-            !0) : 12 <= d ? (htmlLoader.saveString(22, g),
-                !0) : 5 <= d ? !1 : 2 === f.a0() ? (f.x(9, g),
+            true) : 12 <= d ? (htmlLoader.saveString(22, g),
+                true) : 5 <= d ? false : 2 === f.a0() ? (f.x(9, g),
                     f.y(),
-                    !0) : !1
+                    true) : false
     }
     function a1(g, k) {
         b ? (window.webkit.messageHandlers.iosCommandA.postMessage("zoom " + (g ? 1 : 0)),
@@ -151,7 +151,7 @@
     }
     function aT(g) {
         aE = g;
-        aP = !1;
+        aP = false;
         aU();
         aV();
         for (g = aW.aX(aE) - 1; 0 <= g; g--)
@@ -246,7 +246,7 @@
         bK()
     }
     function bA() {
-        aP = !0;
+        aP = true;
         aW.bL(aE, aD, aF);
         landSizeArray[aE] += aI;
         bN();
@@ -264,10 +264,10 @@
         if (t > k)
             return aF -= k,
                 bY(k - g, x),
-                !0;
+                true;
         aF -= t;
         bY(t - g, x);
-        return !1
+        return false
     }
     function bY(g, k) {
         if (0 < k)
@@ -295,7 +295,7 @@
     }
     function bP() {
         aF -= aI * al;
-        return !0
+        return true
     }
     function bO() {
         for (var g = aI - 1; 0 <= g; g--)
@@ -333,7 +333,7 @@
                     l: t,
                     font: l
                 };
-                bw.bx = !0
+                bw.bx = true
             }
         }
             ;
@@ -342,9 +342,9 @@
         }
             ;
         this.bz = function (x, t) {
-            return !bo.bp() || x < c2 || t < c3 - c4.bt - g * bo.br(13).height - 2 * c2 || t > c3 - c4.bt - 2 * c2 ? !1 : x < c2 + g * bo.br(13).width ? (c5.c6(0),
-                !0) : x < 2 * c2 + g * bo.br(13).width ? !1 : x < 2 * c2 + 2 * g * bo.br(13).width ? (c5.c6(1),
-                    !0) : !1
+            return !bo.bp() || x < c2 || t < c3 - c4.bt - g * bo.br(13).height - 2 * c2 || t > c3 - c4.bt - 2 * c2 ? false : x < c2 + g * bo.br(13).width ? (c5.c6(0),
+                true) : x < 2 * c2 + g * bo.br(13).width ? false : x < 2 * c2 + 2 * g * bo.br(13).width ? (c5.c6(1),
+                    true) : false
         }
             ;
         this.c7 = function () {
@@ -353,7 +353,7 @@
             ;
         this.c8 = function () {
             if (bo.bp()) {
-                c9.imageSmoothingEnabled = !0;
+                c9.imageSmoothingEnabled = true;
                 c9.setTransform(g, 0, 0, g, c2, this.c7());
                 c9.drawImage(bo.br(14), 0, 0);
                 c9.setTransform(g, 0, 0, g, 2 * c2 + g * bo.br(13).width, this.c7());
@@ -375,7 +375,7 @@
         cH(x, g);
         aW.cI(g, t, k);
         TroopBalance[g] -= t + n;
-        am.cJ(g, !1)
+        am.cJ(g, false)
     }
     function cK(g, k) {
         var x;
@@ -420,7 +420,7 @@
                             continue a;
                     ca[cY] = z;
                     if (++cY >= cb)
-                        return !0
+                        return true
                 }
             }
         return 0 < cY
@@ -444,9 +444,9 @@
             if (ca[g] === b0) {
                 for (cY--; g < cY; g++)
                     ca[g] = ca[g + 1];
-                return !0
+                return true
             }
-        return !1
+        return false
     }
     function cf(g) {
         var k;
@@ -462,8 +462,8 @@
         var g;
         for (g = cY - 1; 0 <= g; g--)
             if (ca[g] >= ci)
-                return !0;
-        return !1
+                return true;
+        return false
     }
     function cj() {
         var g;
@@ -525,7 +525,7 @@
             }
     }
     function dB(g, k, x, t) {
-        cQ(g, !1) || cc(g, !1) ? (cy[g] = 1,
+        cQ(g, false) || cc(g, false) ? (cy[g] = 1,
             cf(g) || (cd() ? (dE(g, k),
                 dF(g, b0, x)) : (cW.dG(d7.dH[x]) ? t = ck(g) : (ch() && cW.dG(d7.dJ[x]) && cj(),
                     t = cn(g)),
@@ -534,7 +534,7 @@
                         d9(g, k, x, t))
     }
     function dK(g, k) {
-        if (cQ(g, !1) || cc(g, !1))
+        if (cQ(g, false) || cc(g, false))
             if (cy[g] = 1,
                 cd())
                 dE(g, k);
@@ -561,11 +561,11 @@
             }
     }
     function dC(g, k, x) {
-        !cQ(g, !0) && !cc(g, !0) || cf(g) || (cd() ? dE(g, k) : cW.dG(d7.dH[x]) ? dI(g, k, ck(g)) : (ch() && cW.dG(d7.dJ[x]) && cj(),
+        !cQ(g, true) && !cc(g, true) || cf(g) || (cd() ? dE(g, k) : cW.dG(d7.dH[x]) ? dI(g, k, ck(g)) : (ch() && cW.dG(d7.dJ[x]) && cj(),
             dI(g, k, cn(g))))
     }
     function dS(g, k) {
-        if (cQ(g, !0) || cc(g, !0))
+        if (cQ(g, true) || cc(g, true))
             cd() ? dE(g, k) : dI(g, k, cn(g))
     }
     function dI(g, k, x) {
@@ -582,7 +582,7 @@
         var t = aw[g].length;
         cP(g);
         return aw[g].length !== t ? (cD(g, x, t, k),
-            !0) : !1
+            true) : false
     }
     var dU = [60, 74, 112, 200, 256, 512];
     function dV() {
@@ -707,9 +707,9 @@
         eK.eL()
     }
     function eM() {
-        e9.eN(!1);
+        e9.eN(false);
         eC.eN();
-        dy.eN(!1);
+        dy.eN(false);
         eB.eN();
         eD.eN();
         eE.eN();
@@ -717,7 +717,7 @@
         eF.bn()
     }
     function eO() {
-        dx.eN() && (bw.bx = !0);
+        dx.eN() && (bw.bx = true);
         e0.d6()
     }
     function eP() {
@@ -790,11 +790,11 @@
                 A = 1
             }
             if (0 === A)
-                return !1;
+                return false;
             if (2 === A)
-                return !0;
+                return true;
             A = x(1, 1);
-            return 0 === A ? !1 : 2 === A ? !0 : 2 === x(54, 4)
+            return 0 === A ? false : 2 === A ? true : 2 === x(54, 4)
         }
         function k(y) {
             if (ax.ay(y) && (ax.b8(y) || ax.b7(y) !== z && cZ(z, ax.b7(y)))) {
@@ -844,14 +844,14 @@
         this.d6 = function (y, A) {
             z = y;
             if (0 === bF[z].length)
-                return !1;
+                return false;
             if (g()) {
                 var C = ak(d7.de[A] * TroopBalance[z], 100);
                 100 > C && 100 <= TroopBalance[z] && (C = 100);
                 if (100 <= C)
                     return ek(z, el.em(), ax.en(n, l), C)
             }
-            return !1
+            return false
         }
     }
     function ey() {
@@ -1113,17 +1113,17 @@
         var J;
         var G;
         var H;
-        var D = !1;
-        var K = !1;
+        var D = false;
+        var K = false;
         this.gM = function () {
             g(1);
             this.gN(0, 0, aR - 1, aS - 1);
-            fN || this.gO(localPlayerID, 3E3, !0, .3)
+            fN || this.gO(localPlayerID, 3E3, true, .3)
         }
             ;
         this.gO = function (I, L, O, P) {
             if (!(gQ || D && !O && K || 0 === landSizeArray[I])) {
-                gR.gS = !1;
+                gR.gS = false;
                 K = O;
                 g(L);
                 F = (cs[I] + cr[I] + 1) / 2;
@@ -1135,18 +1135,18 @@
                 J = O < W ? O : W;
                 J *= 0 !== P ? P : 20 > L && 20 > I ? .5 : .9;
                 k(.875);
-                D = !0;
+                D = true;
                 gV.gW()
             }
         }
             ;
         this.gX = function (I) {
-            gR.gS = !1;
-            K = !0;
+            gR.gS = false;
+            K = true;
             g(I);
             x(0, 0, aR - 1, aS - 1);
             k(.875);
-            D = !0;
+            D = true;
             gV.gW()
         }
             ;
@@ -1160,9 +1160,9 @@
             ;
         this.gi = function () {
             if (D && K)
-                return !1;
-            D = !1;
-            return !0
+                return false;
+            D = false;
+            return true
         }
             ;
         this.d6 = function () {
@@ -1185,9 +1185,9 @@
                 gR.gf(C + P * (E - C), c3 / 2);
                 dx.zoom(L, (I * L - fv) / (1 - L), (O * L - fw) / (1 - L));
                 gg.gh();
-                1 <= n && (D = !1,
-                    gq.gr = !0);
-                bw.bx = !0
+                1 <= n && (D = false,
+                    gq.gr = true);
+                bw.bx = true
             }
         }
     }
@@ -1199,10 +1199,10 @@
                     if (n = ak(z * cW.random(), cW.value(100)),
                         l = ak(y * cW.random(), cW.value(100)),
                         k()) {
-                        G = !0;
+                        G = true;
                         break a
                     }
-                G = !1
+                G = false
             }
             if (!G)
                 a: {
@@ -1216,12 +1216,12 @@
                                 for (var L = z - I; 0 <= L; L -= 40)
                                     if (n = (L + G) % z,
                                         k()) {
-                                        G = !0;
+                                        G = true;
                                         break a
                                     }
                         }
                     }
-                    G = !1
+                    G = false
                 }
             return G
         }
@@ -1235,9 +1235,9 @@
                 for (var I = G + F - 1; I >= G; I--)
                     if (D = ax.en(I, K),
                         !ax.ay(D) || ax.cM(D))
-                        return !1;
+                        return false;
             }
-            return !0
+            return true
         }
         function _EMPTIES_STUFF() {
             f1[E] = 0;
@@ -1330,11 +1330,11 @@
                                         for (O = P; O > P - 6; O--) {
                                             var V = ax.en(O, L);
                                             if (ax.cM(V)) {
-                                                L = !1;
+                                                L = false;
                                                 break a
                                             }
                                         }
-                                    L = !0
+                                    L = true
                                 }
                             if (L) {
                                 if (0 < landSizeArray[E]) {
@@ -1346,10 +1346,10 @@
                                     _EMPTIES_STUFF()
                                 }
                                 t(G - 1, I - 1);
-                                return !0
+                                return true
                             }
                         }
-            return !1
+            return false
         }
             ;
         this.hS = function (G) {
@@ -1370,12 +1370,12 @@
         c9.drawImage(hW, gR.fy(), gR.c7());
         eA.c8();
         c9.drawImage(hX, gR.fy(), gR.c7());
-        c9.imageSmoothingEnabled = !1;
+        c9.imageSmoothingEnabled = false;
         hU.c8();
         c9.setTransform(1, 0, 0, 1, 0, 0);
         dx.c8();
         e7.c8();
-        gQ || (c9.imageSmoothingEnabled = !1,
+        gQ || (c9.imageSmoothingEnabled = false,
             dw.c8(),
             e9.c8(),
             eD.c8(),
@@ -1457,13 +1457,13 @@
         this.i1 = function (n) {
             n = n.trim();
             if (0 === n.indexOf("Bot ") || 0 === n.indexOf("[Bot] "))
-                n = !1;
+                n = false;
             else
                 a: {
                     n = n.trim();
                     var l = n.length;
                     if (3 > l || 20 < l)
-                        n = !1;
+                        n = false;
                     else {
                         for (z = 0, A = 0, void 0; A < l; A++) {
                             var z;
@@ -1472,11 +1472,11 @@
                             if (y = n.charCodeAt(A),
                                 z += 65 <= y && 90 >= y || 1040 <= y && 1071 >= y ? 1 : 0,
                                 -1 === g(y)) {
-                                n = !1;
+                                n = false;
                                 break a
                             }
                         }
-                        n = 3 < z && z > Math.floor(l / 2) ? !1 : !0
+                        n = 3 < z && z > Math.floor(l / 2) ? false : true
                     }
                 }
             return n
@@ -1592,12 +1592,12 @@
     function iG() {
         this.fV = function (g) {
             if (2 === fK)
-                var k = !0;
+                var k = true;
             else
                 eE.iY(),
                     fK = 2,
                     iZ = ia,
-                    k = !1;
+                    k = false;
             if (!k) {
                 if (2 === fT) {
                     var x = g = -1 === g ? landSizeArray[0] >= landSizeArray[1] ? 0 : 1 : g;
@@ -1613,10 +1613,10 @@
                             k = x === localPlayerID,
                             dw.iT(x));
                 isSingleplayer || iU.iV(iW(), x);
-                eI.show(k, !1);
-                e9.eN(!0);
-                dy.eN(!0);
-                bw.bx = !0;
+                eI.show(k, false);
+                e9.eN(true);
+                dy.eN(true);
+                bw.bx = true;
                 gq.ib();
                 a9(0)
             }
@@ -1624,11 +1624,11 @@
     }
     function ic() {
         this.cI = function (g, k, x) {
-            0 !== f1[g] && id.hL(g, k, x) && (bw.bx = !0)
+            0 !== f1[g] && id.hL(g, k, x) && (bw.bx = true)
         }
             ;
         this.d6 = function () {
-            fN = !1;
+            fN = false;
             for (var g = 0; g < ci; g++)
                 0 !== f1[g] && 0 === landSizeArray[g] && id.hS(g);
             0 !== f1[localPlayerID] ? (as.at[7] = landSizeArray[localPlayerID],
@@ -1636,12 +1636,12 @@
                 eD.c6(),
                 dy.ie(),
                 eH.gN(cs[localPlayerID] - 5, cv[localPlayerID] - 5, cr[localPlayerID] + 5, cu[localPlayerID] + 5),
-                eJ.bh()) : eI.show(!1, !1);
+                eJ.bh()) : eI.show(false, false);
             dw.ig(18);
             dx.ih();
             dx.eN();
             fO = null;
-            gq.ii = !0;
+            gq.ii = true;
             gq.ib();
             isSingleplayer && a9(1)
         }
@@ -1674,7 +1674,7 @@
     var iN;
     var is;
     function it(g, k, x, t, n) {
-        ik = gQ = !1;
+        ik = gQ = false;
         gameMode = t;
         ir = n;
         d1 = 7 > t || 9 === t;
@@ -1742,12 +1742,12 @@
         jA();
         eJ.bh();
         isSingleplayer ? bw.jB() : bw.jC();
-        bw.bx = !0;
+        bw.bx = true;
         isSingleplayer && fN || a9(1)
     }
     function jA() {
         eH.gM();
-        0 === f1[localPlayerID] && eI.show(!1, !0);
+        0 === f1[localPlayerID] && eI.show(false, true);
         dx.eN()
     }
     function jD() {
@@ -1893,7 +1893,7 @@
                 O[N].width = P;
                 O[N].height = P;
                 V = O[N].getContext("2d", {
-                    alpha: !0
+                    alpha: true
                 });
                 var S = P;
                 var U = V;
@@ -1907,11 +1907,11 @@
         function k(L) {
             for (var O = K.length - 1; 0 <= O; O--)
                 if (K[O] === L)
-                    return !0;
-            return !1
+                    return true;
+            return false
         }
         function x(L) {
-            return -1 === L || 0 === L || 6 === L || !n[5] && (8 === L || !n[4] && 7 === L) || !n[7] && (2 === L || !n[6] && 1 === L) || 3 === L && !n[2] || 5 === L && !n[1] && !n[5] && !n[7] ? !1 : !0
+            return -1 === L || 0 === L || 6 === L || !n[5] && (8 === L || !n[4] && 7 === L) || !n[7] && (2 === L || !n[6] && 1 === L) || 3 === L && !n[2] || 5 === L && !n[1] && !n[5] && !n[7] ? false : true
         }
         function t(L, O) {
             return L < z - A - G || L > z + 2 * A + G || O < y - A - G || O > y + 2 * A + G ? -1 : 3 * (O < y - G / 2 ? 0 : O < y + A + G / 2 ? 1 : 2) + (L < z - G / 2 ? 0 : L < z + A + G / 2 ? 1 : 2)
@@ -1935,12 +1935,12 @@
         this.bh = function () {
             K = [];
             n = [];
-            l = !1;
+            l = false;
             C = B = z = y = F = 0;
             this.ka();
             for (var L = this.kb.length - 1; 0 <= L; L--)
-                n.push(!1);
-            n.push(!1)
+                n.push(false);
+            n.push(false)
         }
             ;
         this.ka = function () {
@@ -1963,7 +1963,7 @@
                 bw.bx = 0 < P;
                 return 2 > P
             }
-            return !1
+            return false
         }
             ;
         this.km = function (L, O) {
@@ -1980,7 +1980,7 @@
             if (l) {
                 this.ko();
                 if (a5.kp(L, O))
-                    a5.kq(L, O, E) && (l = !0);
+                    a5.kq(L, O, E) && (l = true);
                 else
                     return a5.kr(),
                         2;
@@ -2054,37 +2054,37 @@
             ;
         this.l9 = function (L, O) {
             if (this.kl() || 2 === kn[localPlayerID] || 0 === f1[localPlayerID] && !fN)
-                return !1;
+                return false;
             var P = (b_IsUISmall ? .0288 : .0144) * bi;
             if (Math.abs(L - C) > P || Math.abs(O - B) > P || (new Date).getTime() > F + 425)
-                return !1;
+                return false;
             P = Math.floor((L + fv) / fq);
             var W = Math.floor((O + fw) / fq);
             if (1 > P || 1 > W || P >= aR - 1 || W >= aS - 1)
-                return !1;
+                return false;
             var V = W * aR * 4 + 4 * P;
             if (!ax.ay(V))
-                return !1;
+                return false;
             if (2 === fK)
                 return 1 <= a5.lD && (E = ax.b7(V),
                     E < ci) ? (E === localPlayerID && this.ko(),
-                        n[4] = !0,
-                        this.lE(L, O)) : !1;
+                        n[4] = true,
+                        this.lE(L, O)) : false;
             J = ax.en(P, W);
             if (fN)
-                return n[0] = !0,
+                return n[0] = true,
                     this.lE(L, O);
             n[1] = el.cg(localPlayerID, J);
             if (ax.b8(V))
                 return E = b0,
-                    lF(localPlayerID) ? n[0] = !0 : lG(localPlayerID, E) && (n[8] = !0),
+                    lF(localPlayerID) ? n[0] = true : lG(localPlayerID, E) && (n[8] = true),
                     this.lE(L, O);
             E = ax.b7(V);
             if (E === localPlayerID) {
                 this.ko();
                 if (0 === a5.lD)
-                    return !1;
-                n[4] = !0;
+                    return false;
+                n[4] = true;
                 return this.lE(L, O)
             }
             n[6] = E < ci && !k(E);
@@ -2093,10 +2093,10 @@
                 return n[5] = E < ci,
                     P = n,
                     W = E,
-                    0 === K.length ? W = !1 : (new Date).getTime() > I + 4E3 ? (K = [],
-                        W = !1) : W = !k(W),
+                    0 === K.length ? W = false : (new Date).getTime() > I + 4E3 ? (K = [],
+                        W = false) : W = !k(W),
                     P[7] = W,
-                    lJ(localPlayerID, E) ? n[0] = !0 : lG(localPlayerID, E) && (n[8] = !0),
+                    lJ(localPlayerID, E) ? n[0] = true : lG(localPlayerID, E) && (n[8] = true),
                     this.lE(L, O);
             n[2] = d1;
             return this.lE(L, O)
@@ -2110,23 +2110,23 @@
             ;
         this.lK = function (L, O) {
             if (!this.kl())
-                return !1;
+                return false;
             if (l) {
                 if (a5.kp(L, O))
-                    return !1;
+                    return false;
                 a5.kr();
-                l = !1;
-                return bw.bx = !0
+                l = false;
+                return bw.bx = true
             }
-            return x(t(L, O)) ? !1 : (this.ko(),
-                bw.bx = !0)
+            return x(t(L, O)) ? false : (this.ko(),
+                bw.bx = true)
         }
             ;
         this.ko = function () {
             var L;
             for (L = n.length - 1; 0 <= L; L--)
-                n[L] = !1;
-            l = !1
+                n[L] = false;
+            l = false
         }
             ;
         this.lL = function () {
@@ -2137,7 +2137,7 @@
             var L;
             for (L = n.length - 1; 0 <= L; L--)
                 if (n[L])
-                    return !0;
+                    return true;
             return l
         }
             ;
@@ -2150,7 +2150,7 @@
                 a5.c8();
             else {
                 var L = (A + G) / D;
-                c9.imageSmoothingEnabled = !0;
+                c9.imageSmoothingEnabled = true;
                 c9.setTransform(D, 0, 0, D, z, y);
                 n[0] ? fN ? c9.drawImage(this.kb[3], 0, 0) : c9.drawImage(this.kb[0], 0, 0) : n[8] ? c9.drawImage(this.kZ[0], 0, 0) : c9.drawImage(H[0], 0, 0);
                 n[1] && c9.drawImage(this.kb[1], L, 0);
@@ -2159,7 +2159,7 @@
                 n[5] && c9.drawImage(this.kb[5], L, L);
                 n[6] && c9.drawImage(this.kb[6], 0, -L);
                 n[7] && c9.drawImage(this.kb[7], L, -L);
-                c9.imageSmoothingEnabled = !1;
+                c9.imageSmoothingEnabled = false;
                 c9.setTransform(1, 0, 0, 1, 0, 0)
             }
         }
@@ -2167,7 +2167,7 @@
     function ja() {
         function g() {
             var C = n.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             C.clearRect(0, 0, t, t);
             C.fillStyle = lV;
@@ -2180,7 +2180,7 @@
             C.fillRect(0, t - 1, t, 1);
             C.fillRect(t - 1, 0, 1, t);
             var B = .9 * t / bo.br(0).width;
-            C.imageSmoothingEnabled = !0;
+            C.imageSmoothingEnabled = true;
             C.setTransform(B, 0, 0, B, Math.floor((t - B * bo.br(0).width) / 2), Math.floor((t - B * bo.br(0).height) / 2));
             C.drawImage(bo.br(0), 0, 0);
             C.setTransform(1, 0, 0, 1, 0, 0)
@@ -2220,7 +2220,7 @@
         var A;
         this.bh = function () {
             y = -1;
-            this.lS = !1;
+            this.lS = false;
             A = b_IsUISmall ? 1.2 : .6;
             this.lT()
         }
@@ -2235,14 +2235,14 @@
         }
             ;
         this.lY = function () {
-            (this.lS = !this.lS) ? (gQ = !1,
+            (this.lS = !this.lS) ? (gQ = false,
                 isSingleplayer && (setTimeout(function () {
                     gq.ib()
                 }, 0),
                     a9(0))) : (y = -1,
                         g(),
                         isSingleplayer && a9(1));
-            bw.bx = !0
+            bw.bx = true
         }
             ;
         this.bz = function (C, B) {
@@ -2253,7 +2253,7 @@
                     2) : 2 === F ? (this.fa(localPlayerID) && (isSingleplayer ? e3.fY(localPlayerID) : iU.lb(),
                         this.lY()),
                         2) : 3 === F && 2 <= as.lc ? (hZ.lY(),
-                            bw.bx = !0,
+                            bw.bx = true,
                             2) : hZ.kl || isSingleplayer && !fN ? 1 : (this.lY(),
                                 2) : 0 === F ? (this.lY(),
                                     2) : 0
@@ -2265,7 +2265,7 @@
                 return -1 !== y;
             y = F;
             this.lS || g();
-            bw.bx = !0;
+            bw.bx = true;
             return -1 !== y
         }
             ;
@@ -2325,7 +2325,7 @@
             chatCanvas.width = N;
             chatCanvas.height = l;
             var chatCanvasContext = chatCanvas.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             chatCanvasContext.font = dw.bs;
             chatCanvasContext.textBaseline = cA;
@@ -2336,7 +2336,7 @@
             chatCanvasContext.fillStyle = BackgroundColor;
             chatCanvasContext.fillText(ChatMessage, Math.floor(1.5 * y), Math.floor(l / 2));
             W && (W = l / a5.bt,
-                chatCanvasContext.imageSmoothingEnabled = !0,
+                chatCanvasContext.imageSmoothingEnabled = true,
                 chatCanvasContext.setTransform(W, 0, 0, W, N - l, 0),
                 chatCanvasContext.drawImage(a5.ke[V], 0, 0));
             n.unshift({
@@ -2365,10 +2365,10 @@
         }
         function t(G, H) {
             var D;
-            var K = !1;
+            var K = false;
             for (D = n.length - 1; 0 <= D; D--)
                 n[D].id !== G || H !== b0 && n[D].player !== H || (n.splice(D, 1),
-                    K = !0);
+                    K = true);
             return K
         }
         var n;
@@ -2390,7 +2390,7 @@
             this.lT();
             fN && this.fX(0, 18);
             var AnnounceMapText = "Map: " + jP.br(mc).mP;
-            PrintTextIntoChat(300, AnnounceMapText, 6, 0, colorWhite, colorBlack75opaque, -1, !1)
+            PrintTextIntoChat(300, AnnounceMapText, 6, 0, colorWhite, colorBlack75opaque, -1, false)
         }
             ;
         this.lT = function () {
@@ -2415,7 +2415,7 @@
             J.height = l;
             J.width = A;
             var G = J.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             G.font = this.bs;
             G.textBaseline = cA;
@@ -2445,20 +2445,20 @@
                         if (G >= fx - A - z - n[I].bt)
                             return G >= fx - A - z ? (I = n[I].player,
                                 this.PrintEventNonAggressionPact(I, 0),
-                                iU.l8(I)) : eH.gO(n[I].player, 800, !1, 0),
-                                !0;
+                                iU.l8(I)) : eH.gO(n[I].player, 800, false, 0),
+                                true;
                         break
                     }
                     if (G >= fx - n[I].bt - z)
-                        return n[I].lz && (eH.gO(n[I].player, 800, !1, 0),
+                        return n[I].lz && (eH.gO(n[I].player, 800, false, 0),
                             0 <= n[I].ly && (D = n[I].ly,
                                 n[I].ly = n[I].player,
                                 n[I].player = D)),
-                            !0;
+                            true;
                     break
                 }
             }
-            return !1
+            return false
         }
             ;
         this.ig = function (G) {
@@ -2470,20 +2470,20 @@
             if (0 === eventID)
                 as.at[eventPlayerID < ci ? 4 : 3]++,
                     bu.cI(eventPlayerID, 0),
-                    PrintTextIntoChat(b_IsUISmall ? 100 : 160, "You conquered " + mpPlayerArray[eventPlayerID] + ".", 0, eventPlayerID, "rgb(10,220,10)", colorBlack75opaque, -1, !1);
+                    PrintTextIntoChat(b_IsUISmall ? 100 : 160, "You conquered " + mpPlayerArray[eventPlayerID] + ".", 0, eventPlayerID, "rgb(10,220,10)", colorBlack75opaque, -1, false);
             else if (1 === eventID)
                 t(50, b0),
                     bu.cI(eventPlayerID, 1),
-                    PrintTextIntoChat(360, "You were conquered by " + mpPlayerArray[eventPlayerID] + ".", 0, eventPlayerID, "rgb(255,40,40)", colorBlack75opaque, -1, !0),
-                    eH.gO(eventPlayerID, 2700, !0, 0);
+                    PrintTextIntoChat(360, "You were conquered by " + mpPlayerArray[eventPlayerID] + ".", 0, eventPlayerID, "rgb(255,40,40)", colorBlack75opaque, -1, true),
+                    eH.gO(eventPlayerID, 2700, true, 0);
             else if (2 === eventID)
                 bu.cI(eventPlayerID, 2),
-                    PrintTextIntoChat(0, "Congratulations! You won the game.", 0, eventPlayerID, "rgb(10,255,255)", colorBlack75opaque, -1, !0),
-                    eH.gO(eventPlayerID, 2700, !0, 0);
+                    PrintTextIntoChat(0, "Congratulations! You won the game.", 0, eventPlayerID, "rgb(10,255,255)", colorBlack75opaque, -1, true),
+                    eH.gO(eventPlayerID, 2700, true, 0);
             else if (3 === eventID)
                 bu.cI(eventPlayerID, 2),
-                    PrintTextIntoChat(0, mpPlayerArray[eventPlayerID] + " won the game.", 0, eventPlayerID, colorWhite, colorBlack75opaque, -1, !0),
-                    eH.gO(eventPlayerID, 2700, !0, 0);
+                    PrintTextIntoChat(0, mpPlayerArray[eventPlayerID] + " won the game.", 0, eventPlayerID, colorWhite, colorBlack75opaque, -1, true),
+                    eH.gO(eventPlayerID, 2700, true, 0);
             else if (4 === eventID) {
                 ia--;
                 iZ--;
@@ -2492,33 +2492,33 @@
                     var K = bw.dL();
                     RecentlyLeft.push(K);
                     RecentlyLeft.push(eventPlayerID);
-                    2 < CountRecentlyLeft && (RecentlyLeft[0] < K - 140 || 2 === fK) && (PrintTextIntoChat(180, mpPlayerArray[eventPlayerID] + " and " + Math.floor(CountRecentlyLeft / 2) + " other players left the game.", 4, eventPlayerID, colorWhite, colorBlack75opaque, -1, !1),
+                    2 < CountRecentlyLeft && (RecentlyLeft[0] < K - 140 || 2 === fK) && (PrintTextIntoChat(180, mpPlayerArray[eventPlayerID] + " and " + Math.floor(CountRecentlyLeft / 2) + " other players left the game.", 4, eventPlayerID, colorWhite, colorBlack75opaque, -1, false),
                         RecentlyLeft = [])
                 } else
-                    PrintTextIntoChat(180, mpPlayerArray[eventPlayerID] + " left the game.", 4, eventPlayerID, colorWhite, colorBlack75opaque, -1, !0)
+                    PrintTextIntoChat(180, mpPlayerArray[eventPlayerID] + " left the game.", 4, eventPlayerID, colorWhite, colorBlack75opaque, -1, true)
             } else
                 5 === eventID ? (x(1, 5),
-                    dx.mC(eventPlayerID) ? PrintTextIntoChat(180, mpPlayerArray[eventPlayerID] + " has broken the non-aggression pact and invades you!", 1, eventPlayerID, "rgb(255,200,180)", colorBlack75opaque, -1, !0) : PrintTextIntoChat(180, mpPlayerArray[eventPlayerID] + " is attacking you!", 1, eventPlayerID, "rgb(255,70,10)", colorBlack75opaque, -1, !0)) : 18 === eventID ? PrintTextIntoChat(255, "Choose your start position!", 18, 0, colorWhite, colorBlack75opaque, -1, !1) : 21 === eventID ? PrintTextIntoChat(220, "You surrendered!", eventID, 0, "rgb(255,40,40)", colorBlack75opaque, -1, !1) : 22 === eventID && PrintTextIntoChat(5 < ci ? 80 : 220, mpPlayerArray[eventPlayerID] + " surrendered!", eventID, eventPlayerID, "rgb(10,220,10)", colorBlack75opaque, -1, !0)
+                    dx.mC(eventPlayerID) ? PrintTextIntoChat(180, mpPlayerArray[eventPlayerID] + " has broken the non-aggression pact and invades you!", 1, eventPlayerID, "rgb(255,200,180)", colorBlack75opaque, -1, true) : PrintTextIntoChat(180, mpPlayerArray[eventPlayerID] + " is attacking you!", 1, eventPlayerID, "rgb(255,70,10)", colorBlack75opaque, -1, true)) : 18 === eventID ? PrintTextIntoChat(255, "Choose your start position!", 18, 0, colorWhite, colorBlack75opaque, -1, false) : 21 === eventID ? PrintTextIntoChat(220, "You surrendered!", eventID, 0, "rgb(255,40,40)", colorBlack75opaque, -1, false) : 22 === eventID && PrintTextIntoChat(5 < ci ? 80 : 220, mpPlayerArray[eventPlayerID] + " surrendered!", eventID, eventPlayerID, "rgb(10,220,10)", colorBlack75opaque, -1, true)
         }
             ;
         this.PrintErrorIntoChat = function (errorText) {
-            PrintTextIntoChat(200, "Error [" + errorText + "]", 94, 0, colorWhite, mF, -1, !1)
+            PrintTextIntoChat(200, "Error [" + errorText + "]", 94, 0, colorWhite, mF, -1, false)
         }
             ;
         this.iT = function (G) {
             bu.cI(G, 2);
-            512 > ci ? PrintTextIntoChat(0, mpPlayerArray[G] + " won the game.", 3, G, colorWhite, colorBlack75opaque, -1, !0) : PrintTextIntoChat(0, mpPlayerArray[G] + " has been immortalized!", 3, G, colorWhite, colorBlack75opaque, -1, !0);
-            eH.gO(G, 2700, !0, 0)
+            512 > ci ? PrintTextIntoChat(0, mpPlayerArray[G] + " won the game.", 3, G, colorWhite, colorBlack75opaque, -1, true) : PrintTextIntoChat(0, mpPlayerArray[G] + " has been immortalized!", 3, G, colorWhite, colorBlack75opaque, -1, true);
+            eH.gO(G, 2700, true, 0)
         }
             ;
         this.MessageEventHandler = function (messageSenderID, messageTargetID, message) {
-            messageSenderID === localPlayerID ? PrintTextIntoChat(175, " Message to " + mpPlayerArray[messageTargetID] + ": ", 1E3 + message, messageTargetID, colorWhite, colorBlack75opaque, -1, !0) : this.PrintReceivedMessage(messageSenderID, message)
+            messageSenderID === localPlayerID ? PrintTextIntoChat(175, " Message to " + mpPlayerArray[messageTargetID] + ": ", 1E3 + message, messageTargetID, colorWhite, colorBlack75opaque, -1, true) : this.PrintReceivedMessage(messageSenderID, message)
         }
             ;
         this.PrintReceivedMessage = function (messageSenderID, message) {
             var D;
             var K = 0;
-            PrintTextIntoChat(175, mpPlayerArray[messageSenderID] + ": ", 1E3 + message, messageSenderID, colorWhite, "rgba(5,60,25,0.9)", -1, !0);
+            PrintTextIntoChat(175, mpPlayerArray[messageSenderID] + ": ", 1E3 + message, messageSenderID, colorWhite, "rgba(5,60,25,0.9)", -1, true);
             for (D = 0; D < n.length; D++)
                 if (1E3 <= n[D].id && n[D].player === messageSenderID && (K++,
                     3 < K)) {
@@ -2531,76 +2531,76 @@
             var H = dN.iQ[eF.mN()];
             eventChatMessage ? (9 === gameMode ? (eventChatMessage = "The Resistance defeated the virus.",
                 bu.mO("The Resistance", 2, 1, 12)) : eventChatMessage = "Congratulations! Team " + dN.bg[H] + " has won the game!",
-                PrintTextIntoChat(0, eventChatMessage, 40, 0, "rgb(10,220,10)", colorBlack75opaque, -1, !1)) : (9 === gameMode ? (eventChatMessage = "Mankind lost the war against the virus.",
+                PrintTextIntoChat(0, eventChatMessage, 40, 0, "rgb(10,220,10)", colorBlack75opaque, -1, false)) : (9 === gameMode ? (eventChatMessage = "Mankind lost the war against the virus.",
                     bu.mO("The Virus", 2, 0, 16)) : eventChatMessage = "Our alliance has been defeated!",
-                    PrintTextIntoChat(0, eventChatMessage, 41, 0, "rgb(200,80,80)", colorBlack75opaque, -1, !1));
+                    PrintTextIntoChat(0, eventChatMessage, 41, 0, "rgb(200,80,80)", colorBlack75opaque, -1, false));
             9 !== gameMode && bu.mO("Team " + dN.bg[H], 2, 1, 12);
             eH.gX(2700)
         }
             ;
         this.PrintVersusModeBeginning = function (versusPlayerArray) {
-            PrintTextIntoChat(300, versusPlayerArray[0].mP + " [" + iN.ht(versusPlayerArray[0].hq) + "] vs " + versusPlayerArray[1].mP + " [" + iN.ht(versusPlayerArray[1].hq) + "]", 65, 0, colorBlack, "rgba(100,255,255,0.75)", -1, !1)
+            PrintTextIntoChat(300, versusPlayerArray[0].mP + " [" + iN.ht(versusPlayerArray[0].hq) + "] vs " + versusPlayerArray[1].mP + " [" + iN.ht(versusPlayerArray[1].hq) + "]", 65, 0, colorBlack, "rgba(100,255,255,0.75)", -1, false)
         }
             ;
         this.mQ = function (G) {
-            PrintTextIntoChat(200, G, 0, 0, "rgb(40,255,200)", "rgba(10,60,40,0.9)", -1, !1)
+            PrintTextIntoChat(200, G, 0, 0, "rgb(40,255,200)", "rgba(10,60,40,0.9)", -1, false)
         }
             ;
         this.hv = function (G, H, D, K) {
-            1 === e0.mS && (PrintTextIntoChat(0, G[0].mP + ": " + iN.ht(G[0].hq) + " -> " + H, 66, 0, colorWhite, K[0], -1, !1),
-                PrintTextIntoChat(0, G[1].mP + ": " + iN.ht(G[1].hq) + " -> " + D, 66, 1, colorWhite, K[1], -1, !1))
+            1 === e0.mS && (PrintTextIntoChat(0, G[0].mP + ": " + iN.ht(G[0].hq) + " -> " + H, 66, 0, colorWhite, K[0], -1, false),
+                PrintTextIntoChat(0, G[1].mP + ": " + iN.ht(G[1].hq) + " -> " + D, 66, 1, colorWhite, K[1], -1, false))
         }
             ;
         this.PrintVersusModeEnding = function (WinnerName) {
-            1 === e0.mS && PrintTextIntoChat(0, "[" + WinnerName + "] has won " + ci + (ir ? " x 2" : "") + " points!", 45, 0, "rgb(225,240,255)", colorBlack75opaque, -1, !1)
+            1 === e0.mS && PrintTextIntoChat(0, "[" + WinnerName + "] has won " + ci + (ir ? " x 2" : "") + " points!", 45, 0, "rgb(225,240,255)", colorBlack75opaque, -1, false)
         }
             ;
         this.PrintEventNonAggressionPact = function (eventPlayerID, H) {
-            0 === H ? t(50, eventPlayerID) ? (PrintTextIntoChat(128, "You signed a non-aggression pact with " + mpPlayerArray[eventPlayerID] + ".", 52, eventPlayerID, colorWhite, colorBlack75opaque, -1, !0),
-                dx.mU(eventPlayerID, 2, 255)) : PrintTextIntoChat(384, "You asked " + mpPlayerArray[eventPlayerID] + " to sign a non-aggression pact.", 51, eventPlayerID, colorWhite, colorBlack75opaque, -1, !0) : t(51, eventPlayerID) ? (PrintTextIntoChat(128, mpPlayerArray[eventPlayerID] + " accepted the non-aggression pact.", 52, eventPlayerID, colorWhite, "rgba(60,120,10,0.9)", -1, !0),
-                    dx.mU(eventPlayerID, 2, 255)) : (PrintTextIntoChat(384, mpPlayerArray[eventPlayerID] + " requests a non-aggression pact.", 50, eventPlayerID, colorWhite, "rgba(90,90,90,0.9)", -1, !0),
+            0 === H ? t(50, eventPlayerID) ? (PrintTextIntoChat(128, "You signed a non-aggression pact with " + mpPlayerArray[eventPlayerID] + ".", 52, eventPlayerID, colorWhite, colorBlack75opaque, -1, true),
+                dx.mU(eventPlayerID, 2, 255)) : PrintTextIntoChat(384, "You asked " + mpPlayerArray[eventPlayerID] + " to sign a non-aggression pact.", 51, eventPlayerID, colorWhite, colorBlack75opaque, -1, true) : t(51, eventPlayerID) ? (PrintTextIntoChat(128, mpPlayerArray[eventPlayerID] + " accepted the non-aggression pact.", 52, eventPlayerID, colorWhite, "rgba(60,120,10,0.9)", -1, true),
+                    dx.mU(eventPlayerID, 2, 255)) : (PrintTextIntoChat(384, mpPlayerArray[eventPlayerID] + " requests a non-aggression pact.", 50, eventPlayerID, colorWhite, "rgba(90,90,90,0.9)", -1, true),
                         dx.mU(eventPlayerID, 2, 96))
         }
             ;
         this.PrintAskAttack = function (askedTargetsArray, targetPlayerID) {
-            1 < askedTargetsArray.length ? PrintTextIntoChat(230, "You asked " + askedTargetsArray.length + " players to attack " + mpPlayerArray[targetPlayerID] + ".", 66, targetPlayerID, colorWhite, colorBlack75opaque, -1, !0) : PrintTextIntoChat(230, "You asked " + mpPlayerArray[askedTargetsArray[0]] + " to attack " + mpPlayerArray[targetPlayerID] + ".", 66, askedTargetsArray[0], colorWhite, colorBlack75opaque, targetPlayerID, !0)
+            1 < askedTargetsArray.length ? PrintTextIntoChat(230, "You asked " + askedTargetsArray.length + " players to attack " + mpPlayerArray[targetPlayerID] + ".", 66, targetPlayerID, colorWhite, colorBlack75opaque, -1, true) : PrintTextIntoChat(230, "You asked " + mpPlayerArray[askedTargetsArray[0]] + " to attack " + mpPlayerArray[targetPlayerID] + ".", 66, askedTargetsArray[0], colorWhite, colorBlack75opaque, targetPlayerID, true)
         }
             ;
         this.PrintSomeoneAsksYouAttack = function (eventPlayerID, targetPlayerID) {
-            2 * landSizeArray[eventPlayerID] > 3 * landSizeArray[localPlayerID] ? PrintTextIntoChat(230, mpPlayerArray[eventPlayerID] + " orders you to attack " + mpPlayerArray[targetPlayerID] + "!", 66, eventPlayerID, colorWhite, "rgba(80,40,5,0.9)", targetPlayerID, !0) : PrintTextIntoChat(230, mpPlayerArray[eventPlayerID] + " asks you to attack " + mpPlayerArray[targetPlayerID] + ".", 66, eventPlayerID, colorWhite, "rgba(80,70,5,0.9)", targetPlayerID, !0)
+            2 * landSizeArray[eventPlayerID] > 3 * landSizeArray[localPlayerID] ? PrintTextIntoChat(230, mpPlayerArray[eventPlayerID] + " orders you to attack " + mpPlayerArray[targetPlayerID] + "!", 66, eventPlayerID, colorWhite, "rgba(80,40,5,0.9)", targetPlayerID, true) : PrintTextIntoChat(230, mpPlayerArray[eventPlayerID] + " asks you to attack " + mpPlayerArray[targetPlayerID] + ".", 66, eventPlayerID, colorWhite, "rgba(80,70,5,0.9)", targetPlayerID, true)
         }
             ;
         this.l6 = function (G, H) {
             var D;
             for (D = n.length - 1; 0 <= D; D--)
                 if (n[D].id === G && n[D].player === H)
-                    return !0;
-            return !1
+                    return true;
+            return false
         }
             ;
         this.mW = function (G, H, D) {
             var K;
             for (K = n.length - 1; 0 <= K; K--)
                 if (n[K].id === G && (n[K].player === H && n[K].ly === D || n[K].player === D && n[K].ly === H))
-                    return !0;
-            return !1
+                    return true;
+            return false
         }
             ;
         this.l0 = function () {
-            100 <= TroopBalance[localPlayerID] || PrintTextIntoChat(80, "Your balance is too low!", 9, 0, colorWhite, colorBlack75opaque, -1, !1)
+            100 <= TroopBalance[localPlayerID] || PrintTextIntoChat(80, "Your balance is too low!", 9, 0, colorWhite, colorBlack75opaque, -1, false)
         }
             ;
         this.PrintBoostError = function () {
-            PrintTextIntoChat(80, "Boosting is disallowed in the first minute!", 9, 0, colorWhite, colorBlack75opaque, -1, !1)
+            PrintTextIntoChat(80, "Boosting is disallowed in the first minute!", 9, 0, colorWhite, colorBlack75opaque, -1, false)
         }
             ;
         this.PrintExportEvent = function (G, H) {
-            PrintTextIntoChat(200, "You exported " + eC.g2(G) + " resource" + (1 === G ? "" : "s") + " to " + mpPlayerArray[H] + ".", 30, H, "rgb(190,255,190)", colorBlack75opaque, -1, !0)
+            PrintTextIntoChat(200, "You exported " + eC.g2(G) + " resource" + (1 === G ? "" : "s") + " to " + mpPlayerArray[H] + ".", 30, H, "rgb(190,255,190)", colorBlack75opaque, -1, true)
         }
             ;
         this.PrintReceiveExportEvent = function (G, senderPlayerID) {
             var D = 200 - 20 * n.length;
-            PrintTextIntoChat(80 > D ? 80 : D, mpPlayerArray[senderPlayerID] + " supported you with " + eC.g2(G) + " resource" + (1 === G ? "" : "s") + ".", 31, senderPlayerID, colorBlack, "rgba(205,255,205,0.9)", -1, !0);
+            PrintTextIntoChat(80 > D ? 80 : D, mpPlayerArray[senderPlayerID] + " supported you with " + eC.g2(G) + " resource" + (1 === G ? "" : "s") + ".", 31, senderPlayerID, colorBlack, "rgba(205,255,205,0.9)", -1, true);
             x(31, b_IsUISmall ? 4 : 6)
         }
             ;
@@ -2610,10 +2610,10 @@
                 var K = bw.dL();
                 conqueeredPlayers.push(K);
                 conqueeredPlayers.push(G);
-                2 < numConqueeredPlayers && (conqueeredPlayers[0] < K - 140 || 2 === fK) && (PrintTextIntoChat(260, mpPlayerArray[G] + " and " + Math.floor(numConqueeredPlayers / 2) + " other players were conquered.", 7, G, colorWhite, colorBlack75opaque, -1, !1),
+                2 < numConqueeredPlayers && (conqueeredPlayers[0] < K - 140 || 2 === fK) && (PrintTextIntoChat(260, mpPlayerArray[G] + " and " + Math.floor(numConqueeredPlayers / 2) + " other players were conquered.", 7, G, colorWhite, colorBlack75opaque, -1, false),
                     conqueeredPlayers = [])
             } else
-                PrintTextIntoChat(260, mpPlayerArray[G] + " was conquered by " + mpPlayerArray[H] + ".", 7, H, colorWhite, colorBlack75opaque, -1, !0)
+                PrintTextIntoChat(260, mpPlayerArray[G] + " was conquered by " + mpPlayerArray[H] + ".", 7, H, colorWhite, colorBlack75opaque, -1, true)
         }
             ;
         this.d6 = function () {
@@ -2627,7 +2627,7 @@
                 !(128 > E)))
                 for (G = 5,
                     H = dP - 1; 0 <= H; H--)
-                    1 === kn[dQ[H]] && 0 < G-- && PrintTextIntoChat(240, mpPlayerArray[dQ[H]] + " joined the game.", 1, dQ[H], colorBlack, "rgba(255,255,255,0.75)", -1, !0)
+                    1 === kn[dQ[H]] && 0 < G-- && PrintTextIntoChat(240, mpPlayerArray[dQ[H]] + " joined the game.", 1, dQ[H], colorBlack, "rgba(255,255,255,0.75)", -1, true)
         }
             ;
         this.c8 = function () {
@@ -2646,7 +2646,7 @@
         this.bk = -1;
         this.cookiesDialogRowsStrings = ["Accept Cookies", "More Information", "Decline"];
         this.colors = ["rgba(0,255,0,0.4)", "rgba(0,0,255,0.4)", "rgba(255,0,0,0.4)"];
-        this.kl = !1;
+        this.kl = false;
         this.bh = function () {
             this.lT();
             this.kl = 5 > d && !b && 0 === f.a0()
@@ -2664,22 +2664,22 @@
             ;
         this.bz = function (g, k) {
             if (!this.kl)
-                return !1;
+                return false;
             var x = this.mj(g, k);
             if (-1 === x)
-                return !1;
+                return false;
             0 === x ? (f.mk(2),
-                this.kl = !1) : 1 === x ? ml.bh(mm, !0) : 2 === x && (f.mk(1),
-                    this.kl = !1);
-            return bw.bx = !0
+                this.kl = false) : 1 === x ? ml.bh(mm, true) : 2 === x && (f.mk(1),
+                    this.kl = false);
+            return bw.bx = true
         }
             ;
         this.lK = function (g, k) {
             if (!this.kl)
-                return !1;
+                return false;
             var x = this.bk;
             this.bk = this.mj(g, k);
-            x !== this.bk && (bw.bx = !0);
+            x !== this.bk && (bw.bx = true);
             return -1 !== this.bk
         }
             ;
@@ -2743,7 +2743,7 @@
         }
             ;
         this.d6 = function () {
-            this.setTime() && (bw.bx = !0)
+            this.setTime() && (bw.bx = true)
         }
             ;
         this.setTime = function () {
@@ -2756,10 +2756,10 @@
             date = t;
             t = 60 * minsNow + secsNow;
             if (date === t)
-                return !1;
+                return false;
             n = bu.measureText(textConquestCounter, z);
             n += Math.floor(.4 * l);
-            return !0
+            return true
         }
             ;
         this.DrawConquestCounter = function () {
@@ -2813,13 +2813,13 @@
         }
             ;
         this.nD = function (g, k, x) {
-            this.a7[k] = !1;
+            this.a7[k] = false;
             this.n9[k] = 0;
             var t = document.createElement("canvas");
             t.width = this.bt;
             t.height = this.bt;
             var n = t.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             n.clearRect(0, 0, this.bt, this.bt);
             23 === k ? n.drawImage(hY.kc[2], 0, 0) : 36 === k ? n.drawImage(hY.kc[0], 0, 0) : 49 === k ? n.drawImage(hY.kc[1], 0, 0) : n.drawImage(x, this.bt * g % (g === k ? this.my * this.bt : 4E3), g === k ? ak(g, this.my) * this.bt : 0, this.bt, this.bt, 0, 0, this.bt, this.bt);
@@ -2842,7 +2842,7 @@
             x.width = this.bt;
             x.height = this.bt;
             var t = x.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             t.clearRect(0, 0, this.bt, this.bt);
             t.rotate(k * Math.PI / 2);
@@ -2887,7 +2887,7 @@
             ;
         this.show = function (g, k) {
             if (1 > this.lD)
-                return !1;
+                return false;
             this.nA = bw.gL;
             var x = Math.floor(fx / this.n4);
             x = 3 > x ? 3 : x > this.n5 ? this.n5 : x;
@@ -2906,7 +2906,7 @@
             for (n = 0; n < this.lD; n++)
                 this.n6[n] = Math.floor(l + n % x * this.n4),
                     this.n7[n] = Math.floor(z + ak(n, x) * this.n4);
-            return !0
+            return true
         }
             ;
         this.kp = function (g, k) {
@@ -2915,18 +2915,18 @@
             ;
         this.kq = function (g, k, x) {
             if (x === localPlayerID && this.nA + 190 > bw.gL)
-                return !1;
+                return false;
             for (var t = this.lD - 1; 0 <= t; t--)
                 if (g >= this.n6[t] && k >= this.n7[t]) {
                     if (39 === this.n9[t])
                         return this.nL(),
                             this.show(g, k),
-                            !0;
+                            true;
                     isSingleplayer ? dx.mU(localPlayerID, 0, this.n9[t]) : x === localPlayerID ? iU.nP(this.n9[t]) : iU.nQ(this.n9[t], x);
                     this.nK();
                     break
                 }
-            return !1
+            return false
         }
             ;
         this.nR = function (g) {
@@ -2938,22 +2938,22 @@
         }
             ;
         this.c8 = function () {
-            c9.imageSmoothingEnabled = !0;
+            c9.imageSmoothingEnabled = true;
             for (g = this.n8 * this.n3 / 2, k = this.lD - 1, void 0; 0 <= k; k--) {
                 var g;
                 var k;
                 c9.setTransform(this.zoom, 0, 0, this.zoom, this.n6[k] + g, this.n7[k] + g),
                     c9.drawImage(this.ke[this.n9[k]], 0, 0);
             }
-            c9.imageSmoothingEnabled = !1;
+            c9.imageSmoothingEnabled = false;
             c9.setTransform(1, 0, 0, 1, 0, 0)
         }
             ;
         this.nT = function (g, k, x) {
-            c9.imageSmoothingEnabled = !0;
+            c9.imageSmoothingEnabled = true;
             c9.setTransform(this.zoom, 0, 0, this.zoom, g, k);
             c9.drawImage(this.ke[x], 0, 0);
-            c9.imageSmoothingEnabled = !1;
+            c9.imageSmoothingEnabled = false;
             c9.setTransform(1, 0, 0, 1, 0, 0)
         }
     }
@@ -3042,7 +3042,7 @@
         mainCanvas.addEventListener("touchmove", TouchMoveListener);
         mainCanvas.addEventListener("touchend", TouchEndListener);
         mainCanvas.addEventListener("touchcancel", TouchCancelListener);
-        oF = !1
+        oF = false
     }
     function oK() {
         c2 = Math.floor((b_IsUISmall ? .02 : .01152) * bi);
@@ -3060,7 +3060,7 @@
     function TouchStartListener(event) {
         event.preventDefault();
         e0.oZ(e0.jE);
-        oF = !0;
+        oF = true;
         0 < event.touches.length && (oG = Math.floor(event.touches[0].clientX),
             oH = Math.floor(event.touches[0].clientY),
             jR.ob(event) || oa(oG, oH))
@@ -3070,12 +3070,12 @@
             jL.bz(g, k);
         else if (!(hZ.bz(g, k) || hY.kk(g, k) || eI.bz(g, k) || eC.bz(g, k))) {
             var x = fZ.bz(g, k);
-            2 === x || e9.bz(g, k) || (gR.bz(g, k) ? bw.bx = !0 : eD.od(g, k) ? (gR.gS = !1,
-                eD.oe(g, k) && (bw.bx = !0)) : dw.bz(g, k) || eE.bz(g, k) || 0 === x && hY.km(g, k))
+            2 === x || e9.bz(g, k) || (gR.bz(g, k) ? bw.bx = true : eD.od(g, k) ? (gR.gS = false,
+                eD.oe(g, k) && (bw.bx = true)) : dw.bz(g, k) || eE.bz(g, k) || 0 === x && hY.km(g, k))
         }
     }
     function MouseMoveListener(event) {
-        oF = !1;
+        oF = false;
         event.preventDefault();
         of(Math.floor(event.clientX), Math.floor(event.clientY))
     }
@@ -3086,8 +3086,8 @@
             jR.og(event) || of(oG, oH))
     }
     function of(g, k) {
-        0 === fK ? jL.lK(g, k) : hZ.lK(g) || (hY.kl() ? hY.lK(g, k) : fZ.lK(g, k) || (eD.oh ? eD.lK(g, k) && (bw.bx = !0) : (e9.lK(g, k),
-            gR.gS && gR.lK(g, k) && (bw.bx = !0))))
+        0 === fK ? jL.lK(g, k) : hZ.lK(g) || (hY.kl() ? hY.lK(g, k) : fZ.lK(g, k) || (eD.oh ? eD.lK(g, k) && (bw.bx = true) : (e9.lK(g, k),
+            gR.gS && gR.lK(g, k) && (bw.bx = true))))
     }
     function MouseLeaveListener(event) {
         event.preventDefault();
@@ -3095,7 +3095,7 @@
             jI.oi()) : (e9.oj(-1024, -1024),
                 fZ.lK(-1024, -1024),
                 eD.ok(),
-                gR.gS && (gR.gS = !1))
+                gR.gS && (gR.gS = false))
     }
     function MouseUpListener(event) {
         event.preventDefault();
@@ -3103,7 +3103,7 @@
     }
     function TouchEndListener(event) {
         event.preventDefault();
-        event && event.touches && 0 < event.touches.length && 0 !== fK ? gR.gS = !1 : ol(oG, oH)
+        event && event.touches && 0 < event.touches.length && 0 !== fK ? gR.gS = false : ol(oG, oH)
     }
     function TouchCancelListener(event) {
         event.preventDefault();
@@ -3113,8 +3113,8 @@
         0 === fK ? jL.l9(g, k) : (e9.oj(g, k),
             hZ.oj(),
             eD.ok(),
-            gR.gS = !1,
-            hY.l9(g, k) && (bw.bx = !0))
+            gR.gS = false,
+            hY.l9(g, k) && (bw.bx = true))
     }
     function MouseWheelListener(event) {
         event.preventDefault();
@@ -3123,7 +3123,7 @@
         var x = Math.floor(event.clientY);
         var t = event.deltaY;
         1 === event.deltaMode && (t *= 20);
-        0 === fK ? jL.om(k, x, t) : e9.om(k, x, t) || (eD.od(k, x) ? eD.om(t) && (bw.bx = !0) : gR.om(k, x, 2 * t) && (bw.bx = !0))
+        0 === fK ? jL.om(k, x, t) : e9.om(k, x, t) || (eD.od(k, x) ? eD.om(t) && (bw.bx = true) : gR.om(k, x, 2 * t) && (bw.bx = true))
     }
     function on(g, k, x) {
         g.fillStyle = colorWhite;
@@ -3185,7 +3185,7 @@
             B.lO.width = F;
             B.lO.height = A;
             B.hb = B.lO.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             B.hb.font = y;
             B.hb.textBaseline = cA;
@@ -3222,7 +3222,7 @@
             ;
         this.eN = function () {
             for (var B = l.length - 1; 0 <= B; B--)
-                l[B].ox && (l[B].ox = !1,
+                l[B].ox && (l[B].ox = false,
                     g(B))
         }
             ;
@@ -3242,7 +3242,7 @@
             ;
         this.bz = function (B, F) {
             if (2 === fK || 0 === f1[localPlayerID] || ik)
-                return !1;
+                return false;
             var E;
             var J = b_IsUISmall ? A : 0;
             var G = b_IsUISmall ? Math.floor(.15 * A) : 0;
@@ -3252,30 +3252,30 @@
                 var K = l[E].lO.width;
                 if (F >= D - G && F <= D + A + G) {
                     if (B >= H - J && B <= H + A + J)
-                        return l[E].p3 || (l[E].ox = !0,
-                            l[E].p3 = !0,
+                        return l[E].p3 || (l[E].ox = true,
+                            l[E].p3 = true,
                             0 === l[E].id ? isSingleplayer ? e3.f9(localPlayerID, l[E].cE) : iU.pH(l[E].cE === b0 ? localPlayerID : l[E].cE) : isSingleplayer ? e3.fB(localPlayerID, l[E].id) : iU.pI(l[E].id)),
-                            !0;
+                            true;
                     if (0 === l[E].id && B >= H + K - A - J && B <= H + K + J)
                         return isSingleplayer ? f7(localPlayerID, l[E].cE, eD.l1()) : iU.l2(eD.l1(), l[E].cE === b0 ? localPlayerID : l[E].cE),
-                            !0
+                            true
                 }
             }
-            return !1
+            return false
         }
             ;
         this.d6 = function () {
             if (2 !== fK && 0 !== f1[localPlayerID] && !ik) {
                 var B = aW.aX(localPlayerID);
                 b: if (l.length !== B)
-                    var F = !0;
+                    var F = true;
                 else {
                     for (F = B - 1; 0 <= F; F--)
                         if (l[F].id !== aW.aY(localPlayerID, F) || l[F].cE !== aW.ad(localPlayerID, F)) {
-                            F = !0;
+                            F = true;
                             break b
                         }
-                    F = !1
+                    F = false
                 }
                 if (F) {
                     var E;
@@ -3295,8 +3295,8 @@
                             cF: E,
                             p2: E,
                             id: G,
-                            ox: !0,
-                            p3: !1,
+                            ox: true,
+                            p3: false,
                             lO: null,
                             hb: null
                         };
@@ -3309,7 +3309,7 @@
                     F = aW.ae(localPlayerID, B),
                         l[B].cF !== F && (l[B].cF = F,
                             l[B].p2 = F > l[B].p2 ? F : l[B].p2,
-                            l[B].ox = !0)
+                            l[B].ox = true)
             }
         }
             ;
@@ -3327,7 +3327,7 @@
             H.width = t[0].width + J;
             H.height = y + J;
             D = H.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             D.clearRect(0, 0, t[0].width + J, y + J);
             D.translate(Math.floor(J / 2), Math.floor(J / 2));
@@ -3424,7 +3424,7 @@
                             1 <= l && (z = 0,
                                 n = 2,
                                 l = 1),
-                            bw.bx = !0;
+                            bw.bx = true;
                     else if (2 === n) {
                         if (z += (bw.gL - K) / 1E3,
                             z > t[0].gK || 1 < z && 1 < t.length)
@@ -3434,7 +3434,7 @@
                             0 >= l && (l = 0,
                                 t.shift(),
                                 n = 0 < t.length ? 1 : 0),
-                            bw.bx = !0);
+                            bw.bx = true);
                     K = bw.gL
                 }
         }
@@ -3472,7 +3472,7 @@
     function kI() {
         function g() {
             var D = eE.bt;
-            F = !1;
+            F = false;
             ha(l, D, t);
             var K = Math.floor(D / 2);
             1 === y ? (l.fillStyle = nc,
@@ -3488,16 +3488,16 @@
             0 < I && l.fillRect(D - 2 - K, t - 2 - I, K, I);
             K = Math.floor(t / 8);
             K = 2 > K ? 2 : K;
-            hf(l, Math.floor(.4 * t), 0, t, K, .5, !1);
-            hf(l, Math.floor(D - 1.4 * t), 0, t, K, .5, !0);
+            hf(l, Math.floor(.4 * t), 0, t, K, .5, false);
+            hf(l, Math.floor(D - 1.4 * t), 0, t, K, .5, true);
             l.drawImage(z, Math.floor((D - z.width) / 2), 3)
         }
         function k() {
-            F = !0;
+            F = true;
             E = 140;
             y = 0;
             B = [];
-            eE.kl = !1;
+            eE.kl = false;
             A[0] = A[1] = 0
         }
         function x() {
@@ -3518,7 +3518,7 @@
         var H;
         this.bh = function () {
             G = H = 0;
-            F = this.kl = !1;
+            F = this.kl = false;
             E = 140;
             y = 0;
             A = [0, 0];
@@ -3536,7 +3536,7 @@
             n.width = this.bt;
             n.height = t;
             l = n.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             g()
         }
@@ -3553,7 +3553,7 @@
                 z.width = D;
                 z.height = D;
                 var K = z.getContext("2d", {
-                    alpha: !0
+                    alpha: true
                 });
                 K.clearRect(0, 0, D, D);
                 var I = Math.floor(D / 8);
@@ -3575,13 +3575,13 @@
             ;
         this.bz = function (D, K) {
             if (D < r - this.bt - ld)
-                return !1;
+                return false;
             var I = x();
             if (K < I || K > I + t)
-                return !1;
+                return false;
             I = D > r - ld - this.bt / 2;
             isSingleplayer ? this.fI(0, I) : iU.ps(I);
-            return !0
+            return true
         }
             ;
         this.d6 = function () {
@@ -3595,21 +3595,21 @@
                     a: {
                         for (D = dP - 1; 0 <= D; D--)
                             if (dQ[D] < ci) {
-                                D = !1;
+                                D = false;
                                 break a
                             }
-                        D = !0
+                        D = true
                     }
-                D && (F = !0,
+                D && (F = true,
                     A[0] += C[0]);
                 180 === E && 3 * A[0] < C[0] ? k() : A[0] >= C[0] ? fU.fV(-1) : A[1] >= C[1] ? H = 4 : 0 >= E && k()
             } else {
                 for (D = 9; 0 <= D; D--)
                     12 < Math.abs(J[D] - landSizeArray[eY[D]]) && (E = 140),
                         J[D] = landSizeArray[eY[D]];
-                D = 0 >= --E ? !0 : !1;
+                D = 0 >= --E ? true : false;
                 if (D) {
-                    this.kl = !0;
+                    this.kl = true;
                     E = 360;
                     var K = 0;
                     for (D = dP - 1; 0 <= D; D--)
@@ -3633,7 +3633,7 @@
                     if (B[I] === D)
                         return;
                 B.push(D);
-                F = !0;
+                F = true;
                 I = isSingleplayer ? C[0] : landSizeArray[D];
                 K ? A[0] += I : A[1] += I;
                 D === localPlayerID && (y = K ? 1 : -1)
@@ -3687,13 +3687,13 @@
             if (1 < H && 0 === B)
                 return B = .01,
                     k(),
-                    !0;
+                    true;
             if (1 < H && 1 === B || 0 === B)
-                return !1;
+                return false;
             B *= H;
             B = 1 < B ? 1 : 0 > B ? 0 : B;
             k();
-            return !0
+            return true
         }
         function t(H) {
             var D = B;
@@ -3701,7 +3701,7 @@
             B = 0 > B ? 0 : B;
             B = 1 < B ? 1 : B;
             return D !== B ? (k(),
-                !0) : !1
+                true) : false
         }
         var n;
         var l;
@@ -3716,10 +3716,10 @@
         var G = 11 / 12;
         this.bh = function () {
             C = !fN;
-            J = !1;
+            J = false;
             B = .5;
             F = 0;
-            this.oh = !1;
+            this.oh = false;
             this.lT()
         }
             ;
@@ -3734,7 +3734,7 @@
             y.width = n;
             y.height = this.co;
             A = y.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             A.font = E;
             A.textBaseline = cA;
@@ -3749,7 +3749,7 @@
         }
             ;
         this.eN = function () {
-            J && (J = !1,
+            J && (J = false,
                 k())
         }
             ;
@@ -3758,15 +3758,15 @@
         }
             ;
         this.m4 = function (H) {
-            return this.kl() ? l + n > r - H - ld : !1
+            return this.kl() ? l + n > r - H - ld : false
         }
             ;
         this.c6 = function () {
-            C = !0
+            C = true
         }
             ;
         this.pt = function () {
-            C = !1
+            C = false
         }
             ;
         this.l1 = function () {
@@ -3780,22 +3780,22 @@
             ;
         this.oe = function (H, D) {
             if (!this.kl())
-                return !1;
+                return false;
             if (H > l && H < l + z && D > eD.f6)
                 return x(G);
             if (H > l + n - z && H < l + n && D > eD.f6)
                 return x(1 / G);
-            this.oh = !0;
+            this.oh = true;
             return t(H)
         }
             ;
         this.qF = function (H) {
-            0 !== fK && this.kl() && x(H) && (bw.bx = !0)
+            0 !== fK && this.kl() && x(H) && (bw.bx = true)
         }
             ;
         this.om = function (H) {
             if (0 === H || !this.kl())
-                return !1;
+                return false;
             0 < H ? (H = 400 / (400 + H),
                 H = H < G ? G : H) : (H = (400 - H) / 400,
                     H = H > 1 / G ? 1 / G : H);
@@ -3803,15 +3803,15 @@
         }
             ;
         this.lK = function (H, D) {
-            return this.oh ? t(H, D) : !1
+            return this.oh ? t(H, D) : false
         }
             ;
         this.ok = function () {
-            this.oh = !1
+            this.oh = false
         }
             ;
         this.d6 = function () {
-            this.kl() && Math.floor(TroopBalance[localPlayerID] * B) !== F && (J = !0)
+            this.kl() && Math.floor(TroopBalance[localPlayerID] * B) !== F && (J = true)
         }
             ;
         this.c8 = function () {
@@ -3832,7 +3832,7 @@
         this.bh = function () {
             g = Array(2);
             k = Array(2);
-            this.gS = !1;
+            this.gS = false;
             z = l = fw = fv = 0;
             fq = 1;
             this.lT()
@@ -3846,7 +3846,7 @@
                     g[y].width = x,
                     g[y].height = x,
                     k[y] = g[y].getContext("2d", {
-                        alpha: !0
+                        alpha: true
                     });
             this.q4();
             y = Math.floor(1 + x / 20);
@@ -3884,15 +3884,15 @@
         this.bz = function (y, A) {
             if (Math.pow(y - (t + x / 2), 2) + Math.pow(A - (n + x / 2), 2) < x * x / 4 || Math.pow(y - (t + x / 2), 2) + Math.pow(A - (n + 2 * x), 2) < x * x / 4)
                 return A < n + 1.25 * x ? this.om(Math.floor(fx / 2), Math.floor(c3 / 2), -200) : this.om(Math.floor(fx / 2), Math.floor(c3 / 2), 200);
-            eH.gi() && (this.gS = !0,
+            eH.gi() && (this.gS = true,
                 l = y,
                 z = A);
-            return !1
+            return false
         }
             ;
         this.lK = function (y, A) {
             if (!eH.gi())
-                return !0;
+                return true;
             var C = fv;
             var B = fw;
             var F = l - y;
@@ -3908,7 +3908,7 @@
             ;
         this.om = function (y, A, C) {
             if (!eH.gi())
-                return !0;
+                return true;
             if (0 < C)
                 C = 450 / (450 + C),
                     C = .5 > C ? .5 : C;
@@ -3916,9 +3916,9 @@
                 C = (450 - C) / 450,
                     C = 2 < C ? 2 : C;
             else
-                return !1;
+                return false;
             this.qV(y, A, C);
-            return !0
+            return true
         }
             ;
         this.qV = function (y, A, C) {
@@ -3985,7 +3985,7 @@
             N = -1 > N ? -1 : -1 === N ? 0 : N > l.length - 1 ? -1 : N;
             return N !== J ? (J = N,
                 -1 === P && 0 === J && I && (P = setInterval(n, 100)),
-                !0) : !1
+                true) : false
         }
         function t(N) {
             var S = Math.floor(B * Math.pow(l[N], L));
@@ -4005,7 +4005,7 @@
                     W = -1
                 }
                 0 < N && (l[0] += Math.floor(N),
-                    bw.bx = !0)
+                    bw.bx = true)
             }
         }
         var l;
@@ -4029,10 +4029,10 @@
         var TimetableEventNames;
         this.bh = function () {
             W = P = -1;
-            I = !1;
+            I = false;
             L = 1;
             J = -1;
-            this.qs = !1;
+            this.qs = false;
             K = 0;
             D = new Date;
             z = 0;
@@ -4217,11 +4217,11 @@
             ;
         this.qy = function (N) {
             var S;
-            I = !0;
+            I = true;
             for (S = 0; S < N.length; S++)
                 l.unshift(N[S]);
             g();
-            bw.bx = !0
+            bw.bx = true
         }
             ;
         this.r2 = function () {
@@ -4234,30 +4234,30 @@
                 k(),
                 x(N),
                 this.qs = -1 !== J,
-                bw.bx = !0) : x(N) && (bw.bx = !0) : this.oi()
+                bw.bx = true) : x(N) && (bw.bx = true) : this.oi()
         }
             ;
         this.oi = function () {
-            -1 !== J && (this.qs = !1,
+            -1 !== J && (this.qs = false,
                 J = -1,
-                bw.bx = !0)
+                bw.bx = true)
         }
             ;
         this.om = function (N, S) {
             -1 !== J && (z += Math.floor(S),
                 k(),
                 x(N),
-                bw.bx = !0)
+                bw.bx = true)
         }
             ;
         this.bz = function (N, S) {
             this.lK(N, S);
             -1 !== J && (K = N,
-                this.qs = !0)
+                this.qs = true)
         }
             ;
         this.oj = function () {
-            -1 !== J && (this.qs = !1)
+            -1 !== J && (this.qs = false)
         }
             ;
         this.DrawTimebarsBottom_MainMenu = function () {
@@ -4339,8 +4339,8 @@
             n = hE;
             B = "rgba(0,100,0,0.8)";
             F = "rgba(150,0,0,0.8)";
-            C = !0;
-            y = !1;
+            C = true;
+            y = false;
             playerBalance = TroopBalance[localPlayerID];
             this.lT()
         }
@@ -4358,7 +4358,7 @@
             l.width = k;
             l.height = this.co;
             z = l.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             z.font = g;
             z.textBaseline = cA;
@@ -4375,7 +4375,7 @@
         }
             ;
         this.eN = function () {
-            y && (y = !1,
+            y && (y = false,
                 this.rO())
         }
             ;
@@ -4410,7 +4410,7 @@
             playerBalance !== TroopBalance[localPlayerID] && (n = FindMax(TroopBalance[localPlayerID], n),
                 C = TroopBalance[localPlayerID] > playerBalance && 10 <= TroopBalance[localPlayerID],
                 playerBalance = TroopBalance[localPlayerID],
-                y = !0)
+                y = true)
         }
             ;
         this.c8 = function () {
@@ -4462,7 +4462,7 @@
                 n(y - 1, localPlayerID));
             0 === T && (Q = .7 * H / bo.br(4).height,
                 C.setTransform(Q, 0, 0, Q, Math.floor(D + .58 * H + .5 * Q * bo.br(4).width), Math.floor(E + rW + .4 * H)),
-                C.imageSmoothingEnabled = !0,
+                C.imageSmoothingEnabled = true,
                 C.drawImage(bo.br(4), -Math.floor(bo.br(4).width / 2), -Math.floor(bo.br(4).height / 2)),
                 C.setTransform(1, 0, 0, 1, 0, 0))
         }
@@ -4529,13 +4529,13 @@
             var Q;
             var M;
             pa = 0;
-            ea = !1;
+            ea = false;
             ma = ba = 0;
             W = "LEADERBOARD";
             X = -1;
             y = b_IsUISmall ? 6 : 10;
             T = 0;
-            U = !1;
+            U = false;
             N = new Uint16Array(y + 1);
             S = new Uint32Array(y + 1);
             F = b0;
@@ -4544,7 +4544,7 @@
             for (Q = F - 1; 0 <= Q; Q--)
                 eY[Q] = Q,
                     rX[Q] = Q;
-            this.lT(!0);
+            this.lT(true);
             L = [];
             O = new Uint16Array(b0);
             P = new Uint16Array(b0);
@@ -4578,7 +4578,7 @@
             A.width = rT;
             A.height = pd;
             C = A.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             E = .025 * rT;
             rW = .16 * rT;
@@ -4606,7 +4606,7 @@
         }
             ;
         this.eN = function (Q) {
-            U && (Q || 14 >= s0 && 0 === bw.dL() % 6 || 14 < s0) && (U = !1,
+            U && (Q || 14 >= s0 && 0 === bw.dL() % 6 || 14 < s0) && (U = false,
                 g())
         }
             ;
@@ -4630,7 +4630,7 @@
                     rX[eY[M + 1]] = M + 1);
             a: {
                 Q = U;
-                U = !0;
+                U = true;
                 for (M = R = rX[localPlayerID] >= y - 1 ? y - 2 : y - 1; 0 <= M; M--)
                     if (N[M] !== eY[M] || S[M] !== landSizeArray[eY[M]])
                         break a;
@@ -4647,18 +4647,18 @@
         this.bz = function (Q, M) {
             if (z(Q, M)) {
                 pa = bw.gL;
-                ea = !0;
+                ea = true;
                 ba = ma = l(M);
                 if (oF) {
                     var R = sJ(-1, ma, y);
                     R = R === y ? -1 : R;
                     X !== R && (X = R,
                         g(),
-                        bw.bx = !0)
+                        bw.bx = true)
                 }
-                return !0
+                return true
             }
-            return !1
+            return false
         }
             ;
         this.lK = function (Q, M) {
@@ -4671,46 +4671,46 @@
                     R = sJ(-1, R, y),
                     X = R = R !== y && z(Q, M) ? R : -1,
                     g(),
-                    bw.bx = !0);
-                return !0
+                    bw.bx = true);
+                return true
             }
             R = sJ(-1, R, y);
             R = R === y || !z(Q, M) || oF ? -1 : R;
             return X !== R ? (X = R,
                 g(),
-                bw.bx = !0) : !1
+                bw.bx = true) : false
         }
             ;
         this.oj = function (Q, M) {
             if (!ea)
-                return !1;
-            ea = !1;
+                return false;
+            ea = false;
             var R = l(M);
             oF && -1 !== X && (X = -1,
                 g(),
-                bw.bx = !0);
+                bw.bx = true);
             if (350 > bw.gL - pa && ma === R && (R = sJ(-1, R, y),
                 R = R !== y && z(Q, M) ? R : -1,
                 -1 !== R)) {
                 var Y = eY[R + T];
                 R === y - 1 && rX[localPlayerID] >= T + y - 1 && (Y = localPlayerID);
-                0 !== f1[Y] && eH.gO(Y, 800, !1, 0)
+                0 !== f1[Y] && eH.gO(Y, 800, false, 0)
             }
-            return !0
+            return true
         }
             ;
         this.om = function (Q, M, R) {
-            return ea ? !1 : z(Q, M) ? (Q = l(M),
+            return ea ? false : z(Q, M) ? (Q = l(M),
                 Q = sJ(-1, Q, y),
                 Q = Q === y || oF ? -1 : Q,
                 0 < R ? T < b0 - y && (T++,
                     X = Q,
                     g(),
-                    bw.bx = !0) : 0 < T && (T--,
+                    bw.bx = true) : 0 < T && (T--,
                         X = Q,
                         g(),
-                        bw.bx = !0),
-                !0) : !1
+                        bw.bx = true),
+                true) : false
         }
             ;
         this.c8 = function () {
@@ -4759,8 +4759,8 @@
         function t() {
             for (var N = dP - 1; 0 <= N; N--)
                 if (0 < aw[dQ[N]].length)
-                    return !1;
-            return !0
+                    return false;
+            return true
         }
         function n() {
             landSizeArray[localPlayerID] !== K[6] && (K[6] = landSizeArray[localPlayerID],
@@ -4810,12 +4810,12 @@
             L = k(6);
             bInGameTopRightPanelDisplay = Array(InGameTopRightPanelText.length);
             for (var N = InGameTopRightPanelText.length - 1; 0 <= N; N--)
-                bInGameTopRightPanelDisplay[N] = !0;
+                bInGameTopRightPanelDisplay[N] = true;
             W = 0;
-            isSingleplayer ? (bInGameTopRightPanelDisplay[0] = !1,
-                bInGameTopRightPanelDisplay[2] = !1,
-                bInGameTopRightPanelDisplay[3] = !1,
-                W = 3) : (bInGameTopRightPanelDisplay[3] = !1,
+            isSingleplayer ? (bInGameTopRightPanelDisplay[0] = false,
+                bInGameTopRightPanelDisplay[2] = false,
+                bInGameTopRightPanelDisplay[3] = false,
+                W = 3) : (bInGameTopRightPanelDisplay[3] = false,
                     W = 1);
             H = 0;
             this.DrawInGameTopRightPanel()
@@ -4835,7 +4835,7 @@
             l.width = this.bt;
             l.height = this.co;
             z = l.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             z.font = J;
             z.textBaseline = cA;
@@ -4910,9 +4910,9 @@
             if (N === is)
                 return O = 0,
                     g(),
-                    !1;
+                    false;
             if (-1 === N && 0 === P)
-                return !1;
+                return false;
             var S = O;
             var U = performance.now();
             if (0 <= N) {
@@ -4942,7 +4942,7 @@
         var C;
         this.sr = -1;
         this.bh = function () {
-            g = !1;
+            g = false;
             t = 0;
             n = .61;
             l = .07;
@@ -4962,7 +4962,7 @@
                 A.height = t;
 
                 var B = A.getContext("2d", {
-                    alpha: !0
+                    alpha: true
                 });
 
                 var F = Math.floor(1 + t / 40);
@@ -4973,7 +4973,7 @@
                 B.lineWidth = 2 * F;
                 B.strokeStyle = colorWhite;
                 B.strokeRect(F, F, x - 2 * F, t - 2 * F);
-                B.imageSmoothingEnabled = !0;
+                B.imageSmoothingEnabled = true;
                 var E = bo.br(k);
                 var J = E.height;
                 var G = n * t / J;
@@ -4995,7 +4995,7 @@
             ;
         this.show = function (B, F) {
             g || (k = B ? 1 : 2,
-                g = !0,
+                g = true,
                 this.lT(),
                 hY.lL(),
                 eD.pt(),
@@ -5008,19 +5008,19 @@
             !g || 1 <= y || (y += 5E-4 * (bw.gL - C),
                 y = 1 < y ? 1 : y,
                 C = bw.gL,
-                bw.bx = !0)
+                bw.bx = true)
         }
             ;
         this.bz = function (B, F) {
             if (!g || 0 >= y)
-                return !1;
+                return false;
             B -= Math.floor((fx - x) / 2);
             F -= c3 - t - 2 * ld;
             if (0 > B || 0 > F || B > x || F > t)
-                return !1;
-            B > x - t / 3 && F < t / 3 && (g = !1,
-                bw.bx = !0);
-            return !0
+                return false;
+            B > x - t / 3 && F < t / 3 && (g = false,
+                bw.bx = true);
+            return true
         }
             ;
         this.c8 = function () {
@@ -5043,11 +5043,11 @@
         this.bh = function () {
             var l;
             x = [];
-            k = !1;
+            k = false;
             if (fN)
                 if (n = 0,
                     t = 63,
-                    k = !0,
+                    k = true,
                     d1)
                     for (l = 0; l <= iq; l++)
                         x.push(this.sy(dN.sz[dN.iQ[l]], t));
@@ -5058,7 +5058,7 @@
             ;
         this.d6 = function () {
             k && 349 === ++n && (x = [],
-                k = !1)
+                k = false)
         }
             ;
         this.sy = function (l, z) {
@@ -5066,7 +5066,7 @@
             y.width = z;
             y.height = z;
             var A = y.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             A.clearRect(0, 0, z, z);
             var C = A.getImageData(0, 0, z, z);
@@ -5092,7 +5092,7 @@
         this.c8 = function () {
             if (k) {
                 var l;
-                c9.imageSmoothingEnabled = !0;
+                c9.imageSmoothingEnabled = true;
                 c9.globalAlpha = 1 - (160 < n ? (n - 160) / 190 : 0);
                 var z = fv / fq;
                 var y = fw / fq;
@@ -5134,7 +5134,7 @@
                             cH(l, g),
                             aW.cI(g, t, k),
                             TroopBalance[g] -= t + n,
-                            am.cJ(g, !1)
+                            am.cJ(g, false)
                 }
             }
         }
@@ -5142,16 +5142,16 @@
     function ek(g, k, x, t) {
         10 === gameMode && g < ci && (t = e2.t6(g, t));
         if (t <= al || !aW.d4(g))
-            return !1;
+            return false;
         k = e7.cJ(g, k, x);
         if (0 === k)
-            return !1;
+            return false;
         x = ak(3 * TroopBalance[g], 128);
         t >= ak(TroopBalance[g], 2) && (t -= x);
         g === localPlayerID && (as.at[12] += x);
         aW.t7(g, t, k);
         TroopBalance[g] -= t + x;
-        return !0
+        return true
     }
     function dR(g, k, x) {
         if (!(!d1 || 0 === f1[g] || 0 === f1[k] || 0 > x || x > TroopBalance[g] || g === k || cZ(g, k) || g < ci && k < ci && 7 > gameMode && 1071 > bw.dL())) {
@@ -5169,7 +5169,7 @@
         }
     }
     function t8() {
-        this.ii = this.gr = this.t9 = !1;
+        this.ii = this.gr = this.t9 = false;
         this.tA = [0, 0, 0, 0];
         this.tB = function () {
             this.ii = this.ii || this.gr;
@@ -5182,19 +5182,19 @@
                 k = k < this.tA[1] ? this.tA[1] : k;
                 x = x > this.tA[2] ? this.tA[2] : x;
                 t = t > this.tA[3] ? this.tA[3] : t;
-                this.t9 = this.gr = !1;
+                this.t9 = this.gr = false;
                 g === this.tA[0] && k === this.tA[1] && x === this.tA[2] && t === this.tA[3] ? this.ib() : x >= g && t >= k && j8.putImageData(j9, 0, 0, g, k, x - g + 1, t - k + 1)
             }
         }
             ;
         this.ib = function () {
             this.ii && this.tA[2] >= this.tA[0] && this.tA[3] >= this.tA[1] && j8.putImageData(j9, 0, 0, this.tA[0], this.tA[1], this.tA[2] - this.tA[0] + 1, this.tA[3] - this.tA[1] + 1);
-            this.ii = !1
+            this.ii = false
         }
             ;
         this.bh = function () {
             var g;
-            this.ii = this.gr = this.t9 = !1;
+            this.ii = this.gr = this.t9 = false;
             this.tA[0] = aR;
             this.tA[1] = aS;
             this.tA[2] = this.tA[3] = 0;
@@ -5229,7 +5229,7 @@
         }
     }
     function tE() {
-        this.kl = !1;
+        this.kl = false;
         this.lk = null;
         this.tF = 0;
         this.co = this.bt = null;
@@ -5249,17 +5249,17 @@
         this.tU = [0, 0];
         this.bh = function () {
             this.lk = [null, null];
-            this.kl = !1;
+            this.kl = false;
             this.tF = 0;
             this.lT()
         }
             ;
         this.c6 = function (t) {
             this.tF = t;
-            this.kl = !0;
+            this.kl = true;
             this.bn();
             jG.sx();
-            bw.bx = !0
+            bw.bx = true
         }
             ;
         this.d6 = function () {
@@ -5303,7 +5303,7 @@
             n = this.lk[t][0][0].mP;
             1 === t && (n = "[" + n + "]");
             0 === C && te.bj(t, n);
-            bw.bx = !0
+            bw.bx = true
         }
             ;
         this.td = function (t) {
@@ -5315,13 +5315,13 @@
         this.tf = function (t, n, l, z) {
             if (this.lk && this.lk[t]) {
                 var y;
-                var A = !1;
+                var A = false;
                 var C = 383 / 384;
                 if (0 === t) {
                     for (y = 0; y < this.lk[t][0].length; y++)
                         if (n === this.lk[t][0][y].mP && l > .99 * this.lk[t][0][y].value && l < 1.01 * this.lk[t][0][y].value) {
                             this.lk[t][0][y].value = z;
-                            A = !0;
+                            A = true;
                             break
                         }
                     A || this.lk[t][0].push({
@@ -5333,7 +5333,7 @@
                         if (n === this.lk[t][0][y].mP) {
                             this.lk[t][0][y].value += 32 < this.lk[t][0][y].value ? (64 - this.lk[t][0][y].value) / 256 : .25;
                             this.lk[t][0][y].value *= 1 / C;
-                            A = !0;
+                            A = true;
                             break
                         }
                     for (y = 0; y < this.lk[t][0].length; y++)
@@ -5355,13 +5355,13 @@
             ;
         this.bz = function (t, n) {
             if (!this.kl)
-                return !1;
+                return false;
             t -= (fx - this.bt) / 2;
             n -= (c3 - this.co) / 2;
             if (0 > t || t > this.bt || 0 > n || n > this.co)
-                return this.kl = !1,
-                    0 === jL.rG() && jN.c6(0, !0),
-                    bw.bx = !0;
+                return this.kl = false,
+                    0 === jL.rG() && jN.c6(0, true),
+                    bw.bx = true;
             if (n < .3 * this.co)
                 var l = 1;
             else
@@ -5369,10 +5369,10 @@
                     l = Math.floor(1 + l * l)) : l = 0 === this.tF ? 200 : 10;
             this.tU[this.tF] = t < this.bt / 2 ? -l : l;
             if (x[this.tF] + 50 > bw.gL)
-                return !0;
+                return true;
             x[this.tF] = bw.gL;
             e0.qu(0, 1 + this.tF) && iU.tV(0, this.tF);
-            return !0
+            return true
         }
             ;
         this.DrawHallOfFame = function () {
@@ -5474,7 +5474,7 @@
         var B;
         var F;
         var E;
-        this.kl = !1;
+        this.kl = false;
         this.bh = function (J, G) {
             if (13 <= d)
                 G ? F = J : F === J && htmlLoader.saveString(200, J);
@@ -5508,32 +5508,32 @@
                 E.style.top = Math.floor(k + 2 * z + n) + "px";
                 E.style.left = Math.floor(g + (B - C) / 2) + "px";
                 document.body.appendChild(E);
-                this.kl = !0;
-                bw.bx = !0
+                this.kl = true;
+                bw.bx = true
             }
         }
             ;
         this.ko = function () {
             if (!this.kl)
-                return !1;
+                return false;
             document.body.removeChild(E);
-            this.kl = !1;
-            return !0
+            this.kl = false;
+            return true
         }
             ;
         this.bz = function (J, G) {
             if (!this.kl)
-                return !1;
+                return false;
             if (J < g || G < k || J > g + B || G > k + t)
-                bw.bx = !0,
-                    this.kl = !1,
+                bw.bx = true,
+                    this.kl = false,
                     document.body.removeChild(E),
-                    0 === jL.rG() && jN.c6(0, !0);
-            return !0
+                    0 === jL.rG() && jN.c6(0, true);
+            return true
         }
             ;
         this.c8 = function () {
-            this.kl && (c9.imageSmoothingEnabled = !0,
+            this.kl && (c9.imageSmoothingEnabled = true,
                 c9.setTransform(1, 0, 0, 1, g, k),
                 c9.fillStyle = colorBlack75opaque,
                 c9.fillRect(0, 0, B, t),
@@ -5550,8 +5550,8 @@
         var k = [0, 0, 0, 0, 0];
         var x = [0, 0, 0, 0, 0];
         var t = [1, 1, 1, 1, 1];
-        var n = [!0, !0, !0, !0, !0];
-        this.tz = [!0, !0, !0, !0, !0];
+        var n = [true, true, true, true, true];
+        this.tz = [true, true, true, true, true];
         var l = null;
         var z;
         this.u0 = function (y, A) {
@@ -5602,18 +5602,18 @@
             ;
         this.bz = function (y, A, C) {
             if (!l || !this.kl())
-                return !1;
+                return false;
             var B;
             for (B = n.length - 1; 0 <= B; B--)
                 if (n[B] && this.tz[B] && y > k[B] && A > x[B] && y < k[B] + t[B] * l[B].width && A < x[B] + t[B] * l[B].height)
                     return ml.bh(z[B], C),
-                        !0;
-            return !1
+                        true;
+            return false
         }
             ;
         this.c8 = function () {
             if (l && this.kl()) {
-                c9.imageSmoothingEnabled = !0;
+                c9.imageSmoothingEnabled = true;
                 var y;
                 for (y = 0; 5 > y; y++)
                     n[y] && this.tz[y] && (c9.setTransform(t[y], 0, 0, t[y], k[y], x[y]),
@@ -5770,9 +5770,9 @@
             var y = -1;
             0 === jL.rG() ? y = this.od(n, l, 0, 2) : 3 === jL.rG() ? y = this.od(n, l, 3, 1) : 5 === jL.rG() && (y = this.od(n, l, 5, 2));
             k !== y && (k = y,
-                z && (bw.bx = !0));
+                z && (bw.bx = true));
             return -1 !== y ? (jI.oi(),
-                !0) : !1
+                true) : false
         }
             ;
         this.od = function (n, l, z, y) {
@@ -5787,7 +5787,7 @@
             return 0 > k ? 0 : 255 < k ? 255 : Math.floor(k)
         }
         this.co = this.bt = 0;
-        this.kl = !1;
+        this.kl = false;
         this.uJ = this.uI = this.uH = this.n9 = this.es = this.uG = 0;
         this.colors = null;
         this.bh = function () {
@@ -5795,7 +5795,7 @@
                 this.bt = Math.floor(2 * this.co));
             this.co = this.bt / 2;
             this.es = this.co / 16;
-            this.kl = !0;
+            this.kl = true;
             this.uG = 0;
             this.uH = (this.co - 3 * this.es) / 2;
             this.uI = this.bt - 3 * this.es - this.uH;
@@ -5824,33 +5824,33 @@
             k -= (fx - this.bt) / 2;
             x -= t;
             if (0 > k || 0 > x || k >= this.bt - 1 || x >= this.co - 1)
-                return this.kl = !1,
-                    0 === jL.rG() && jN.c6(0, !0),
-                    bw.bx = !0,
-                    !1;
+                return this.kl = false,
+                    0 === jL.rG() && jN.c6(0, true),
+                    bw.bx = true,
+                    false;
             if (k < this.es || x < this.es || k >= this.bt - this.es || x >= this.co - this.es)
-                return !0;
+                return true;
             if (k < this.es + this.uH)
                 return x < this.es + this.uH && 0 !== this.n9 && (this.n9 = 0,
-                    bw.bx = !0),
-                    !0;
+                    bw.bx = true),
+                    true;
             if (k < 2 * this.es + this.uH)
-                return !0;
+                return true;
             k -= 2 * this.es + this.uH;
             if (x < this.es + this.uJ)
                 return this.uG = 1,
                     this.colors[this.n9][0] = g(256 * k / this.uI),
-                    bw.bx = !0;
+                    bw.bx = true;
             if (x < 2 * this.es + this.uJ)
-                return !0;
+                return true;
             if (x < 2 * this.es + 2 * this.uJ)
                 return this.uG = 2,
                     this.colors[this.n9][1] = g(256 * k / this.uI),
-                    bw.bx = !0;
+                    bw.bx = true;
             x >= 3 * this.es + 2 * this.uJ && (this.uG = 3,
                 this.colors[this.n9][2] = g(256 * k / this.uI),
-                bw.bx = !0);
-            return !0
+                bw.bx = true);
+            return true
         }
             ;
         this.uM = function () {
@@ -5873,14 +5873,14 @@
         this.lK = function (k) {
             0 !== this.uG && (k -= 2 * this.es + this.uH + (fx - this.bt) / 2,
                 this.colors[this.n9][this.uG - 1] = g(256 * k / this.uI),
-                bw.bx = !0)
+                bw.bx = true)
         }
             ;
         this.uP = function () {
             0 < this.uG && (this.uG = 0,
                 this.uM(),
                 this.uO(),
-                bw.bx = !0)
+                bw.bx = true)
         }
             ;
         this.c8 = function () {
@@ -5920,7 +5920,7 @@
         function g() {
             H++;
             G = bw.gL;
-            e0.qu((H + D) % e0.ud, 4) && (K = !0,
+            e0.qu((H + D) % e0.ud, 4) && (K = true,
                 iU.ue((H + D) % e0.ud))
         }
         function k() {
@@ -5965,9 +5965,9 @@
             B = "rgba(0,220,120,0.4)";
             F = "rgba(0,0,0,0.8)";
             this.lT();
-            bw.bx = !0;
+            bw.bx = true;
             H = 0;
-            K = !1;
+            K = false;
             g()
         }
             ;
@@ -5986,7 +5986,7 @@
         }
             ;
         this.uf = function (I) {
-            I === (H + D) % e0.ud && (K = !1,
+            I === (H + D) % e0.ud && (K = false,
                 k())
         }
             ;
@@ -5994,13 +5994,13 @@
             var O = Math.floor((fx - y) / 2);
             var P = Math.floor(.5 * (c3 - c2 - l - A)) + l + c2;
             return I > O && I < O + y && L > P && L < P + A ? (jG.bh(),
-                jJ.lK(I, L, !1),
-                bw.bx = !0) : !1
+                jJ.lK(I, L, false),
+                bw.bx = true) : false
         }
             ;
         this.qw = function (I) {
             6 !== jL.rG() || K || (G = bw.gL,
-                K = !0,
+                K = true,
                 iU.ue(I))
         }
             ;
@@ -6012,7 +6012,7 @@
                         n = 1),
                 B = "rgba(0," + Math.floor(190 - 1.9 * t) + "," + Math.floor(120 - 1.2 * t) + "," + (.4 + .004 * t) + ")",
                 F = "rgba(0," + Math.floor(1.9 * t) + "," + Math.floor(1.2 * t) + "," + (.8 - .004 * t) + ")",
-                bw.bx = !0)
+                bw.bx = true)
         }
             ;
         this.c8 = function () {
@@ -6071,37 +6071,37 @@
             this.setState(8);
             jU.sx();
             c4.tx();
-            c5.kl = !1;
+            c5.kl = false;
             ml.bz(-1E3, -1E3)
         }
             ;
         this.tx = function (k) {
             if (!uu)
-                return !1;
+                return false;
             if (!(400 > bw.gL)) {
                 if ("Enter" === k.key || "Escape" === k.key) {
                     if (this.uv())
-                        return 0 === g && jN.c6(0, !0),
-                            !0;
+                        return 0 === g && jN.c6(0, true),
+                            true;
                     if ("Enter" === k.key) {
                         if (0 === g)
                             return jG.uw(),
-                                !0;
+                                true;
                         if (7 === g)
-                            return !0
+                            return true
                     }
                 }
-                return !1
+                return false
             }
         }
             ;
         this.uv = function () {
-            return ml.ko() || c4.tx() ? !0 : c5.kl ? (c5.kl = !1,
-                !0) : !1
+            return ml.ko() || c4.tx() ? true : c5.kl ? (c5.kl = false,
+                true) : false
         }
             ;
         this.bz = function (k, x) {
-            if (!ur.bz(k, x) && uu && !(ml.bz(k, x) || 6 === g && jK.bz(k, x) || 2 === g && dk.bz(k, x) || jW.bz(k, x) || c5.bz(k, x) || ux.bz(k, x, !0) || c4.bz(k, x, !0))) {
+            if (!ur.bz(k, x) && uu && !(ml.bz(k, x) || 6 === g && jK.bz(k, x) || 2 === g && dk.bz(k, x) || jW.bz(k, x) || c5.bz(k, x) || ux.bz(k, x, true) || c4.bz(k, x, true))) {
                 jI.bz(k, x);
                 if (0 === g)
                     jG.bz(k, x);
@@ -6134,7 +6134,7 @@
                     jI.oi();
                     return
                 }
-                if (jJ.lK(k, x, !0))
+                if (jJ.lK(k, x, true))
                     return
             }
             jI.lK(k, x)
@@ -6142,7 +6142,7 @@
             ;
         this.l9 = function (k, x) {
             jI.oj();
-            c4.uP() || ux.bz(k, x, !1) || c4.bz(k, x, !1)
+            c4.uP() || ux.bz(k, x, false) || c4.bz(k, x, false)
         }
             ;
         this.om = function (k, x, t) {
@@ -6154,12 +6154,12 @@
             c4.r2();
             0 === g ? (jN.r2(0),
                 jI.r2()) : 7 === g && jU.lT();
-            bw.bx = !0
+            bw.bx = true
         }
             ;
         this.c8 = function () {
             if (8 !== g && 10 !== g) {
-                c9.imageSmoothingEnabled = !0;
+                c9.imageSmoothingEnabled = true;
                 this.hV();
                 jI.c8();
                 jH.c8();
@@ -6204,16 +6204,16 @@
     }
     function v3() {
         this.co = this.bt = 0;
-        this.kl = !1;
+        this.kl = false;
         this.my = 10;
         this.b3 = .12;
-        this.v5 = this.v4 = this.uG = !1;
+        this.v5 = this.v4 = this.uG = false;
         this.bh = function () {
             this.bt = r < 1 * s ? Math.floor((b_IsUISmall ? .94 : .6) * r) : Math.floor((b_IsUISmall ? .94 : .6) * s);
             this.bt -= this.bt % this.my;
             this.co = 1 * this.bt;
-            this.kl = !0;
-            this.uG = !1
+            this.kl = true;
+            this.uG = false
         }
             ;
         this.bz = function (g, k, x) {
@@ -6221,20 +6221,20 @@
             g -= (fx - this.bt) / 2;
             k -= t;
             if (0 > g || 0 > k || g >= this.bt - 1 || k >= this.co - 1)
-                return 0 === x && (this.kl = !1,
-                    0 === jL.rG() && jN.c6(0, !0),
-                    bw.bx = !0),
-                    !1;
+                return 0 === x && (this.kl = false,
+                    0 === jL.rG() && jN.c6(0, true),
+                    bw.bx = true),
+                    false;
             t = Math.floor(this.bt / this.my);
             g = ak(g, t) + this.my * ak(k, t);
             g = 0 > g ? 0 : g >= a5.n2 ? a5.n2 - 1 : g;
             if (0 === x || 1 === x && !a5.a7[g] || 2 === x && a5.a7[g])
                 this.v4 = !a5.a7[g],
-                    this.v5 = this.uG = !0,
+                    this.v5 = this.uG = true,
                     a5.a7[g] = !a5.a7[g],
                     a5.nK(),
-                    bw.bx = !0;
-            return !0
+                    bw.bx = true;
+            return true
         }
             ;
         this.lK = function (g, k) {
@@ -6243,12 +6243,12 @@
             ;
         this.uP = function () {
             this.v5 && (a3(),
-                this.v5 = !1);
-            this.uG = this.v5 = !1
+                this.v5 = false);
+            this.uG = this.v5 = false
         }
             ;
         this.c8 = function () {
-            c9.imageSmoothingEnabled = !0;
+            c9.imageSmoothingEnabled = true;
             var g = (fx - this.bt) / 2;
             var k = (c3 - this.co) / 2;
             c9.setTransform(1, 0, 0, 1, g, k);
@@ -6268,7 +6268,7 @@
                     c9.drawImage(a5.ke[n], 0, 0);
             }
             c9.setTransform(1, 0, 0, 1, 0, 0);
-            c9.imageSmoothingEnabled = !1
+            c9.imageSmoothingEnabled = false
         }
     }
     function jp() {
@@ -6280,7 +6280,7 @@
             jL.setState(3);
             jJ.r2();
             jJ.u5[2].mp = ThrowError(errorCode);
-            bw.bx = !0
+            bw.bx = true
         }
         function ThrowError(errorCode) {
             var z;
@@ -6378,8 +6378,8 @@
             ;
         this.vC = function (l, z) {
             jG.bh();
-            jJ.lK(l, z, !1);
-            bw.bx = !0
+            jJ.lK(l, z, false);
+            bw.bx = true
         }
             ;
         this.c8 = function () {
@@ -6390,7 +6390,7 @@
         function g() {
             k.push({
                 input: document.createElement("INPUT"),
-                kl: !1,
+                kl: false,
                 color: x
             });
             var n = k.length - 1;
@@ -6412,7 +6412,7 @@
         this.bh = function () {
             x = "rgba(0,0,0,0.6)";
             t = nk;
-            void 0 !== k && this.c6(0, !1);
+            void 0 !== k && this.c6(0, false);
             k = [];
             g();
             this.lT()
@@ -6456,7 +6456,7 @@
                 x = bw.gL + 4500;
                 t = jS.vQ(g) ? 2 : 0;
                 jL.setState(10);
-                c9.imageSmoothingEnabled = !0;
+                c9.imageSmoothingEnabled = true;
                 jL.hV();
                 n = bo.ki("loading");
                 var l = (b_IsUISmall ? .396 : .25) * bi / n.width;
@@ -6481,7 +6481,7 @@
     function kG() {
         function g(N, S) {
             var U = F[N].getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             U.clearRect(0, 0, 48, 48);
             var X = 48 / S.width;
@@ -6527,13 +6527,13 @@
                         Q.height = 128;
 
                         var M = Q.getContext("2d", {
-                            alpha: !1
+                            alpha: false
                         });
 
                         var R = 128 / aR;
                         var Y = 128 / aS;
                         Y > R && (R = Y);
-                        M.imageSmoothingEnabled = !0;
+                        M.imageSmoothingEnabled = true;
                         M.setTransform(R, 0, 0, R, (128 - R * aR) / 2, (128 - R * aS) / 2);
                         M.drawImage(hW, 0, 0);
                         aR = S;
@@ -6546,7 +6546,7 @@
                         w8 = ma;
                         E[N].lO = Q
                     }
-                    bw.bx = !0
+                    bw.bx = true
                 }
             }
         }
@@ -6560,7 +6560,7 @@
             var U;
             var X;
             if (0 === E.length)
-                return !1;
+                return false;
             var T = 0;
             var pa = C;
             for (X = 0; X < y[1]; X++) {
@@ -6569,15 +6569,15 @@
                     if (N > ea && N < ea + l && S > pa && S < pa + l)
                         return iU.wO(E[T].w9),
                             G = E[T].w9 !== G ? E[T].w9 : -1,
-                            bw.bx = !0;
+                            bw.bx = true;
                     T++;
                     if (T >= E.length)
-                        return !1;
+                        return false;
                     ea += l + c2
                 }
                 pa += l + c2
             }
-            return !1
+            return false
         }
         var l;
         var z;
@@ -6614,7 +6614,7 @@
                 var S = N + 2;
 
                 var U = F[S - 2].getContext("2d", {
-                    alpha: !0
+                    alpha: true
                 });
 
                 var X = 1.5 * Math.PI;
@@ -6643,7 +6643,7 @@
             g(8, a5.ke[27]);
             g(9, a5.ke[46]);
             g(10, a5.ke[19]);
-            bw.bx = !0
+            bw.bx = true
         }
             ;
         this.sx = function () {
@@ -6727,7 +6727,7 @@
                 V = E.length,
                     this.lT();
             this.wF();
-            bw.bx = !0
+            bw.bx = true
         }
             ;
         this.wF = function () {
@@ -6739,8 +6739,8 @@
             return 4 * ((N - P) * (N - P) + (S - W) * (S - W)) <= O * O ? (this.sx(),
                 e0.vB(3240),
                 jG.bh(),
-                jJ.lK(N, S, !1),
-                bw.bx = !0) : n(N, S)
+                jJ.lK(N, S, false),
+                bw.bx = true) : n(N, S)
         }
             ;
         this.vC = function (N, S) { }
@@ -6748,7 +6748,7 @@
         this.c8 = function () {
             var N = 0;
             var S = C;
-            c9.imageSmoothingEnabled = !0;
+            c9.imageSmoothingEnabled = true;
             c9.lineWidth = 3;
             var U = Math.floor(.5 * O);
             c9.fillStyle = nV;
@@ -6859,8 +6859,8 @@
     function jr() {
         this.bh = function (g, k) {
             jL.setState(5);
-            jJ.lK(g, k, !1);
-            bw.bx = !0
+            jJ.lK(g, k, false);
+            bw.bx = true
         }
             ;
         this.c8 = function () {
@@ -6870,8 +6870,8 @@
         this.bz = function (g, k) {
             var x = jJ.od(g, k, 5, 2);
             5 === x ? aC() : 6 === x && (jG.bh(),
-                jJ.lK(g, k, !1),
-                bw.bx = !0)
+                jJ.lK(g, k, false),
+                bw.bx = true)
         }
     }
     function js() {
@@ -6896,7 +6896,7 @@
         this.bh = function () {
             jL.setState(2);
             this.lT();
-            bw.bx = !0
+            bw.bx = true
         }
             ;
         this.lT = function () {
@@ -6925,7 +6925,7 @@
             ;
         this.vC = function () {
             jG.bh();
-            bw.bx = !0
+            bw.bx = true
         }
             ;
         this.iy = function () {
@@ -6938,7 +6938,7 @@
         }
             ;
         this.lK = function (x, t) {
-            return jV.kl && jV.lK(x, t) ? !0 : -1 === this.od(x, t) ? !1 : !0
+            return jV.kl && jV.lK(x, t) ? true : -1 === this.od(x, t) ? false : true
         }
             ;
         this.wZ = function () {
@@ -6952,26 +6952,26 @@
                 id: 0,
                 wc: c4.lk[2].iL.uN(),
                 wd: 0
-            }], x, !1)
+            }], x, false)
         }
             ;
         this.bz = function (x, t) {
             if (c5.kl || c4.lk[1].iL.kl || c4.lk[2].iL.kl)
-                return !1;
+                return false;
             if (jV.kl)
                 return jV.bz(x, t);
             var n = this.od(x, t);
             if (-1 === n)
-                return !1;
+                return false;
             if (0 === n)
                 return this.vC(),
-                    !0;
+                    true;
             if (1 === n)
                 return jV.show(),
-                    !0;
+                    true;
             if (2 === n)
                 return this.wZ(),
-                    !0;
+                    true;
             if (27 === n)
                 return 8 > this.BOT_DATA_SP.length && (this.BOT_DATA_SP.push({
                     BotDifficulty: 0,
@@ -6979,23 +6979,23 @@
                 }),
                     this.wY(),
                     this.lT(),
-                    bw.bx = !0),
-                    !0;
+                    bw.bx = true),
+                    true;
             var l = Math.floor((n - 3) / 3);
             if (0 === n % 3)
                 return 1 < this.BOT_DATA_SP.length && (this.BOT_DATA_SP.splice(l, 1),
                     this.lT(),
-                    bw.bx = !0),
-                    !0;
+                    bw.bx = true),
+                    true;
             var z = (k[2] - k[2] / 10 - 2 * c2) / 2;
             if (1 === n % 3) {
                 if (0 === l && 1 === this.BOT_DATA_SP[l].PlayerCount)
-                    return !0;
+                    return true;
                 x < k[0] + k[2] - 1.5 * z - c2 ? this.BOT_DATA_SP[l].BotDifficulty-- : this.BOT_DATA_SP[l].BotDifficulty++;
                 0 > this.BOT_DATA_SP[l].BotDifficulty ? this.BOT_DATA_SP[l].BotDifficulty = 5 : 5 < this.BOT_DATA_SP[l].BotDifficulty && (this.BOT_DATA_SP[l].BotDifficulty = 0);
-                return bw.bx = !0
+                return bw.bx = true
             }
-            bw.bx = !0;
+            bw.bx = true;
             var y = (x - (k[0] + k[2] - z)) / z - .5;
             y = Math.floor((0 > y ? -(y * y) : y * y) * b0);
             y = 0 === y ? 1 : y;
@@ -7005,13 +7005,13 @@
             if (0 > y) {
                 if (1 === this.BOT_DATA_SP[l].PlayerCount)
                     return this.BOT_DATA_SP[l].PlayerCount = z,
-                        !0
+                        true
             } else if (this.BOT_DATA_SP[l].PlayerCount === z)
                 return this.BOT_DATA_SP[l].PlayerCount = 1,
-                    !0;
+                    true;
             this.BOT_DATA_SP[l].PlayerCount += y;
             1 > this.BOT_DATA_SP[l].PlayerCount ? this.BOT_DATA_SP[l].PlayerCount = 1 : this.BOT_DATA_SP[l].PlayerCount > z && (this.BOT_DATA_SP[l].PlayerCount = z);
-            return !0
+            return true
         }
             ;
         this.wY = function () {
@@ -7102,13 +7102,13 @@
             this.lk.push({
                 f5: 0,
                 f6: 0,
-                lZ: !1,
+                lZ: false,
                 iL: new v3
             });
             this.lk.push({
                 f5: 0,
                 f6: 0,
-                lZ: !1,
+                lZ: false,
                 iL: new uF
             });
             this.lk[2].iL.uK();
@@ -7138,24 +7138,24 @@
         this.wj = function () {
             for (var g = 2; 1 <= g; g--)
                 if (this.lk[g].iL.kl)
-                    return !0;
-            return !1
+                    return true;
+            return false
         }
             ;
         this.tx = function () {
             return this.lk[1].iL.kl ? (this.lk[1].iL.bz(-5E3, -5E3, 0),
-                !0) : this.lk[2].iL.kl ? (this.lk[2].iL.bz(-5E3, -5E3),
-                    !0) : !1
+                true) : this.lk[2].iL.kl ? (this.lk[2].iL.bz(-5E3, -5E3),
+                    true) : false
         }
             ;
         this.bz = function (g, k, x) {
             if (x) {
                 if (this.lk[1].iL.kl)
                     return this.lk[1].iL.bz(g, k, 0),
-                        !0;
+                        true;
                 if (this.lk[2].iL.kl)
                     return this.lk[2].iL.bz(g, k),
-                        !0
+                        true
             }
             g = this.od(g, k);
             if (x) {
@@ -7163,33 +7163,33 @@
                     return this.lk[g].lZ = !this.lk[g].lZ,
                         b_IsUISmall = this.lk[g].lZ,
                         jT.wk(),
-                        a1(this.lk[0].lZ, !1),
-                        !0;
+                        a1(this.lk[0].lZ, false),
+                        true;
                 if (1 <= g && 3 > g)
                     return this.lk[g].iL.bh(),
                         jG.sx(),
-                        bw.bx = !0
+                        bw.bx = true
             }
-            return !1
+            return false
         }
             ;
         this.lK = function (g, k) {
             return this.lk[1].iL.kl ? (this.lk[1].iL.lK(g, k),
-                !0) : this.lk[2].iL.kl ? (this.lk[2].iL.lK(g),
-                    !0) : !1
+                true) : this.lk[2].iL.kl ? (this.lk[2].iL.lK(g),
+                    true) : false
         }
             ;
         this.uP = function () {
             for (var g = 2; 1 <= g; g--)
                 if (this.lk[g].iL.kl)
                     return this.lk[g].iL.uP(),
-                        !0;
-            return !1
+                        true;
+            return false
         }
             ;
         this.c8 = function () {
             if (bo.bp()) {
-                c9.imageSmoothingEnabled = !0;
+                c9.imageSmoothingEnabled = true;
                 for (var g = this.av - 1; 0 <= g; g--)
                     c9.fillStyle = this.lk[g].lZ ? m1 : colorBlack75opaque,
                         c9.fillRect(this.lk[g].f5, this.lk[g].f6, this.bt, this.bt),
@@ -7198,7 +7198,7 @@
                         c9.lineWidth = oE,
                         c9.strokeStyle = colorWhite,
                         c9.strokeRect(this.lk[g].f5, this.lk[g].f6, this.bt, this.bt);
-                c9.imageSmoothingEnabled = !1
+                c9.imageSmoothingEnabled = false
             }
         }
             ;
@@ -7238,51 +7238,51 @@
     function jt() {
         function g() {
             if (0 !== n.indexOf("vote "))
-                return !1;
+                return false;
             var l = n.split(" ");
             if (2 !== l.length)
-                return !1;
+                return false;
             jG.wo = l[1];
             k();
             e0.qu(0, 7) && iU.wz(0);
             jM.uk(3252);
-            return !0
+            return true
         }
         function k() {
             n = a();
             jN.br(0).input.value = n;
-            jN.vH(0, !0)
+            jN.vH(0, true)
         }
         function x() {
             if (0 !== n.indexOf("account "))
-                return !1;
+                return false;
             var l = n.split(" ");
             if (2 !== l.length)
                 return k(),
                     jM.uk(3266),
-                    !0;
+                    true;
             var z = Math.floor(Math.pow(2, 48));
             l = parseInt(m.n(l[1]));
             if (0 >= l || l >= z)
                 return k(),
                     jM.uk(3266),
-                    !0;
+                    true;
             if (o(l))
                 return k(),
                     jM.uk(3231),
-                    !0;
+                    true;
             k();
             5 <= d ? jM.uk(3232) : (jM.uk(3265),
-                ur.kl = !0,
+                ur.kl = true,
                 ur.bk = -1);
-            return !0
+            return true
         }
         function t() {
             if (void 0 !== n && m.i1(n))
-                return jN.vH(0, !0),
-                    !0;
-            jN.vH(0, !1);
-            return !1
+                return jN.vH(0, true),
+                    true;
+            jN.vH(0, false);
+            return false
         }
         var n;
         this.wo = "";
@@ -7290,7 +7290,7 @@
         this.bh = function () {
             jL.setState(0);
             jJ.r2();
-            jN.c6(0, !0);
+            jN.c6(0, true);
             jN.r2(0);
             jH.bh();
             c4.r2();
@@ -7300,7 +7300,7 @@
         }
             ;
         this.sx = function () {
-            jN.c6(0, !1)
+            jN.c6(0, false)
         }
             ;
         this.wr = function (l) {
@@ -7339,7 +7339,7 @@
             ;
         this.c8 = function () {
             if (this.x1()) {
-                c9.imageSmoothingEnabled = !0;
+                c9.imageSmoothingEnabled = true;
                 var l = bo.ki("territorial.io");
                 var z = 1.1 * jJ.bt / l.width;
                 c9.setTransform(z, 0, 0, z, Math.floor((fx - z * l.width) / 2), jJ.f6 - z * l.height - .72 * jJ.co);
@@ -7367,7 +7367,7 @@
                     F.width = E;
                     F.height = J;
                     var G = F.getContext("2d", {
-                        alpha: !0
+                        alpha: true
                     });
                     G.drawImage(x[l], 0, 0);
                     var H = G.getImageData(0, 0, E, J);
@@ -7419,8 +7419,8 @@
                 bo.bp() && (te.bn(),
                     hY.ka(),
                     a5.bh(),
-                    ux.u0([x[8], x[16], x[7], x[9], x[10]], [!b, 0 === d, !0, !0, !0]),
-                    bw.bx = !0,
+                    ux.u0([x[8], x[16], x[7], x[9], x[10]], [!b, 0 === d, true, true, true]),
+                    bw.bx = true,
                     x[7] = n,
                     x[8] = n,
                     x[9] = n,
@@ -7619,8 +7619,8 @@
         this.hJ = function (D) {
             for (var K = 3; 0 <= K; K--)
                 if (this.xl(D + H[K]))
-                    return !0;
-            return !1
+                    return true;
+            return false
         }
             ;
         this.xm = function (D) {
@@ -7761,10 +7761,10 @@
                 a: {
                     for (B = y - 1; 0 <= B; B--)
                         if (void 0 === z[B]) {
-                            B = !1;
+                            B = false;
                             break a
                         }
-                    B = !0
+                    B = true
                 }
                 B ? (A = 2,
                     t(),
@@ -7845,10 +7845,10 @@
                     if (x[l] === t) {
                         x[l + 1] += n;
                         x[l + 1] = FindMin(x[l + 1], 1E3);
-                        l = !0;
+                        l = true;
                         break a
                     }
-                l = !1
+                l = false
             }
             l || 32 === k || (x[k] = t,
                 x[k + 1] = n,
@@ -7858,7 +7858,7 @@
     function fW(g) {
         fN || isSingleplayer || 8 === gameMode ? (yE(g),
             yF()) : (e5.yD(g),
-                g === localPlayerID && (eI.show(!1, !1),
+                g === localPlayerID && (eI.show(false, false),
                     dy.sW()))
     }
     function yE(g) {
@@ -7877,7 +7877,7 @@
     }
     function yM() {
         as.at[17] += TroopBalance[localPlayerID] + aW.yP(localPlayerID);
-        eI.show(!1, !1);
+        eI.show(false, false);
         dy.sW()
     }
     function yN(g, k) {
@@ -8004,8 +8004,8 @@
             var B = g(y);
             for (C = t[y] - 1; 0 <= C; C--)
                 if (0 === z[B + C] && n[B + C] === A)
-                    return !0;
-            return !1
+                    return true;
+            return false
         }
             ;
         this.d4 = function (y) {
@@ -8204,14 +8204,14 @@
             X.width = fx;
             X.height = c3;
             T = X.getContext("2d", {
-                alpha: !0
+                alpha: true
             });
             T.textAlign = cB;
             T.textBaseline = cA;
-            T.imageSmoothingEnabled = !0
+            T.imageSmoothingEnabled = true
         }
         function k() {
-            U = !1;
+            U = false;
             S = 1;
             V = N = 0;
             T.clearRect(0, 0, fx, c3);
@@ -8237,7 +8237,7 @@
                     ra = da >= I && da < K ? dN.zW[ax.q7[ra]] + n(da).toFixed(3) + ")" : dN.zX[ax.q7[ra]];
                     qa.fillStyle = ra;
                     T.fillText(8 === gameMode ? eC.g2(TroopBalance[fa]) : mpPlayerArray[fa], ka, la);
-                    U = !0;
+                    U = true;
                     if (0 < ba[fa]) {
                         qa = ka;
                         ra = la;
@@ -8355,13 +8355,13 @@
             var la;
             for (la = R + Z - 1; la >= R; la--)
                 if (!y(M, la, Y, ka))
-                    return !1;
+                    return false;
             var fa = Math.floor(.25 * ka);
             fa = 1 > fa ? 1 : fa;
             for (la = Y + ka - 1 - fa; la >= Y + fa; la--)
                 if (!A(M, R, la, Z))
-                    return !1;
-            return !0
+                    return false;
+            return true
         }
         function y(M, R, Y, Z) {
             return ax.hQ(M, 4 * (Y * aR + R)) && ax.hQ(M, 4 * ((Y + Z - 1) * aR + R))
@@ -8395,7 +8395,7 @@
         var ma;
         var Q;
         this.bh = function () {
-            U = !1;
+            U = false;
             W = .88;
             L = .5;
             O = 1.8;
@@ -8468,10 +8468,10 @@
         }
             ;
         this.c8 = function () {
-            U && (1 !== S ? (c9.imageSmoothingEnabled = !0,
+            U && (1 !== S ? (c9.imageSmoothingEnabled = true,
                 c9.setTransform(S, 0, 0, S, 0, 0),
                 c9.drawImage(X, -V / S, -N / S),
-                c9.setTransform(1, 0, 0, 1, 0, 0)) : (c9.imageSmoothingEnabled = !1,
+                c9.setTransform(1, 0, 0, 1, 0, 0)) : (c9.imageSmoothingEnabled = false,
                     c9.drawImage(X, -V, -N)))
         }
             ;
@@ -8493,7 +8493,7 @@
         this.eN = function () {
             return 0 >= --pa ? (pa = 4 >= s0 ? 10 : 12 > s0 ? 5 : 2,
                 k(),
-                !0) : !1
+                true) : false
         }
             ;
         this.fz = function (M) {
@@ -8522,7 +8522,7 @@
                 if (R = Y % dP,
                     R = dQ[R],
                     0 < J[R] && z(R, F[R], E[R], J[R], G[R])) {
-                    for (da = R, qa = !1, ua = 0, void 0; 8 > ua; ua++) {
+                    for (da = R, qa = false, ua = 0, void 0; 8 > ua; ua++) {
                         var Z;
                         var ka;
                         var la;
@@ -8541,13 +8541,13 @@
                                 E[da] = la,
                                 J[da] = ka,
                                 G[da] = Z,
-                                qa = !0;
+                                qa = true;
                         else
                             break
                     }
                     if (Z = !qa) {
                         da = R;
-                        qa = !1;
+                        qa = false;
                         ua = J[da];
                         for (ra = 1 + Math.floor(.02 * ua), ta = 1, void 0; 5 > ta; ta++) {
                             var ra;
@@ -8564,7 +8564,7 @@
                                 E[da] = la,
                                 J[da] = ka,
                                 G[da] = Z,
-                                qa = !0)
+                                qa = true)
                         }
                         Z = qa
                     }
@@ -8585,14 +8585,14 @@
                                 E[ka] = fa;
                                 J[ka] = da;
                                 G[ka] = Z;
-                                Z = !0;
+                                Z = true;
                                 break a
                             }
                             la++;
                             fa++;
                             da -= 2
                         }
-                        Z = !1
+                        Z = false
                     }
                     if (Z)
                         l(R);
@@ -8621,7 +8621,7 @@
         this.mC = function (M) {
             M += 2 * b0;
             return 255 === ba[M] ? (ba[M] = 0,
-                !0) : !1
+                true) : false
         }
     }
     function k0() {
@@ -8775,9 +8775,9 @@
             t = Array(this.ud);
             for (n = this.ud - 1; 0 <= n; n--)
                 t[n] = {
-                    a05: !1,
+                    a05: false,
                     gL: 0,
-                    a06: !1
+                    a06: false
                 }
         }
             ;
@@ -8789,19 +8789,19 @@
         this.qu = function (n, l) {
             if (!t[n].a05)
                 return this.a09(n, l),
-                    !1;
+                    false;
             if (k[n].a0A())
                 return k[n].a0B(l),
                     k[n].uZ();
             k[n].ko();
             this.a09(n, l);
-            return !1
+            return false
         }
             ;
         this.a09 = function (n, l) {
-            t[n].a05 = !0;
+            t[n].a05 = true;
             t[n].gL = bw.gL;
-            t[n].a06 = !1;
+            t[n].a06 = false;
             k[n] = new a0D;
             k[n].bh(n, l, x[n])
         }
@@ -8820,12 +8820,12 @@
             ;
         this.send = function (n, l) {
             t[n].gL = bw.gL;
-            t[n].a06 = !1;
+            t[n].a06 = false;
             k[n].send(l)
         }
             ;
         this.oZ = function (n) {
-            t[n].a06 = !0
+            t[n].a06 = true
         }
             ;
         this.close = function (n, l) {
@@ -8907,7 +8907,7 @@
     var htmlLoader;
     var d;
     var b_IsUISmall;
-    var a0Q = !1;
+    var a0Q = false;
     var a0R;
     var isURLTerritorialIo;
     var i;
@@ -8938,20 +8938,20 @@
         cz();
         d = (htmlLoader = "undefined" !== typeof Android ? Android : null) ? htmlLoader.getVersion() : 0;
         12 <= d && htmlLoader.prepareAd("6685097465");
-        b = !1;
-        window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.iosCommandA && (b = !0,
+        b = false;
+        window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.iosCommandA && (b = true,
             window.webkit.messageHandlers.iosCommandA.postMessage("prepare ad 5907904081"),
             c = "undefined" !== typeof mwIOSdataX ? mwIOSdataX : {
                 username: "iOS User " + Math.floor(1E3 * Math.random()),
                 id: Math.floor(1 + Math.random() * (Math.pow(2, 30) - 1)),
-                zoom: !0,
-                sound: !0,
+                zoom: true,
+                sound: true,
                 emojis: "0",
                 colors: "0",
                 password: "0",
-                freeSpawn: !1,
-                unlimitedTime: !1,
-                alliances: !1
+                freeSpawn: false,
+                unlimitedTime: false,
+                alliances: false
             });
         a0T = (new Date).getTime() % 1024;
         a0R = a0Y();
@@ -8961,14 +8961,14 @@
         p();
         document.addEventListener ? document.addEventListener("contextmenu", function (g) {
             g.preventDefault()
-        }, !1) : document.attachEvent("oncontextmenu", function () {
-            window.event.returnValue = !1
+        }, false) : document.attachEvent("oncontextmenu", function () {
+            window.event.returnValue = false
         });
         CheckIfHostnameValid();
         document.addEventListener("keyup", a0a);
         document.addEventListener("keydown", a0b);
         document.addEventListener("visibilitychange", a0c);
-        window.addEventListener("error", a0d, !0);
+        window.addEventListener("error", a0d, true);
         s0 = 20;
         wL = new a0e;
         gg = new a0f;
@@ -9001,7 +9001,7 @@
         j4.bh();
         oM();
         bo.bh();
-        bw.bx = !0;
+        bw.bx = true;
         setTimeout(function () {
             wK(2, 14071)
         }, 0)
@@ -9010,11 +9010,11 @@
         try {
             return window.self !== window.top
         } catch (g) {
-            return !0
+            return true
         }
     }
     function a0d(g) {
-        a0Q || (a0Q = !0,
+        a0Q || (a0Q = true,
             g.message ? (a0V = g.lineno,
                 a0W = g.message,
                 e0.qu(0, 6) && iU.a0G(0),
@@ -9032,12 +9032,12 @@
         "hidden" === document.visibilityState ? bw.a0m() : bw.ws()
     }
     function a0a(g) {
-        400 > bw.gL || (8 !== jL.rG() && jL.tx(g) ? bw.bx = !0 : "Escape" === g.key ? 1 <= fK ? gQ ? (gQ = !gQ,
-            bw.bx = !0) : hZ.kl ? hZ.ko() : fZ.lY() : 7 === jL.rG() ? (jU.sx(),
+        400 > bw.gL || (8 !== jL.rG() && jL.tx(g) ? bw.bx = true : "Escape" === g.key ? 1 <= fK ? gQ ? (gQ = !gQ,
+            bw.bx = true) : hZ.kl ? hZ.ko() : fZ.lY() : 7 === jL.rG() ? (jU.sx(),
                 e0.vB(3240),
                 jG.bh(),
-                bw.bx = !0) : 2 === jL.rG() ? dk.vC() : 3 === jL.rG() && jM.vC(0, 0) : "ArrowLeft" === g.key ? gV.a0n(3) : "ArrowUp" === g.key ? gV.a0n(0) : "ArrowRight" === g.key ? gV.a0n(1) : "ArrowDown" === g.key ? gV.a0n(2) : "h" === g.key && 1 <= fK && (gQ = !gQ,
-                    bw.bx = !0))
+                bw.bx = true) : 2 === jL.rG() ? dk.vC() : 3 === jL.rG() && jM.vC(0, 0) : "ArrowLeft" === g.key ? gV.a0n(3) : "ArrowUp" === g.key ? gV.a0n(0) : "ArrowRight" === g.key ? gV.a0n(1) : "ArrowDown" === g.key ? gV.a0n(2) : "h" === g.key && 1 <= fK && (gQ = !gQ,
+                    bw.bx = true))
     }
     function CheckIfHostnameValid() {
         currentOpenURL = window.location.hostname;
@@ -9105,7 +9105,7 @@
         g %= a0u;
         if (g !== mc || a0x(mc) && k !== w8) {
             var x = performance.now();
-            uu = !1;
+            uu = false;
             wL.wM();
             cW.iz(g);
             mc = g;
@@ -9167,7 +9167,7 @@
         this.a1D = [0, 0];
         this.q7 = [0, 0, 0, 0];
         this.a1E = null;
-        this.a1F = !0;
+        this.a1F = true;
         this.wM = function () {
             -1 !== this.qp && clearTimeout(this.qp);
             this.qp = -1;
@@ -9176,7 +9176,7 @@
         }
             ;
         this.bh = function () {
-            7 !== jL.rG() && (this.a1F = !0,
+            7 !== jL.rG() && (this.a1F = true,
                 this.aA = 0,
                 this.a18 = 1,
                 this.a1D = [jP.br(mc).a1G[0], jP.br(mc).a1H[0]],
@@ -9198,7 +9198,7 @@
                 this.aA++;
                 if (this.a1F)
                     return this.qp = setTimeout(g, 0),
-                        !1
+                        false
             }
             t = this.a1F ? 8 === jL.rG() ? 20 : 40 : 1E6;
             t = aS - this.a18 - 1 < t ? aS - this.a18 - 1 : t;
@@ -9222,13 +9222,13 @@
             z = this.a18 - this.a1A;
             z = 1 > z ? 1 : z;
             ou.putImageData(wI, 0, 0, 1, z, aR - 2, t - z);
-            8 !== jL.rG() && (bw.bx = !0);
+            8 !== jL.rG() && (bw.bx = true);
             this.a18 = t;
             if (this.a18 >= aS - 1)
                 return this.wM(),
-                    !1;
+                    false;
             this.a1F && (this.qp = setTimeout(g, 8 === jL.rG() ? 100 : 0));
-            return !0
+            return true
         }
             ;
         this.a1M = function (t, n, l) {
@@ -9380,7 +9380,7 @@
             hW.width = aR;
             hW.height = aS;
             ou = hW.getContext("2d", {
-                alpha: !1
+                alpha: false
             });
             var k = ou.getImageData(0, 0, aR, aS);
             wJ = k.data;
@@ -9415,7 +9415,7 @@
             jP.a1l() && bo.bp() && jP.a1l() && (x = bo.ki("arena"),
                 ou.save(),
                 ou.globalAlpha = 1 === mc ? .1 : 1,
-                ou.imageSmoothingEnabled = !0,
+                ou.imageSmoothingEnabled = true,
                 k = 2.8,
                 ou.scale(k, k),
                 ou.drawImage(x, Math.floor((aR / k - x.width) / 2), Math.floor(.5 * aS / k - x.height / 2)),
@@ -9423,13 +9423,13 @@
                 x = bo.ki("territorial.io"),
                 ou.save(),
                 ou.globalAlpha = 1 === mc ? .1 : 1,
-                ou.imageSmoothingEnabled = !0,
+                ou.imageSmoothingEnabled = true,
                 k = .87,
                 ou.scale(k, k),
                 ou.drawImage(x, Math.floor(.745 * (aR / k - x.width)), Math.floor(.422 * aS / k - x.height / 2)),
                 ou.restore());
-            uu = !0;
-            bw.bx = !0
+            uu = true;
+            bw.bx = true
         }
             ;
         this.j3 = function () {
@@ -9465,11 +9465,11 @@
         hW.width = aR;
         hW.height = aS;
         ou = hW.getContext("2d", {
-            alpha: !1
+            alpha: false
         });
         wI = ou.getImageData(0, 0, aR, aS);
         wJ = wI.data;
-        for (n = k.length, l = !0, z = 0, y = 4, void 0; y < n; y++) {
+        for (n = k.length, l = true, z = 0, y = 4, void 0; y < n; y++) {
             var n;
             var l;
             var z;
@@ -9481,7 +9481,7 @@
                         wJ[z + 2] = t[2],
                         wJ[z + 3] = 255,
                         z += 4;
-                l = !1
+                l = false
             } else {
                 for (; 0 < k[y]--;)
                     wJ[z] = x[0],
@@ -9489,14 +9489,14 @@
                         wJ[z + 2] = x[2],
                         wJ[z + 3] = 255,
                         z += 4;
-                l = !0
+                l = true
             }
         }
         ou.putImageData(wI, 0, 0);
-        uu = !0;
+        uu = true;
         a13(g);
         wL.bh();
-        bw.bx = !0
+        bw.bx = true
     }
     function k3() {
         var MapDataArray;
@@ -9639,7 +9639,7 @@
         hX.width = aR;
         hX.height = aS;
         j8 = hX.getContext("2d", {
-            alpha: !0
+            alpha: true
         });
         j9 = j8.getImageData(0, 0, aR, aS);
         tD = j9.data
@@ -9713,9 +9713,9 @@
             G = Array(l);
             H = Array(z);
             for (I = l - 1; 0 <= I; I--)
-                G[I] = !1;
+                G[I] = false;
             for (I = z - 1; 0 <= I; I--)
-                H[I] = !1;
+                H[I] = false;
             D = new Int16Array(l);
             K = new Int16Array(z);
             I = y;
@@ -9727,7 +9727,7 @@
             O = z;
             for (var P = 0; P < O; P++)
                 I[P] = L[P];
-            k(0, 0, !0, l);
+            k(0, 0, true, l);
             I = n[0];
             L = y;
             O = cW.random() % (2 * A + 1) - A;
@@ -9737,24 +9737,24 @@
             O = l;
             for (P = 0; P < O; P++)
                 I[P] = L[P];
-            k(0, 0, !1, z);
+            k(0, 0, false, z);
             t(D);
             t(K);
             g(n[l - 1], D[l - 1], z);
-            k(l - 1, 0, !1, z);
+            k(l - 1, 0, false, z);
             g(n[l * (z - 1)], K[z - 1], l);
             x(n[l * z - 1], l);
-            k(0, z - 1, !0, l);
-            G[l - 1] = G[0] = !0;
-            H[z - 1] = H[0] = !0;
+            k(0, z - 1, true, l);
+            G[l - 1] = G[0] = true;
+            H[z - 1] = H[0] = true;
             I = l;
             F.push(0);
             E.push(I);
-            J.push(!0);
+            J.push(true);
             I = z;
             F.push(0);
             E.push(I);
-            J.push(!1);
+            J.push(false);
             a: for (; ;) {
                 I = F.length - 1;
                 for (L = I - 1; 0 <= L; L--)
@@ -9777,11 +9777,11 @@
                         W = N - V + 1;
                         g(n[P + l * V], 0 === V ? D[P] : B[O - 1] - B[O - 2], W);
                         x(n[N * l + P], W);
-                        k(P, V, !1, W);
+                        k(P, V, false, W);
                         O = W;
                         V = N
                     }
-                    G[P] = !0
+                    G[P] = true
                 } else {
                     O = void 0;
                     P = L;
@@ -9794,11 +9794,11 @@
                         W = N - V + 1;
                         g(n[P * l + V], 0 === V ? K[P] : B[O - 1] - B[O - 2], W);
                         x(n[P * l + N], W);
-                        k(V, P, !0, W);
+                        k(V, P, true, W);
                         O = W;
                         V = N
                     }
-                    H[P] = !0
+                    H[P] = true
                 }
                 O = F[I] + E[I] - L;
                 P = J[I];
@@ -9907,9 +9907,9 @@
             c9.fillText(I, Math.floor(B + E / 2), Math.floor(F + J / 2 + .1 * L))
         }
         this.wx = 1;
-        this.a2a = this.zs = !1;
+        this.a2a = this.zs = false;
         var n = -1;
-        var l = !1;
+        var l = false;
         var moreMenuRowsArray = ["More", "Lobby 1", "Hide Usernames", "Hide Links", "Tutorial", "Player List", "Clan List", "Privacy Policy", "Cookie Policy", patchVersion];
         var y = [140, 0, 0, 0, 0, 0, 0, 0, 0, 90];
         var A = [120, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -9921,7 +9921,7 @@
                         this.a2a = 1 < f.g(6));
             A[2] = this.zs ? 130 : 0;
             A[3] = this.a2a ? 130 : 0;
-            this.a2a && (ux.tz[2] = ux.tz[3] = ux.tz[4] = !1)
+            this.a2a && (ux.tz[2] = ux.tz[3] = ux.tz[4] = false)
         }
             ;
         this.bz = function (B, F) {
@@ -9933,20 +9933,20 @@
                         if (k(B, F, J, E))
                             return 1 === E ? (jW.wx = 1 === jW.wx ? 2 : 1,
                                 moreMenuRowsArray[1] = "Lobby " + jW.wx,
-                                bw.bx = !0) : 2 === E ? (jW.zs = !jW.zs,
+                                bw.bx = true) : 2 === E ? (jW.zs = !jW.zs,
                                     A[E] = jW.zs ? 130 : 0,
                                     g(),
-                                    bw.bx = !0) : 3 === E ? (jW.a2a = !jW.a2a,
+                                    bw.bx = true) : 3 === E ? (jW.a2a = !jW.a2a,
                                         A[E] = jW.a2a ? 130 : 0,
                                         g(),
-                                        bw.bx = !0) : 4 === E ? ml.bh(oB, !0) : 5 === E ? ml.bh(oC[0], !0) : 6 === E ? ml.bh(oC[1], !0) : 7 === E ? ml.bh(oA, !0) : 8 === E && ml.bh(mm, !0),
-                                !0;
-                    l = !1;
-                    bw.bx = !0;
-                    return !1
+                                        bw.bx = true) : 4 === E ? ml.bh(oB, true) : 5 === E ? ml.bh(oC[0], true) : 6 === E ? ml.bh(oC[1], true) : 7 === E ? ml.bh(oA, true) : 8 === E && ml.bh(mm, true),
+                                true;
+                    l = false;
+                    bw.bx = true;
+                    return false
                 }
-                return k(B, F, J, 0) ? (l = !0,
-                    bw.bx = !0) : !1
+                return k(B, F, J, 0) ? (l = true,
+                    bw.bx = true) : false
             }
         }
             ;
@@ -9962,7 +9962,7 @@
                         n = E;
                         break
                     }
-                G !== n && (bw.bx = !0)
+                G !== n && (bw.bx = true)
             }
         }
             ;
@@ -9983,11 +9983,11 @@
     }
     function k5() {
         function g() {
-            x = !0;
+            x = true;
             t = -1;
             n = Array(4);
             for (var y = 3; 0 <= y; y--)
-                n[y] = !1;
+                n[y] = false;
             y = Math.floor(1 + .02 * oX);
             l = Array(4);
             z = Array(4);
@@ -9998,36 +9998,36 @@
         function k() {
             if (-1 !== t)
                 if (0 !== fK && eH.gi()) {
-                    for (y = !1, A = 3, void 0; 0 <= A; A--) {
+                    for (y = false, A = 3, void 0; 0 <= A; A--) {
                         var y;
                         var A;
-                        n[A] && (y = !0,
+                        n[A] && (y = true,
                             fv += l[A],
                             fw += z[A],
                             dx.lK(l[A], z[A]),
                             gR.qU());
                     }
-                    y ? bw.bx = !0 : gV.gW()
+                    y ? bw.bx = true : gV.gW()
                 } else
                     gV.gW()
         }
-        var x = !1;
+        var x = false;
         var t;
         var n;
         var l;
         var z;
         this.vH = function (y) {
             0 !== fK && eH.gi() && (x || g(),
-                n[y] = !0,
+                n[y] = true,
                 -1 === t && (t = setInterval(k, 20),
                     k()))
         }
             ;
         this.a0n = function (y) {
             if (0 !== fK && (x || g(),
-                n[y] = !1,
+                n[y] = false,
                 -1 !== t)) {
-                y = !1;
+                y = false;
                 for (var A = 3; 0 <= A; A--)
                     y = y || n[A];
                 y || this.gW()
@@ -10037,7 +10037,7 @@
         this.gW = function () {
             if (x && -1 !== t) {
                 for (var y = 3; 0 <= y; y--)
-                    n[y] = !1;
+                    n[y] = false;
                 clearInterval(t);
                 t = -1
             }
@@ -10051,7 +10051,7 @@
             ;
         this.cg = function (k, x) {
             if (0 === bF[k].length || !ax.ay(x) || !ax.b8(x) && ax.b7(x) === k)
-                return !1;
+                return false;
             for (var t = 21; 0 <= t; t--) {
                 if (21 === t) {
                     var n = bF[k];
@@ -10086,15 +10086,15 @@
                                 ax.ay(C)) {
                                 if (0 === B || B + 20 < A)
                                     break;
-                                n = !0;
+                                n = true;
                                 break a
                             }
-                    n = !1
+                    n = false
                 }
                 if (n)
-                    return !0
+                    return true
             }
-            return !1
+            return false
         }
     }
     function a0k() {
@@ -10108,7 +10108,7 @@
             for (C = iq; 0 <= C; C--)
                 F += A[C],
                     0 === A[C] && B++;
-            x = !1;
+            x = false;
             y.clearRect(0, 0, n, n);
             y.fillStyle = colorBlack75opaque;
             y.fillRect(0, 0, n, n);
@@ -10158,7 +10158,7 @@
             y.lineTo(C + Math.cos(F) * B, C + Math.cos(F + 1.5 * Math.PI) * B);
             y.stroke()
         }
-        var x = !1;
+        var x = false;
         var t = 0;
         var n = 0;
         var l = 0;
@@ -10188,7 +10188,7 @@
                 z.width = n,
                 z.height = n,
                 y = z.getContext("2d", {
-                    alpha: !0
+                    alpha: true
                 }),
                 y.lineWidth = 2,
                 y.strokeStyle = colorWhite,
@@ -10222,7 +10222,7 @@
                     A[C] = 0;
                 for (C = dP - 1; 0 <= C; C--)
                     A[dN.dO[dQ[C]]] += landSizeArray[dQ[C]];
-                x = !0
+                x = true
             }
         }
             ;
@@ -10275,7 +10275,7 @@
         function k() {
             l = 0;
             z += 700 > z ? 200 : 0;
-            bo.bp() && (t() || n) && (n = !1,
+            bo.bp() && (t() || n) && (n = false,
                 oK(),
                 te.bh(),
                 jJ.bh(),
@@ -10287,7 +10287,7 @@
                 ur.lT(),
                 c5.lT(),
                 a5.bh(),
-                1 <= fK ? (e9.lT(!1),
+                1 <= fK ? (e9.lT(false),
                     eB.lT(),
                     dy.lT(),
                     gR.lT(),
@@ -10302,10 +10302,10 @@
                     dx.lT(),
                     eI.lT(),
                     eF.lT(),
-                    gR.qU()) : (0 === jL.rG() ? jN.c6(0, !0) : 2 === jL.rG() ? dk.lT() : 3 === jL.rG() && jM.lT(),
+                    gR.qU()) : (0 === jL.rG() ? jN.c6(0, true) : 2 === jL.rG() ? dk.lT() : 3 === jL.rG() && jM.lT(),
                         jL.uv(),
                         jL.uy()),
-                bw.bx = !0)
+                bw.bx = true)
         }
         function x(y) {
             return y && 128 < y ? Math.floor(y) : 128
@@ -10338,11 +10338,11 @@
                     mainCanvas.height = B);
                 mainCanvas.style.width = y + "px";
                 mainCanvas.style.height = A + "px";
-                return !0
+                return true
             }
-            return !1
+            return false
         }
-        var n = !1;
+        var n = false;
         var l;
         var z;
         this.bh = function () {
@@ -10351,9 +10351,9 @@
             r = s = oX = fx = c3 = bi = 0;
             mainCanvas = document.getElementById("canvasA");
             c9 = mainCanvas.getContext("2d", {
-                alpha: !1
+                alpha: false
             });
-            c9.imageSmoothingEnabled = !1;
+            c9.imageSmoothingEnabled = false;
             t();
             window.addEventListener("resize", g)
         }
@@ -10364,7 +10364,7 @@
         }
             ;
         this.wk = function () {
-            n = !0;
+            n = true;
             500 <= z && k()
         }
     }
@@ -10400,24 +10400,24 @@
             F = aW.fG(x, E);
             -1 === F ? (k(),
                 e7.an(x, E),
-                J = !1) : (t = aW.ae(x, F),
-                    J = !0);
+                J = false) : (t = aW.ae(x, F),
+                    J = true);
             if (J && (k(),
                 J = ak(t, 128),
                 J = 1 > J ? 1 : J,
                 t -= J,
                 x === localPlayerID && (as.at[15] += J),
                 t <= al ? (x === localPlayerID && (as.at[15] += t),
-                    g(!1),
-                    J = !1) : (aW.bL(x, F, t),
-                        J = !0),
+                    g(false),
+                    J = false) : (aW.bL(x, F, t),
+                        J = true),
                 J))
                 if (J = ax.en(z, y),
                     n = Math.abs(A - z) >= Math.abs(C - y) ? J + aN[A > z ? 1 : 3] : J + aN[C > y ? 2 : 0],
                     z = ax.fy(n),
                     y = ax.c7(n),
                     e7.fj(B, n),
-                    J = ax.ay(n) ? !1 : !0,
+                    J = ax.ay(n) ? false : true,
                     J)
                     ax.xl(n) && ax.xs(n, x);
                 else
@@ -10427,7 +10427,7 @@
                         else {
                             J = ax.b7(n);
                             if (J === x) {
-                                g(!0);
+                                g(true);
                                 break a
                             }
                             if (!cZ(x, J)) {
@@ -10439,7 +10439,7 @@
                                     J === localPlayerID && (dw.mb(G, x),
                                         as.at[10] += G),
                                     TroopBalance[J] += G);
-                                g(!0);
+                                g(true);
                                 break a
                             }
                         }
@@ -10448,7 +10448,7 @@
                         aW.au(x, F);
                         aw[x].push(l);
                         aW.cI(x, t, J);
-                        am.cJ(x, !0)
+                        am.cJ(x, true)
                     }
         }
             ;
@@ -10467,9 +10467,9 @@
             var n;
             var l;
             var z;
-            x = !0;
+            x = true;
             t = "rgb(" + wJ[0] + "," + wJ[1] + "," + wJ[2] + ")";
-            var y = a17(mc) ? !0 : x = !1;
+            var y = a17(mc) ? true : x = false;
             if (y)
                 k = null;
             else {
@@ -10489,7 +10489,7 @@
                     k[y].width = B;
                     k[y].height = F;
                     var E = k[y].getContext("2d", {
-                        alpha: !1
+                        alpha: false
                     });
                     var J = E.getImageData(0, 0, B, F);
                     var G = J.data;
@@ -10683,13 +10683,13 @@
     function a0h() {
         this.bk = this.pT = this.a3v = this.a3u = this.wV = this.mh = this.mg = this.tj = this.ti = this.hj = this.hi = this.co = this.bt = 0;
         this.lP = ["Territory", "Balance", "Interest", "Numbers"];
-        this.kl = !1;
+        this.kl = false;
         this.a3w = -1;
-        this.a3x = !1;
+        this.a3x = false;
         this.bh = function () {
-            this.kl = !1;
+            this.kl = false;
             this.a3w = -1;
-            this.a3x = !1;
+            this.a3x = false;
             this.lT()
         }
             ;
@@ -10712,27 +10712,27 @@
             ;
         this.bz = function (g, k) {
             if (!this.kl)
-                return !1;
+                return false;
             var x = g;
             var t = k;
             g -= ak(fx - this.bt, 2);
             k -= ak(c3 - this.co, 2);
             if (0 > g || 0 > k || g >= this.bt || k >= this.co) {
                 if (1 < fZ.bz(x, t))
-                    return !0;
+                    return true;
                 this.ko();
-                return !0
+                return true
             }
             if (k < this.co - this.mh)
-                return this.a3x = !0,
+                return this.a3x = true,
                     this.a3w = (g - 2 * this.hi - this.ti) / this.tj,
-                    !0;
+                    true;
             x = Math.floor(g / (this.bt / this.lP.length));
             x = 0 > x ? 0 : x >= this.lP.length ? this.lP.length - 1 : x;
             x !== this.bk && (this.bk = x,
                 this.a3y(),
-                bw.bx = !0);
-            return !0
+                bw.bx = true);
+            return true
         }
             ;
         this.lK = function (g) {
@@ -10741,14 +10741,14 @@
                 var k = this.a3w;
                 this.a3w = (g - 2 * this.hi - this.ti) / this.tj;
                 if (0 <= this.a3w && 1 >= this.a3w || 0 <= k && 1 >= k)
-                    bw.bx = !0;
-                return !0
+                    bw.bx = true;
+                return true
             }
-            return !1
+            return false
         }
             ;
         this.oj = function () {
-            this.a3x && (this.a3x = !1)
+            this.a3x && (this.a3x = false)
         }
             ;
         this.lY = function () {
@@ -10756,12 +10756,12 @@
         }
             ;
         this.show = function () {
-            2 > as.lc || (this.kl = !0,
+            2 > as.lc || (this.kl = true,
                 this.a3y())
         }
             ;
         this.ko = function () {
-            this.kl = !1;
+            this.kl = false;
             this.a3w = -1
         }
             ;
@@ -11034,7 +11034,7 @@
                             continue a
                         }
                     k.push(F);
-                    A.push(!1);
+                    A.push(false);
                     x.push([]);
                     x[k.length - 1].push(C)
                 }
@@ -11071,7 +11071,7 @@
                         }
                     }
                 }
-                A[B] = !0
+                A[B] = true
             }
         }
             ;
@@ -11167,7 +11167,7 @@
         var x;
         var t = g - 1;
         a: for (; 0 <= t; t--) {
-            var n = x = !1;
+            var n = x = false;
             for (k = 3; 0 <= k; k--) {
                 var l = bE[aE][t] + aN[k];
                 if (ax.xi(l, aE))
@@ -11270,14 +11270,14 @@
                     if (k === b0)
                         break;
                     if (lF(k))
-                        return !0
+                        return true
                 } else if (k === b0) {
                     if (lF(n))
-                        return !0
+                        return true
                 } else if (lJ(k, n))
-                    return !0
+                    return true
             }
-        return !1
+        return false
     }
     function lF(g) {
         var k;
@@ -11287,9 +11287,9 @@
             var n = aN[k];
             for (x = 0; x < t; x++)
                 if (ax.b8(bE[g][x] + n))
-                    return !0
+                    return true
         }
-        return !1
+        return false
     }
     function lJ(g, k) {
         var x;
@@ -11304,10 +11304,10 @@
             for (n = 0; n < t; n++) {
                 var z = bE[g][n] + l;
                 if (ax.b6(z) && ax.b7(z) === k)
-                    return !0
+                    return true
             }
         }
-        return !1
+        return false
     }
     function a0i() {
         function g() {
@@ -11320,7 +11320,7 @@
             bw.gL + 1500 < x && (bw.gL = x,
                 bw.a4j())
         }
-        this.bx = !1;
+        this.bx = false;
         this.a4l = this.a4k = this.a4j = null;
         this.gL = 0;
         this.a4m = -1;
@@ -11342,7 +11342,7 @@
         this.jF = function () {
             this.a4j = this.a4p;
             this.a4k = null;
-            this.bx = !0
+            this.bx = true
         }
             ;
         this.jB = function () {
@@ -11363,7 +11363,7 @@
             e0.d6();
             eK.vU();
             c5.d6();
-            this.bx && (this.bx = !1,
+            this.bx && (this.bx = false,
                 jL.c8())
         }
             ;
@@ -11387,18 +11387,18 @@
         this.gL = bw.gL;
         this.a3n = 56;
         this.vT = this.bk = 0;
-        this.a4u = !1;
+        this.a4u = false;
         this.d6 = function () {
             jT.d6();
             fN ? eO() : 0 === this.bk ? bw.gL >= this.gL && (this.gL += this.a3n * Math.floor(1 + (bw.gL - this.gL) / this.a3n),
                 2 === fK || fZ.lS ? dv() : (e1(),
                     this.vT++,
                     gq.tB()),
-                this.bk++) : (fZ.lS ? eO() : (bw.bx = !0,
+                this.bk++) : (fZ.lS ? eO() : (bw.bx = true,
                     eM()),
                     this.bk = 0);
             eG();
-            bw.bx && (bw.bx = !1,
+            bw.bx && (bw.bx = false,
                 hT())
         }
     }
@@ -11444,11 +11444,11 @@
             fN ? (bw.bx = dy.sl(-1) || bw.bx,
                 eO()) : 0 === this.bk ? bw.gL >= this.gL && (this.gL += this.a3n * Math.floor(1 + (bw.gL - this.gL) / this.a3n),
                     2 === fK ? dv() : this.a4y(),
-                    this.bk++) : (bw.bx = !0,
+                    this.bk++) : (bw.bx = true,
                         eM(),
                         this.bk = 0);
             eG();
-            bw.bx && (bw.bx = !1,
+            bw.bx && (bw.bx = false,
                 hT())
         }
             ;
@@ -11458,8 +11458,8 @@
                     this.vT++,
                     gq.tB();
             else {
-                for (var k = !1; this.a50();)
-                    if (k = !0,
+                for (var k = false; this.a50();)
+                    if (k = true,
                         e1(),
                         this.vT++,
                         0 < this.a4v.length)
@@ -11478,7 +11478,7 @@
                 jS.a4x(this.a4v[0], g),
                 g = (g + 1) % 8,
                 this.a4v.shift(),
-                !0) : !1
+                true) : false
         }
     }
     function kN() {
@@ -11488,7 +11488,7 @@
             0 === x && (document.title = gameModeWinTitle)
         }
         this.gF = 0;
-        this.a51 = !0;
+        this.a51 = true;
         this.d6 = function () {
             bw.gL > this.gF && (this.gF = bw.gL + 1E3,
                 this.a52())
@@ -11498,9 +11498,9 @@
             var k = new Date;
             var x = k.getUTCSeconds();
             this.a51 ? 55 > x || -1 !== bw.a4m || (k = k.getUTCMinutes(),
-                4 === k % 5 ? (this.a51 = !1,
-                    14 === k % 30 ? SetWindowTitle("Upcoming Alliance Contest", 0) : 29 === k % 30 ? SetWindowTitle("Upcoming Battle Royale Contest", 0) : SetWindowTitle("Upcoming One-vs-One Game", 8)) : 2 === k % 5 && (this.a51 = !1,
-                        SetWindowTitle("Upcoming Zombie Game", 9))) : 55 > x && (this.a51 = !0,
+                4 === k % 5 ? (this.a51 = false,
+                    14 === k % 30 ? SetWindowTitle("Upcoming Alliance Contest", 0) : 29 === k % 30 ? SetWindowTitle("Upcoming Battle Royale Contest", 0) : SetWindowTitle("Upcoming One-vs-One Game", 8)) : 2 === k % 5 && (this.a51 = false,
+                        SetWindowTitle("Upcoming Zombie Game", 9))) : 55 > x && (this.a51 = true,
                             document.title = "Territorial.io")
         }
     }
@@ -11521,22 +11521,22 @@
         this.ob = function (z) {
             return 1 < z.touches.length ? (k(z),
                 hY.ko(),
-                !0) : !1
+                true) : false
         }
             ;
         this.og = function (z) {
             if (0 === fK)
-                return !1;
+                return false;
             if (1 < z.touches.length) {
                 if (!eH.gi())
-                    return !0;
+                    return true;
                 var y = _DistBetweenTwoPts_nxlt();
                 k(z);
                 z = _DistBetweenTwoPts_nxlt();
                 gR.qV(Math.floor((x + n) / 2), Math.floor((t + l) / 2), z / y);
-                return bw.bx = !0
+                return bw.bx = true
             }
-            return !1
+            return false
         }
     }
     function kB() {
@@ -11714,13 +11714,13 @@
             eK.vJ = e0.mS;
             if (e0.mS === z)
                 return e0.jE = z,
-                    !1;
+                    false;
             e0.close(e0.mS, 3247);
             e0.jE = z;
             eK.vK = k(n, 10);
             eK.vL = k(n, 2 === l ? 9 : 1);
             e0.qu(z, 5) && iU.a0F();
-            return !0
+            return true
         }
             ;
         this.a4x = function (n, l) {
@@ -11764,7 +11764,7 @@
             this.tC[1] = Math.floor(this.a3V);
             this.tC[2] = Math.floor(this.tC[0] + this.a3W + 1);
             this.tC[3] = Math.floor(this.tC[1] + this.a3X + 1);
-            gq.t9 = !0
+            gq.t9 = true
         }
     }
     function kC() {
@@ -11780,7 +11780,7 @@
                 g -= .001 * (bw.gL - k),
                 g = 0 > g ? 0 : g,
                 k = bw.gL,
-                bw.bx = !0)
+                bw.bx = true)
         }
             ;
         this.c8 = function () {
@@ -11789,12 +11789,12 @@
         }
     }
     function kH() {
-        this.kl = !1;
+        this.kl = false;
         this.wW = [0, 0, 0, 0];
         this.show = function () {
-            this.kl = !0;
+            this.kl = true;
             this.lT();
-            bw.bx = !0
+            bw.bx = true
         }
             ;
         this.lT = function () {
@@ -11805,23 +11805,23 @@
         }
             ;
         this.lK = function (g, k) {
-            return g < this.wW[0] || k < this.wW[1] || g > this.wW[0] + this.wW[2] || k > this.wW[1] + this.wW[3] ? !1 : !0
+            return g < this.wW[0] || k < this.wW[1] || g > this.wW[0] + this.wW[2] || k > this.wW[1] + this.wW[3] ? false : true
         }
             ;
         this.bz = function (g, k) {
-            bw.bx = !0;
+            bw.bx = true;
             if (g < this.wW[0] || k < this.wW[1] || g > this.wW[0] + this.wW[2] || k > this.wW[1] + this.wW[3])
-                return this.kl = !1,
-                    !0;
+                return this.kl = false,
+                    true;
             var x = Math.floor(.13 * this.wW[3]);
             if (k < this.wW[1] + x)
-                return g > this.wW[0] + this.wW[2] - 1.2 * x && (this.kl = !1),
-                    !0;
+                return g > this.wW[0] + this.wW[2] - 1.2 * x && (this.kl = false),
+                    true;
             x = Math.floor(7 * (k - this.wW[1] - x) / (this.wW[3] - x));
             x = 0 > x ? 0 : 6 < x ? 6 : x;
             g > this.wW[0] + this.wW[2] / 2 && (x += 7);
             wK(x, Math.floor(16384 * Math.random()));
-            return !0
+            return true
         }
             ;
         this.c8 = function () {
