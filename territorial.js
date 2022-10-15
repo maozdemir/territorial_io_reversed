@@ -4,12 +4,16 @@
             return c.username;
         if (12 <= d) {
             var playerUsername = htmlLoader.loadString(20);
-            "" === playerUsername && (playerUsername = "Android User " + Math.floor(1E3 * Math.random()),
-                htmlLoader.saveString(20, playerUsername))
+            if ("" === playerUsername) playerUsername = `Android User ${Math.floor(1E3 * Math.random())}`,
+            htmlLoader.saveString(20, playerUsername);
         } else
-            5 <= d ? (playerUsername = htmlLoader.loadString(0),
-                "" === playerUsername && (playerUsername = "Player " + Math.floor(1E3 * Math.random()),
-                    htmlLoader.saveString(0, playerUsername))) : playerUsername = f.g(0);
+            if (5 <= d) {
+                (playerUsername = htmlLoader.loadString(0),
+                "" === playerUsername && (playerUsername = `Player ${Math.floor(1E3 * Math.random())}`,
+                    htmlLoader.saveString(0, playerUsername)));
+            } else {
+                playerUsername = f.g(0);
+            }
         return playerUsername
     }
     function h() {
@@ -93,7 +97,7 @@
                 htmlLoader.saveNumber(21, g ? 1 : 0)) : 5 <= d ? (htmlLoader.saveNumber(1, g ? 1 : 0),
                     htmlLoader.saveNumber(11, k ? 1 : 0)) : (f.x(2, k ? 1 : 0),
                         f.x(4, g ? 0 : 1),
-                        f.y())
+                        f.y());
     }
     function a3() {
         for (var g = "", k = 0; k < a5.a6; k += 2)
@@ -122,7 +126,11 @@
         b ? window.webkit.messageHandlers.iosCommandA.postMessage("show ad 1800000") : 12 <= d && htmlLoader.presentAd(18E5)
     }
     function aC() {
-        b ? location.reload() : 7 <= d ? htmlLoader.setState(5) : location.reload()
+        if (b) {
+            location.reload();
+        } else {
+            7 <= d ? htmlLoader.setState(5) : location.reload();
+        }
     }
     var aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP;
     function aQ() {
@@ -458,8 +466,8 @@
         var k, x = ca[0], t = TroopBalance[x] + aW.ba(x, g);
         for (k = cY - 1; 1 <= k; k--) {
             var n = TroopBalance[ca[k]] + aW.ba(ca[k], g);
-            n < t && (x = ca[k],
-                t = n)
+            if (n < t) x = ca[k],
+            t = n;
         }
         return x
     }
@@ -6023,7 +6031,25 @@
             }
             return !1
         }
-        var l, z, y, A, C, B, F, E, J, G, H, D, LobbyMenuTopRightTexts = ["Joined", "Skipped", "Multiplayer", "Singleplayer"], I = [0, 0, 0, 0], L, O, P, W, V;
+        var l;
+        var z;
+        var y;
+        var A;
+        var C;
+        var B;
+        var F;
+        var E;
+        var J;
+        var G;
+        var H;
+        var D;
+        var LobbyMenuTopRightTexts = ["Joined", "Skipped", "Multiplayer", "Singleplayer"];
+        var I = [0, 0, 0, 0];
+        var L;
+        var O;
+        var P;
+        var W;
+        var V;
         this.bh = function () {
             V = 0;
             G = -1;
@@ -8249,7 +8275,11 @@
         htmlLoader ? htmlLoader.showToast(g) : alert(g)
     }
     function a0W(g) {
-        "ArrowLeft" === g.key ? gS.vC(3) : "ArrowUp" === g.key ? gS.vC(0) : "ArrowRight" === g.key ? gS.vC(1) : "ArrowDown" === g.key ? gS.vC(2) : "a" === g.key ? eA.qB(.96875) : "d" === g.key ? eA.qB(32 / 31) : "s" === g.key ? eA.qB(.875) : "w" === g.key ? eA.qB(8 / 7) : "1" === g.key ? eA.qB(5 / 6) : "2" === g.key && eA.qB(1.2)
+        if ("ArrowLeft" === g.key) {
+            gS.vC(3);
+        } else {
+            "ArrowUp" === g.key ? gS.vC(0) : "ArrowRight" === g.key ? gS.vC(1) : "ArrowDown" === g.key ? gS.vC(2) : "a" === g.key ? eA.qB(.96875) : "d" === g.key ? eA.qB(32 / 31) : "s" === g.key ? eA.qB(.875) : "w" === g.key ? eA.qB(8 / 7) : "1" === g.key ? eA.qB(5 / 6) : "2" === g.key && eA.qB(1.2);
+        }
     }
     function a0X() {
         "hidden" === document.visibilityState ? bw.a0h() : bw.wn()
