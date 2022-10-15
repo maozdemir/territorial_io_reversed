@@ -1,35 +1,34 @@
-
 (function () {
     function a() {
         if (b)
             return c.username;
         if (12 <= d) {
-            var g = e.loadString(20);
-            "" === g && (g = "Android User " + Math.floor(1E3 * Math.random()),
-                e.saveString(20, g))
+            var playerUsername = htmlLoader.loadString(20);
+            "" === playerUsername && (playerUsername = "Android User " + Math.floor(1E3 * Math.random()),
+                htmlLoader.saveString(20, playerUsername))
         } else
-            5 <= d ? (g = e.loadString(0),
-                "" === g && (g = "Player " + Math.floor(1E3 * Math.random()),
-                    e.saveString(0, g))) : g = f.g(0);
-        return g
+            5 <= d ? (playerUsername = htmlLoader.loadString(0),
+                "" === playerUsername && (playerUsername = "Player " + Math.floor(1E3 * Math.random()),
+                    htmlLoader.saveString(0, playerUsername))) : playerUsername = f.g(0);
+        return playerUsername
     }
     function h() {
         i = Math.floor(1 + Math.random() * (Math.pow(2, 30) - 1));
         if (b)
             i = c.id;
         else if (12 <= d) {
-            var g = e.loadNumber(20);
-            -1 === g ? e.saveNumber(20, i) : i = g
+            var g = htmlLoader.loadNumber(20);
+            -1 === g ? htmlLoader.saveNumber(20, i) : i = g
         } else
-            5 <= d ? (g = e.loadNumber(2),
-                2 === g ? e.saveNumber(2, i + 3) : i = g - 3) : i = f.g(1)
+            5 <= d ? (g = htmlLoader.loadNumber(2),
+                2 === g ? htmlLoader.saveNumber(2, i + 3) : i = g - 3) : i = f.g(1)
     }
     function j() {
         var g = 0;
         if (b)
             g = c.password;
         else if (12 <= d)
-            g = e.loadString(22);
+            g = htmlLoader.loadString(22);
         else {
             if (5 <= d)
                 return g;
@@ -40,34 +39,38 @@
         if (0 < g && g < k)
             return g;
         g = Math.floor(1 + (k - 1) * Math.random());
-        return o(g) ? g : 0
+        if (o(g)) {
+            return g;
+        } else {
+            return 0;
+        }
     }
     function p() {
         if (b)
             b_IsUISmall = c.zoom || r < s;
         else if (12 <= d) {
-            var g = e.loadNumber(21);
-            -1 === g ? (b_IsUISmall = 100 >= e.getNumber(0) || r < s,
-                e.saveNumber(21, b_IsUISmall ? 1 : 0)) : b_IsUISmall = 1 === g || r < s
+            var g = htmlLoader.loadNumber(21);
+            -1 === g ? (b_IsUISmall = 100 >= htmlLoader.getNumber(0) || r < s,
+                htmlLoader.saveNumber(21, b_IsUISmall ? 1 : 0)) : b_IsUISmall = 1 === g || r < s
         } else
-            5 <= d ? (g = e.loadNumber(1),
+            5 <= d ? (g = htmlLoader.loadNumber(1),
                 2 === g ? (b_IsUISmall = !0,
-                    e.saveNumber(1, b_IsUISmall ? 1 : 0)) : b_IsUISmall = 1 === g) : b_IsUISmall = 0 === f.g(4) || r < s
+                    htmlLoader.saveNumber(1, b_IsUISmall ? 1 : 0)) : b_IsUISmall = 1 === g) : b_IsUISmall = 0 === f.g(4) || r < s
     }
     function u() {
-        return b ? c.emojis : 5 <= d ? e.loadString(1) : f.g(7)
+        return b ? c.emojis : 5 <= d ? htmlLoader.loadString(1) : f.g(7)
     }
     function v() {
-        return b ? c.colors : 12 <= d ? e.loadString(21) : 5 <= d ? e.loadString(2) : f.g(8)
+        return b ? c.colors : 12 <= d ? htmlLoader.loadString(21) : 5 <= d ? htmlLoader.loadString(2) : f.g(8)
     }
     function w(g) {
         if (b)
             window.webkit.messageHandlers.iosCommandA.postMessage("username " + g);
         else if (12 <= d)
-            e.saveString(20, g),
-                e.setState(10);
+            htmlLoader.saveString(20, g),
+                htmlLoader.setState(10);
         else if (5 <= d)
-            e.saveString(0, g);
+            htmlLoader.saveString(0, g);
         else {
             if (3 > g.length || 0 <= g.indexOf(";"))
                 g = "Player 666";
@@ -79,23 +82,23 @@
         g = m.z(g.toString());
         return b ? (c.password = g,
             window.webkit.messageHandlers.iosCommandA.postMessage("password " + g),
-            !0) : 12 <= d ? (e.saveString(22, g),
+            !0) : 12 <= d ? (htmlLoader.saveString(22, g),
                 !0) : 5 <= d ? !1 : 2 === f.a0() ? (f.x(9, g),
                     f.y(),
                     !0) : !1
     }
     function a1(g, k) {
         b ? (window.webkit.messageHandlers.iosCommandA.postMessage("zoom " + (g ? 1 : 0)),
-            window.webkit.messageHandlers.iosCommandA.postMessage("sound " + (k ? 1 : 0))) : 12 <= d ? (e.saveNumber(22, k ? 1 : 0),
-                e.saveNumber(21, g ? 1 : 0)) : 5 <= d ? (e.saveNumber(1, g ? 1 : 0),
-                    e.saveNumber(11, k ? 1 : 0)) : (f.x(2, k ? 1 : 0),
+            window.webkit.messageHandlers.iosCommandA.postMessage("sound " + (k ? 1 : 0))) : 12 <= d ? (htmlLoader.saveNumber(22, k ? 1 : 0),
+                htmlLoader.saveNumber(21, g ? 1 : 0)) : 5 <= d ? (htmlLoader.saveNumber(1, g ? 1 : 0),
+                    htmlLoader.saveNumber(11, k ? 1 : 0)) : (f.x(2, k ? 1 : 0),
                         f.x(4, g ? 0 : 1),
                         f.y())
     }
     function a3() {
         for (var g = "", k = 0; k < a5.a6; k += 2)
             g += a5.a7[k] || a5.a7[k + 1] ? a5.a7[k] && !a5.a7[k + 1] ? "1" : !a5.a7[k] && a5.a7[k + 1] ? "2" : "3" : "0";
-        b ? window.webkit.messageHandlers.iosCommandA.postMessage("emojis " + g) : 5 <= d ? e.saveString(1, g) : (f.x(7, g),
+        b ? window.webkit.messageHandlers.iosCommandA.postMessage("emojis " + g) : 5 <= d ? htmlLoader.saveString(1, g) : (f.x(7, g),
             f.y())
     }
     function a8(g) {
@@ -103,9 +106,9 @@
             window.webkit.messageHandlers.iosCommandA.postMessage("colors " + g);
         else {
             if (12 <= d)
-                e.saveString(21, g);
+                htmlLoader.saveString(21, g);
             else if (5 <= d) {
-                e.saveString(2, g);
+                htmlLoader.saveString(2, g);
                 return
             }
             f.x(8, g);
@@ -113,13 +116,13 @@
         }
     }
     function a9(g) {
-        b || 5 <= d && e.setState(g)
+        b || 5 <= d && htmlLoader.setState(g)
     }
     function aB() {
-        b ? window.webkit.messageHandlers.iosCommandA.postMessage("show ad 1800000") : 12 <= d && e.presentAd(18E5)
+        b ? window.webkit.messageHandlers.iosCommandA.postMessage("show ad 1800000") : 12 <= d && htmlLoader.presentAd(18E5)
     }
     function aC() {
-        b ? location.reload() : 7 <= d ? e.setState(5) : location.reload()
+        b ? location.reload() : 7 <= d ? htmlLoader.setState(5) : location.reload()
     }
     var aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP;
     function aQ() {
@@ -2112,11 +2115,11 @@
                     K = !0);
             return K
         }
-        var n, l, z, y, A, ConqueeredPlayers, RecentlyLeft, F, E, J;
+        var n, l, z, y, A, conqueeredPlayers, RecentlyLeft, F, E, J;
         this.InitializeMap = function () {
             E = 0;
             F = b_IsUISmall ? 7 : 12;
-            ConqueeredPlayers = [];
+            conqueeredPlayers = [];
             RecentlyLeft = [];
             n = [];
             this.lP();
@@ -2239,9 +2242,9 @@
             eE.gL(G, 2700, !0, 0)
         }
             ;
-        this.mC = function (messageSenderID, MessageTargetID, message) {
+        this.mC = function (messageSenderID, messageTargetID, message) {
             if (messageSenderID === localPlayerID) {
-                PrintTextIntoChat(175, " Message to " + mpPlayerArray[MessageTargetID] + ": ", 1E3 + message, MessageTargetID, colorWhite, colorBlack75opaque, -1, !0);
+                PrintTextIntoChat(175, " Message to " + mpPlayerArray[messageTargetID] + ": ", 1E3 + message, messageTargetID, colorWhite, colorBlack75opaque, -1, !0);
             } else {
                 this.PrintReceivedMessage(messageSenderID, message);
             }
@@ -2293,11 +2296,11 @@
                         dv.mQ(eventPlayerID, 2, 96))
         }
             ;
-        this.PrintRequestAttack = function (NrOfTargets, targetPlayerID) {
-            if (1 < NrOfTargets.length) {
-                PrintTextIntoChat(230, "You asked " + NrOfTargets.length + " players to attack " + mpPlayerArray[targetPlayerID] + ".", 66, targetPlayerID, colorWhite, colorBlack75opaque, -1, !0);
+        this.PrintAskAttack = function (askedTargetsArray, targetPlayerID) {
+            if (1 < askedTargetsArray.length) {
+                PrintTextIntoChat(230, "You asked " + askedTargetsArray.length + " players to attack " + mpPlayerArray[targetPlayerID] + ".", 66, targetPlayerID, colorWhite, colorBlack75opaque, -1, !0);
             } else {
-                PrintTextIntoChat(230, "You asked " + mpPlayerArray[NrOfTargets[0]] + " to attack " + mpPlayerArray[targetPlayerID] + ".", 66, NrOfTargets[0], colorWhite, colorBlack75opaque, targetPlayerID, !0);
+                PrintTextIntoChat(230, "You asked " + mpPlayerArray[askedTargetsArray[0]] + " to attack " + mpPlayerArray[targetPlayerID] + ".", 66, askedTargetsArray[0], colorWhite, colorBlack75opaque, targetPlayerID, !0);
             }
         }
             ;
@@ -2337,20 +2340,20 @@
             PrintTextIntoChat(200, "You exported " + e9.fz(G) + " resource" + (1 === G ? "" : "s") + " to " + mpPlayerArray[H] + ".", 30, H, "rgb(190,255,190)", colorBlack75opaque, -1, !0)
         }
             ;
-        this.PrintReceiveExportEvent = function (G, H) {
+        this.PrintReceiveExportEvent = function (G, senderPlayerID) {
             var D = 200 - 20 * n.length;
-            PrintTextIntoChat(80 > D ? 80 : D, mpPlayerArray[H] + " supported you with " + e9.fz(G) + " resource" + (1 === G ? "" : "s") + ".", 31, H, colorBlack, "rgba(205,255,205,0.9)", -1, !0);
+            PrintTextIntoChat(80 > D ? 80 : D, mpPlayerArray[senderPlayerID] + " supported you with " + e9.fz(G) + " resource" + (1 === G ? "" : "s") + ".", 31, senderPlayerID, colorBlack, "rgba(205,255,205,0.9)", -1, !0);
             x(31, b_IsUISmall ? 4 : 6)
         }
             ;
         this.PrintConqueerEvent = function (G, H) {
-            var NumConqueeredPlayers = ConqueeredPlayers.length;
-            if (32 <= iX - iW || 0 < NumConqueeredPlayers) {
+            var numConqueeredPlayers = conqueeredPlayers.length;
+            if (32 <= iX - iW || 0 < numConqueeredPlayers) {
                 var K = bw.dK();
-                ConqueeredPlayers.push(K);
-                ConqueeredPlayers.push(G);
-                2 < NumConqueeredPlayers && (ConqueeredPlayers[0] < K - 140 || 2 === fH) && (PrintTextIntoChat(260, mpPlayerArray[G] + " and " + Math.floor(NumConqueeredPlayers / 2) + " other players were conquered.", 7, G, colorWhite, colorBlack75opaque, -1, !1),
-                    ConqueeredPlayers = [])
+                conqueeredPlayers.push(K);
+                conqueeredPlayers.push(G);
+                2 < numConqueeredPlayers && (conqueeredPlayers[0] < K - 140 || 2 === fH) && (PrintTextIntoChat(260, mpPlayerArray[G] + " and " + Math.floor(numConqueeredPlayers / 2) + " other players were conquered.", 7, G, colorWhite, colorBlack75opaque, -1, !1),
+                    conqueeredPlayers = [])
             } else
                 PrintTextIntoChat(260, mpPlayerArray[G] + " was conquered by " + mpPlayerArray[H] + ".", 7, H, colorWhite, colorBlack75opaque, -1, !0)
         }
@@ -2378,7 +2381,7 @@
     function mb() {
         this.bq = this.md = this.mc = this.hf = this.co = this.bt = 0;
         this.bk = -1;
-        this.CookiesDialogRows = ["Accept Cookies", "More Information", "Decline"];
+        this.cookiesDialogRowsStrings = ["Accept Cookies", "More Information", "Decline"];
         this.colors = ["rgba(0,255,0,0.4)", "rgba(0,0,255,0.4)", "rgba(255,0,0,0.4)"];
         this.kh = !1;
         this.bh = function () {
@@ -2422,8 +2425,8 @@
             k -= Math.floor(c3 - this.co - c2);
             if (0 > g || 0 > k || g >= this.bt || k >= this.co)
                 return -1;
-            var x = Math.floor((k - .5 * this.mc) / ((this.co - this.mc) / this.CookiesDialogRows.length));
-            return 0 > x ? 0 : x >= this.CookiesDialogRows.length ? this.CookiesDialogRows.length - 1 : x
+            var x = Math.floor((k - .5 * this.mc) / ((this.co - this.mc) / this.cookiesDialogRowsStrings.length));
+            return 0 > x ? 0 : x >= this.cookiesDialogRowsStrings.length ? this.cookiesDialogRowsStrings.length - 1 : x
         }
             ;
         this.c8 = function () {
@@ -2441,14 +2444,14 @@
             c9.strokeStyle = colorWhite;
             c9.font = bl + this.bq + bm;
             c9.strokeRect(0, 0, this.bt, this.co);
-            for (var x = this.CookiesDialogRows.length - 1; 0 <= x; x--)
+            for (var x = this.cookiesDialogRowsStrings.length - 1; 0 <= x; x--)
                 c9.setTransform(1, 0, 0, 1, g + this.hf, k + this.mc + x * (this.mc + this.md)),
                     c9.fillStyle = this.colors[x],
                     c9.fillRect(0, 0, this.hg, this.md),
                     this.bk === x && (c9.fillStyle = mk,
                         c9.fillRect(0, 0, this.hg, this.md)),
                     c9.fillStyle = colorWhite,
-                    c9.fillText(this.CookiesDialogRows[x], this.hg / 2, .54 * this.md),
+                    c9.fillText(this.cookiesDialogRowsStrings[x], this.hg / 2, .54 * this.md),
                     c9.strokeRect(0, 0, this.hg, this.md);
             c9.setTransform(1, 0, 0, 1, 0, 0)
         }
@@ -2476,15 +2479,15 @@
         }
             ;
         this.setTime = function () {
-            var varDate = new Date;
-            var varMins = varDate.getUTCMinutes()
-                , varSecs = varDate.getUTCSeconds();
-            secondsLeft = 3600 - 60 * varMins - varSecs;
+            var date = new Date;
+            var minsNow = date.getUTCMinutes()
+                , secsNow = date.getUTCSeconds();
+            secondsLeft = 3600 - 60 * minsNow - secsNow;
             secondsLeft %= 900;
             textConquestCounter = "Next Contest: " + g(Math.floor(secondsLeft / 60)) + ":" + g(secondsLeft % 60);
-            varDate = t;
-            t = 60 * varMins + varSecs;
-            if (varDate === t)
+            date = t;
+            t = 60 * minsNow + secsNow;
+            if (date === t)
                 return !1;
             n = bu.measureText(textConquestCounter, z);
             n += Math.floor(.4 * l);
@@ -2509,7 +2512,7 @@
     }
     function mt() {
         this.mu = 10;
-        this.mw = this.mv = 50;
+        //this // oopsie
         this.mx = 8;
         this.my = this.mv + this.mw;
         this.a6 = this.mv + this.mw + this.mx;
@@ -2691,15 +2694,15 @@
         c4.bh()
     }
     function oI() {
-        CanvasAElem.addEventListener("mousedown", MouseDownListener);
-        CanvasAElem.addEventListener("mousemove", MouseMoveListener);
-        CanvasAElem.addEventListener("mouseup", MouseUpListener);
-        CanvasAElem.addEventListener("mouseleave", MouseLeaveListener);
-        CanvasAElem.addEventListener("wheel", MouseWheelListener);
-        CanvasAElem.addEventListener("touchstart", TouchStartListener);
-        CanvasAElem.addEventListener("touchmove", TouchMoveListener);
-        CanvasAElem.addEventListener("touchend", TouchEndListener);
-        CanvasAElem.addEventListener("touchcancel", TouchCancelListener);
+        mainCanvas.addEventListener("mousedown", MouseDownListener);
+        mainCanvas.addEventListener("mousemove", MouseMoveListener);
+        mainCanvas.addEventListener("mouseup", MouseUpListener);
+        mainCanvas.addEventListener("mouseleave", MouseLeaveListener);
+        mainCanvas.addEventListener("wheel", MouseWheelListener);
+        mainCanvas.addEventListener("touchstart", TouchStartListener);
+        mainCanvas.addEventListener("touchmove", TouchMoveListener);
+        mainCanvas.addEventListener("touchend", TouchEndListener);
+        mainCanvas.addEventListener("touchcancel", TouchCancelListener);
         oB = !1
     }
     function oG() {
@@ -4868,8 +4871,7 @@
             x[this.tA] = bw.gI;
             dy.qq(0, 1 + this.tA) && iR.tQ(0, this.tA);
             return !0
-        }
-            ;
+        };
         this.DrawHallOfFame = function () {
             if (this.kh) {
                 var t = this.tB * this.bt
@@ -4957,7 +4959,7 @@
         this.kh = !1;
         this.bh = function (J, G) {
             if (13 <= d)
-                G ? F = J : F === J && e.saveString(200, J);
+                G ? F = J : F === J && htmlLoader.saveString(200, J);
             else if (G) {
                 (c4.lg[1].iI.kh || c4.lg[2].iI.kh) && c4.ts();
                 jD.st();
@@ -7788,7 +7790,7 @@
                 !0) : !1
         }
             ;
-        this.fw = function (M) {
+        this._GetIndexMFromArrH = function (M) {
             return H[M]
         }
             ;
@@ -8150,15 +8152,15 @@
             k += TroopBalance[dP[g]];
         return k % 4096
     }
-    var CanvasAElem, c9, patchVer, a0J, r, s, oT, bi, fu, c3, a0K, b, c, e, d, b_IsUISmall, a0L = !1, a0M, a0N, i, gd, rw, gn, a5, as, hW, um, bw, dM, eC, c5, fR, us, mh, tZ, a0O, a0P, a0Q = 0, a0R = "";
+    var mainCanvas, c9, patchVer, a0J, r, s, oT, bi, fu, c3, a0K, b, c, htmlLoader, d, b_IsUISmall, a0L = !1, a0M, a0N, i, gd, rw, gn, a5, as, hW, um, bw, dM, eC, c5, fR, us, mh, tZ, a0O, a0P, a0Q = 0, a0R = "";
     function a0S() {
         a0P = 2;
         a0J = 3426;
         patchVer = "1.81.1   13 October 2022";
         jV();
         cz();
-        d = (e = "undefined" !== typeof Android ? Android : null) ? e.getVersion() : 0;
-        12 <= d && e.prepareAd("6685097465");
+        d = (htmlLoader = "undefined" !== typeof Android ? Android : null) ? htmlLoader.getVersion() : 0;
+        12 <= d && htmlLoader.prepareAd("6685097465");
         b = !1;
         window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.iosCommandA && (b = !0,
             window.webkit.messageHandlers.iosCommandA.postMessage("prepare ad 5907904081"),
@@ -8244,7 +8246,7 @@
                     console.log(g)))
     }
     function a0g(g) {
-        e ? e.showToast(g) : alert(g)
+        htmlLoader ? htmlLoader.showToast(g) : alert(g)
     }
     function a0W(g) {
         "ArrowLeft" === g.key ? gS.vC(3) : "ArrowUp" === g.key ? gS.vC(0) : "ArrowRight" === g.key ? gS.vC(1) : "ArrowDown" === g.key ? gS.vC(2) : "a" === g.key ? eA.qB(.96875) : "d" === g.key ? eA.qB(32 / 31) : "s" === g.key ? eA.qB(.875) : "w" === g.key ? eA.qB(8 / 7) : "1" === g.key ? eA.qB(5 / 6) : "2" === g.key && eA.qB(1.2)
@@ -9034,8 +9036,8 @@
             var B = jT.zl ? 1 : 0
                 , F = jT.a2U ? 1 : 0;
             b ? (window.webkit.messageHandlers.iosCommandA.postMessage("freeSpawn " + B),
-                window.webkit.messageHandlers.iosCommandA.postMessage("unlimitedTime " + F)) : 5 <= d ? (e.saveNumber(25, B),
-                    e.saveNumber(26, F)) : (f.x(6, B && F ? 3 : !B && F ? 2 : B && !F ? 1 : 0),
+                window.webkit.messageHandlers.iosCommandA.postMessage("unlimitedTime " + F)) : 5 <= d ? (htmlLoader.saveNumber(25, B),
+                    htmlLoader.saveNumber(26, F)) : (f.x(6, B && F ? 3 : !B && F ? 2 : B && !F ? 1 : 0),
                         f.y())
         }
         function k(B, F, E, J) {
@@ -9082,8 +9084,8 @@
             , C = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         this.bh = function () {
             b ? (this.zl = c.freeSpawn,
-                this.a2U = c.unlimitedTime) : 5 <= d ? (this.zl = 1 === e.loadNumber(25),
-                    this.a2U = 1 === e.loadNumber(26)) : (this.zl = 1 === f.g(6) % 2,
+                this.a2U = c.unlimitedTime) : 5 <= d ? (this.zl = 1 === htmlLoader.loadNumber(25),
+                    this.a2U = 1 === htmlLoader.loadNumber(26)) : (this.zl = 1 === f.g(6) % 2,
                         this.a2U = 1 < f.g(6));
             A[2] = this.zl ? 130 : 0;
             A[3] = this.a2U ? 130 : 0;
@@ -9471,23 +9473,23 @@
                 oT = FindMin(r, s);
                 bi = ak(s + r, 2);
                 if (5 <= d) {
-                    var C = e.loadNumber(23);
-                    var B = e.loadNumber(24);
+                    var C = htmlLoader.loadNumber(23);
+                    var B = htmlLoader.loadNumber(24);
                     y > C && (C = y,
-                        e.saveNumber(23, C));
+                        htmlLoader.saveNumber(23, C));
                     A > B && (B = A,
-                        e.saveNumber(24, B))
+                        htmlLoader.saveNumber(24, B))
                 } else
                     C = y,
                         B = A;
-                y = CanvasAElem.width;
-                A = CanvasAElem.height;
+                y = mainCanvas.width;
+                A = mainCanvas.height;
                 C > y && (y = C,
-                    CanvasAElem.width = C);
+                    mainCanvas.width = C);
                 B > A && (A = B,
-                    CanvasAElem.height = B);
-                CanvasAElem.style.width = y + "px";
-                CanvasAElem.style.height = A + "px";
+                    mainCanvas.height = B);
+                mainCanvas.style.width = y + "px";
+                mainCanvas.style.height = A + "px";
                 return !0
             }
             return !1
@@ -9497,8 +9499,8 @@
             l = 1;
             z = 100;
             r = s = oT = fu = c3 = bi = 0;
-            CanvasAElem = document.getElementById("canvasA");
-            c9 = CanvasAElem.getContext("2d", {
+            mainCanvas = document.getElementById("canvasA");
+            c9 = mainCanvas.getContext("2d", {
                 alpha: !1
             });
             c9.imageSmoothingEnabled = !1;
