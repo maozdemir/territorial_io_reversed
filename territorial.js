@@ -5269,7 +5269,7 @@
         this.bn = function () {
             bw.gL - 12E4 >= x[this.tF] && (x[this.tF] = bw.gL,
                 this.tU = [0, 0],
-                low_level_websocket.qu(0, 1 + this.tF) && iU.tV(0, this.tF))
+                low_level_websocket.qu(0, 1 + this.tF) && iU.get_top(0, this.tF))
         }
             ;
         this.lT = function () {
@@ -5371,7 +5371,7 @@
             if (x[this.tF] + 50 > bw.gL)
                 return true;
             x[this.tF] = bw.gL;
-            low_level_websocket.qu(0, 1 + this.tF) && iU.tV(0, this.tF);
+            low_level_websocket.qu(0, 1 + this.tF) && iU.get_top(0, this.tF);
             return true
         }
             ;
@@ -8811,7 +8811,7 @@
         }
             ;
         this.a0E = function (n, l) {
-            0 === l ? jI.qw() : 3 > l ? iU.tV(n, l - 1) : 3 === l ? iU.wa(n) : 4 === l ? jK.qw(n) : 5 === l ? n === this.jE && iU.a0F() : 6 === l ? iU.a0G(n) : 7 === l && iU.wz(n)
+            0 === l ? jI.qw() : 3 > l ? iU.get_top(n, l - 1) : 3 === l ? iU.wa(n) : 4 === l ? jK.qw(n) : 5 === l ? n === this.jE && iU.a0F() : 6 === l ? iU.a0G(n) : 7 === l && iU.wz(n)
         }
             ;
         this.uZ = function (n) {
@@ -10551,33 +10551,34 @@
     function a0D() {
         function g() { }
         function wsOnOpenListener() {
-            low_level_websocket.a0E(z, y)
+            low_level_websocket.a0E(websocket_state, y)
         }
         function wsOnMessageListener(E) {
             A++;
-            1 === A ? fileReader.readAsArrayBuffer(E.data) : C.push(E.data)
+            A === 1 ? fileReader.readAsArrayBuffer(E.data) : processing_queue.push(E.data)
         }
         function loadEndListener() {
             A--;
-            jS.a3l(z, new Uint8Array(fileReader.result));
-            0 < A && (fileReader.readAsArrayBuffer(C[0]),
-                C.shift())
+            jS.a3l(websocket_state, new Uint8Array(fileReader.result));
+            if (A > 0){fileReader.readAsArrayBuffer(processing_queue[0]),
+                processing_queue.shift()}
         }
         function wsOnErrorListener() { }
         function wsOnCloseListener(E) {
-            low_level_websocket.a0K(z, E)
+            low_level_websocket.a0K(websocket_state, E)
         }
-        var z;
+        var websocket_state;
         var y;
         var A;
-        var C;
+        var processing_queue;
         var fileReader;
         var webSocket;
         this.bh = function (E, J, G) {
-            z = E;
+            websocket_state = E;
+            // Note that websocket_state is different from game_state
             y = J;
             A = 0;
-            C = [];
+            processing_queue = [];
             fileReader = new FileReader;
             fileReader.addEventListener("loadend", loadEndListener);
             webSocket = new WebSocket(oI[0] + G + oI[1 + a0U]);
@@ -11563,40 +11564,40 @@
         }
         var x;
         var t;
-        this.a3l = function (n, l) {
+        this.on_message = function (websocket_state, content) {
             t = 0;
-            x = l.length;
-            if (0 === x)
-                low_level_websocket.a0I(n, 3205);
+            content_length = content.length;
+            if (content_length === 0)
+                low_level_websocket.a0I(websocket_state, 3205);
             else {
-                var z = k(l, 1);
+                var z = k(content, 1);
                 if (0 === z)
-                    if (z = k(l, 2),
+                    if (z = k(content, 2),
                         0 === z)
-                        if (0 === k(l, 1)) {
-                            if (0 === n && 8 !== jL.rG() && !(4 > x)) {
-                                te.bj(0, g(k(l, 5), l));
-                                te.bj(1, "[" + g(k(l, 3), l) + "]");
-                                var y = k(l, 12);
-                                var A = k(l, 6);
+                        if (0 === k(content, 1)) {
+                            if (0 === websocket_state && 8 !== jL.rG() && !(4 > content_length)) {
+                                te.bj(0, g(k(content, 5), content));
+                                te.bj(1, "[" + g(k(content, 3), content) + "]");
+                                var y = k(content, 12);
+                                var A = k(content, 6);
                                 var C = Array(y);
                                 for (z = 0; z < y; z++)
-                                    C[z] = k(l, A);
+                                    C[z] = k(content, A);
                                 jI.qy(C)
                             }
                         } else {
                             if (8 !== jL.rG())
-                                if (3 > x)
-                                    low_level_websocket.a0I(n, 3208);
+                                if (3 > content_length)
+                                    low_level_websocket.a0I(websocket_state, 3208);
                                 else {
-                                    y = k(l, 1);
-                                    A = k(l, 16);
-                                    C = k(l, 4);
+                                    y = k(content, 1);
+                                    A = k(content, 16);
+                                    C = k(content, 4);
                                     var B = [];
                                     for (z = 0; z < C; z++) {
-                                        var F = k(l, 14);
-                                        var E = k(l, 5);
-                                        E = g(E, l);
+                                        var F = k(content, 14);
+                                        var E = k(content, 5);
+                                        E = g(E, content);
                                         B.push({
                                             mP: E,
                                             hq: F
@@ -11606,43 +11607,43 @@
                                 }
                         }
                     else if (1 === z)
-                        if (n !== low_level_websocket.mS)
-                            low_level_websocket.close(n, 3239);
+                        if (websocket_state !== low_level_websocket.mS)
+                            low_level_websocket.close(websocket_state, 3239);
                         else if (6 === jL.rG() && jU.bh(),
                             7 !== jL.rG())
-                            low_level_websocket.close(n, 3251);
+                            low_level_websocket.close(websocket_state, 3251);
                         else {
                             y = [0, 0, 0, 0];
-                            A = k(l, 6);
+                            A = k(content, 6);
                             for (z = 0; 4 > z; z++)
-                                y[z] = k(l, A);
-                            C = k(l, 4);
+                                y[z] = k(content, A);
+                            C = k(content, 4);
                             B = [];
                             for (z = 0; z < C; z++)
                                 B.push({
-                                    id: k(l, 5),
-                                    iw: k(l, 4),
-                                    wA: 1 === k(l, 1),
-                                    mc: k(l, 6),
-                                    w8: k(l, 14),
-                                    wD: k(l, A),
-                                    wE: k(l, 9) + 1,
-                                    un: k(l, 10)
+                                    id: k(content, 5),
+                                    iw: k(content, 4),
+                                    wA: 1 === k(content, 1),
+                                    mc: k(content, 6),
+                                    w8: k(content, 14),
+                                    wD: k(content, A),
+                                    wE: k(content, 9) + 1,
+                                    un: k(content, 10)
                                 });
                             jU.tf(y, B)
                         }
                     else
-                        2 !== z && 3 !== z || eK.bh(l);
+                        2 !== z && 3 !== z || eK.bh(content);
                 else
                     1 === z && (z = jL.rG(),
-                        8 !== z ? 10 === z && low_level_websocket.a0I(n, 3243) : n !== low_level_websocket.jE ? low_level_websocket.a0I(n, 3244) : 0 === k(l, 1) ? bw.a4l.a4w(l) : (z = k(l, 2),
-                            0 === z ? 3 !== x ? low_level_websocket.a0I(low_level_websocket.jE, 3230) : (z = k(l, 9),
-                                y = k(l, 7),
+                        8 !== z ? 10 === z && low_level_websocket.a0I(websocket_state, 3243) : websocket_state !== low_level_websocket.jE ? low_level_websocket.a0I(websocket_state, 3244) : 0 === k(content, 1) ? bw.a4l.a4w(content) : (z = k(content, 2),
+                            0 === z ? 3 !== content_length ? low_level_websocket.a0I(low_level_websocket.jE, 3230) : (z = k(content, 9),
+                                y = k(content, 7),
                                 0 !== f1[z] && 0 !== f1[localPlayerID] && (y %= a5.a6,
                                     dw.mG(z, localPlayerID, y),
-                                    dx.mU(z, 1, y))) : 1 === z ? 2 !== x ? low_level_websocket.a0I(low_level_websocket.jE, 3235) : (z = k(l, 9),
-                                        0 !== f1[z] && 0 !== f1[localPlayerID] && (dw.l6(50, z) || dw.l6(52, z) || dw.l7(z, 1))) : 3 !== x ? low_level_websocket.a0I(low_level_websocket.jE, 3236) : (z = k(l, 9),
-                                            y = k(l, 9),
+                                    dx.mU(z, 1, y))) : 1 === z ? 2 !== content_length ? low_level_websocket.a0I(low_level_websocket.jE, 3235) : (z = k(content, 9),
+                                        0 !== f1[z] && 0 !== f1[localPlayerID] && (dw.l6(50, z) || dw.l6(52, z) || dw.l7(z, 1))) : 3 !== content_length ? low_level_websocket.a0I(low_level_websocket.jE, 3236) : (z = k(content, 9),
+                                            y = k(content, 9),
                                             0 === f1[z] || 0 === f1[y] || 0 === f1[localPlayerID] || dw.mW(50, z, y) || (dx.mU(z, 3, 96),
                                                 dx.mU(y, 4, 96),
                                                 dw.mV(z, y)))))
@@ -11914,16 +11915,17 @@
             low_level_websocket.send(l, packet)
         }
             ;
-        this.tV = function (l, z) {
-            var y = new Uint8Array(5);
+        this.get_top = function (l, type) {
+            // Type: 0 -> players, 1 -> clans
+            var packet = new Uint8Array(5);
             n = 0;
-            write_bits(y, 1, 0);
-            write_bits(y, 3, 7);
-            write_bits(y, 3, 0);
-            write_bits(y, 14, version);
-            write_bits(y, 1, z);
-            write_bits(y, 16, Math.abs(4096 + c5.position[z] + c5.tU[z]) % 65536);
-            low_level_websocket.send(l, y)
+            write_bits(packet, 1, 0); // Game state, lobby
+            write_bits(packet, 3, 7); // Packet id, 7
+            write_bits(packet, 3, 0);
+            write_bits(packet, 14, version);
+            write_bits(packet, 1, type);
+            write_bits(packet, 16, Math.abs(4096 + c5.position[type] + c5.tU[type]) % 65536);
+            low_level_websocket.send(l, packet)
         }
             ;
         this.a0G = function (l) {
