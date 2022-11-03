@@ -1482,7 +1482,7 @@
             return n
         }
             ;
-        this.i7 = function (n) {
+        this.encode_string = function (n) {
             n = n.trim();
             for (l = n.length, z = [], A = 0, void 0; A < l; A++) {
                 var l;
@@ -1513,7 +1513,7 @@
         }
             ;
         this.i9 = function (n) {
-            n = this.i7(n);
+            n = this.encode_string(n);
             for (l = "", z = 0, void 0; z < n.length; z++) {
                 var l;
                 var z;
@@ -1870,7 +1870,7 @@
         jR = new kA;
         jS = new kB;
         eJ = new kC;
-        iU = new kD;
+        iU = new WebSocketAPI;
         jT = new kE;
         eA = new kF;
         jU = new kG;
@@ -6948,7 +6948,7 @@
             var x = this.BOT_DATA_SP.length - 2;
             x = 0 > x ? 7 : x;
             it(Math.floor(16384 * Math.random()), 0, [{
-                mP: jG.wb(),
+                mP: jG.nickname(),
                 id: 0,
                 wc: c4.lk[2].iL.uN(),
                 wd: 0
@@ -11856,7 +11856,7 @@
             c9.setTransform(1, 0, 0, 1, 0, 0)
         }
     }
-    function kD() {
+    function WebSocketAPI() {
         function g(l) {
             var z = j();
             var y = Math.floor(z / 16777216);
@@ -11870,7 +11870,7 @@
             t(l, 1, a0R ? 1 : 0);
             t(l, 5, (new Date).getHours() % 24)
         }
-        function x(l) {
+        function bit_to_bytes(l) { // This is just a ceiling division
             return ak(l, 8) + (0 < l % 8 ? 1 : 0)
         }
         function t(l, z, y) {
@@ -11895,9 +11895,9 @@
         }
             ;
         this.ue = function (l) {
-            var z = m.i7(jG.wb());
-            var y = z.length;
-            var A = new Uint8Array(x(105 + 10 * y));
+            var nickname = m.encode_string(jG.nickname());
+            var y = nickname.length;
+            var A = new Uint8Array(bit_to_bytes(105 + 10 * y));
             n = 0;
             t(A, 1, 0);
             t(A, 3, 1);
@@ -11909,7 +11909,7 @@
             g(A);
             k(A);
             for (C = 0; C < y; C++)
-                t(A, 10, z[C]);
+                t(A, 10, nickname[C]);
             e0.mS = l;
             e0.send(l, A)
         }
@@ -11934,7 +11934,7 @@
             t(y, 3, 7);
             t(y, 3, 1);
             t(y, 14, a0V);
-            var A = m.i7(a0W);
+            var A = m.encode_string(a0W);
             var C = FindMin(A.length, 77);
             t(y, 7, C);
             for (z = 0; z < C; z++)
@@ -12083,7 +12083,7 @@
         this.ky = function (l, z) {
             var y;
             var A = l.length;
-            var C = new Uint8Array(x(15 + 9 * A));
+            var C = new Uint8Array(bit_to_bytes(15 + 9 * A));
             n = 0;
             t(C, 1, 1);
             t(C, 3, 6);
