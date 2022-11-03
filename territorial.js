@@ -1482,14 +1482,14 @@
             return n
         }
             ;
-        this.encode_string = function (n) {
-            n = n.trim();
-            for (l = n.length, z = [], A = 0, void 0; A < l; A++) {
+        this.encode_string = function (string) {
+            string = string.trim();
+            for (l = string.length, z = [], A = 0, void 0; A < l; A++) {
                 var l;
                 var z;
                 var y;
                 var A;
-                y = n.charCodeAt(A);
+                y = string.charCodeAt(A);
                 var C = g(y);
                 z.push(t[C] + y - k[C])
             }
@@ -5921,7 +5921,7 @@
             H++;
             G = bw.gL;
             e0.qu((H + D) % e0.ud, 4) && (K = true,
-                iU.ue((H + D) % e0.ud))
+                iU.join_lobby((H + D) % e0.ud))
         }
         function k() {
             if (H >= e0.ud - 1)
@@ -6001,7 +6001,7 @@
         this.qw = function (I) {
             6 !== jL.rG() || K || (G = bw.gL,
                 K = true,
-                iU.ue(I))
+                iU.join_lobby(I))
         }
             ;
         this.d6 = function () {
@@ -11860,56 +11860,56 @@
         function g(l) {
             var z = j();
             var y = Math.floor(z / 16777216);
-            t(l, 24, y);
-            t(l, 24, z - 16777216 * y)
+            write_bits(l, 24, y);
+            write_bits(l, 24, z - 16777216 * y)
         }
         function k(l) {
-            t(l, 14, a0O);
-            t(l, 4, b ? 2 : 12 <= d ? 1 : 0 < d ? 3 : 0);
-            t(l, 1, isURLTerritorialIo ? 1 : 0);
-            t(l, 1, a0R ? 1 : 0);
-            t(l, 5, (new Date).getHours() % 24)
+            write_bits(l, 14, a0O);
+            write_bits(l, 4, b ? 2 : 12 <= d ? 1 : 0 < d ? 3 : 0);
+            write_bits(l, 1, isURLTerritorialIo ? 1 : 0);
+            write_bits(l, 1, a0R ? 1 : 0);
+            write_bits(l, 5, (new Date).getHours() % 24)
         }
         function bit_to_bytes(l) { // This is just a ceiling division
             return ak(l, 8) + (0 < l % 8 ? 1 : 0)
         }
-        function t(l, z, y) {
-            for (B = n, void 0; B < n + z; B++) {
+        function write_bits(array, length, bits) {
+            for (B = n, void 0; B < n + length; B++) {
                 var A;
                 var C;
                 var B;
                 A = ak(B, 8),
                     C = 7 - B % 8,
-                    l[A] |= (y >> z - (B - n + 1) & 1) << C;
+                    array[A] |= (bits >> length - (B - n + 1) & 1) << C;
             }
-            n += z
+            n += length
         }
         var n;
         this.qx = function () {
             var l = new Uint8Array(3);
             n = 0;
-            t(l, 1, 0);
-            t(l, 3, 0);
-            t(l, 14, a0O);
+            write_bits(l, 1, 0);
+            write_bits(l, 3, 0);
+            write_bits(l, 14, a0O);
             e0.send(0, l)
         }
             ;
-        this.ue = function (l) {
+        this.join_lobby = function (l) {
             var nickname = m.encode_string(jG.nickname());
             var y = nickname.length;
             var A = new Uint8Array(bit_to_bytes(105 + 10 * y));
             n = 0;
-            t(A, 1, 0);
-            t(A, 3, 1);
-            t(A, 10, a0T);
+            write_bits(A, 1, 0);
+            write_bits(A, 3, 1);
+            write_bits(A, 10, a0T);
             var C = c4.lk[2].iL.uN();
-            t(A, 6, C[0]);
-            t(A, 6, C[1]);
-            t(A, 6, C[2]);
+            write_bits(A, 6, C[0]);
+            write_bits(A, 6, C[1]);
+            write_bits(A, 6, C[2]);
             g(A);
             k(A);
             for (C = 0; C < y; C++)
-                t(A, 10, nickname[C]);
+                write_bits(A, 10, nickname[C]);
             e0.mS = l;
             e0.send(l, A)
         }
@@ -11917,12 +11917,12 @@
         this.tV = function (l, z) {
             var y = new Uint8Array(5);
             n = 0;
-            t(y, 1, 0);
-            t(y, 3, 7);
-            t(y, 3, 0);
-            t(y, 14, a0O);
-            t(y, 1, z);
-            t(y, 16, Math.abs(4096 + c5.position[z] + c5.tU[z]) % 65536);
+            write_bits(y, 1, 0);
+            write_bits(y, 3, 7);
+            write_bits(y, 3, 0);
+            write_bits(y, 14, a0O);
+            write_bits(y, 1, z);
+            write_bits(y, 16, Math.abs(4096 + c5.position[z] + c5.tU[z]) % 65536);
             e0.send(l, y)
         }
             ;
@@ -11930,15 +11930,15 @@
             var z;
             var y = new Uint8Array(100);
             n = 0;
-            t(y, 1, 0);
-            t(y, 3, 7);
-            t(y, 3, 1);
-            t(y, 14, a0V);
+            write_bits(y, 1, 0);
+            write_bits(y, 3, 7);
+            write_bits(y, 3, 1);
+            write_bits(y, 14, a0V);
             var A = m.encode_string(a0W);
             var C = FindMin(A.length, 77);
-            t(y, 7, C);
+            write_bits(y, 7, C);
             for (z = 0; z < C; z++)
-                t(y, 10, A[z]);
+                write_bits(y, 10, A[z]);
             e0.send(l, y)
         }
             ;
@@ -11948,13 +11948,13 @@
                 jG.wp = bw.gL;
                 var y = new Uint8Array(17);
                 n = 0;
-                t(y, 1, 0);
-                t(y, 3, 7);
-                t(y, 3, 2);
+                write_bits(y, 1, 0);
+                write_bits(y, 3, 7);
+                write_bits(y, 3, 2);
                 g(y);
                 var A = FindMax(jG.wo.length - 20, 0);
                 for (z = jG.wo.length - 1; z >= A; z--)
-                    t(y, 4, Math.abs(jG.wo.charCodeAt(z) - 48) % 10);
+                    write_bits(y, 4, Math.abs(jG.wo.charCodeAt(z) - 48) % 10);
                 e0.send(l, y)
             }
         }
@@ -11962,99 +11962,99 @@
         this.a07 = function (l, z) {
             var y = new Uint8Array(1);
             n = 0;
-            t(y, 1, 0);
-            t(y, 3, 5);
-            t(y, 1, z ? 1 : 0);
+            write_bits(y, 1, 0);
+            write_bits(y, 3, 5);
+            write_bits(y, 1, z ? 1 : 0);
             e0.send(l, y)
         }
             ;
         this.wO = function (l) {
             var z = new Uint8Array(1);
             n = 0;
-            t(z, 1, 0);
-            t(z, 3, 2);
-            t(z, 4, l);
+            write_bits(z, 1, 0);
+            write_bits(z, 3, 2);
+            write_bits(z, 4, l);
             e0.send(e0.mS, z)
         }
             ;
         this.a0F = function () {
             var l = new Uint8Array(7);
             n = 0;
-            t(l, 1, 0);
-            t(l, 3, 6);
-            t(l, 8, eK.vJ);
-            t(l, 10, eK.vK);
-            t(l, 9, eK.vL);
-            t(l, 10, a0T);
-            t(l, 14, a0O);
+            write_bits(l, 1, 0);
+            write_bits(l, 3, 6);
+            write_bits(l, 8, eK.vJ);
+            write_bits(l, 10, eK.vK);
+            write_bits(l, 9, eK.vL);
+            write_bits(l, 10, a0T);
+            write_bits(l, 14, a0O);
             e0.send(e0.jE, l)
         }
             ;
         this.l2 = function (l, z) {
             var y = new Uint8Array(3);
             n = 0;
-            t(y, 1, 1);
-            t(y, 3, 0);
-            t(y, 10, l);
-            t(y, 9, z);
+            write_bits(y, 1, 1);
+            write_bits(y, 3, 0);
+            write_bits(y, 10, l);
+            write_bits(y, 9, z);
             e0.send(e0.jE, y)
         }
             ;
         this.l4 = function (l, z, y) {
             var A = new Uint8Array(5);
             n = 0;
-            t(A, 1, 1);
-            t(A, 3, 1);
-            t(A, 10, l);
-            t(A, 11, z);
-            t(A, 11, y);
+            write_bits(A, 1, 1);
+            write_bits(A, 3, 1);
+            write_bits(A, 10, l);
+            write_bits(A, 11, z);
+            write_bits(A, 11, y);
             e0.send(e0.jE, A)
         }
             ;
         this.pH = function (l) {
             var z = new Uint8Array(2);
             n = 0;
-            t(z, 1, 1);
-            t(z, 3, 2);
-            t(z, 1, 0);
-            t(z, 9, l);
+            write_bits(z, 1, 1);
+            write_bits(z, 3, 2);
+            write_bits(z, 1, 0);
+            write_bits(z, 9, l);
             e0.send(e0.jE, z)
         }
             ;
         this.pI = function (l) {
             var z = new Uint8Array(2);
             n = 0;
-            t(z, 1, 1);
-            t(z, 3, 2);
-            t(z, 1, 1);
-            t(z, 11, l - 1);
+            write_bits(z, 1, 1);
+            write_bits(z, 3, 2);
+            write_bits(z, 1, 1);
+            write_bits(z, 11, l - 1);
             e0.send(e0.jE, z)
         }
             ;
         this.iV = function (l, z) {
             var y = new Uint8Array(4);
             n = 0;
-            t(y, 1, 1);
-            t(y, 3, 3);
-            t(y, 12, l);
-            t(y, 10, z);
+            write_bits(y, 1, 1);
+            write_bits(y, 3, 3);
+            write_bits(y, 12, l);
+            write_bits(y, 10, z);
             e0.send(e0.jE, y)
         }
             ;
         this.lb = function () {
             var l = new Uint8Array(1);
             n = 0;
-            t(l, 1, 1);
-            t(l, 3, 4);
+            write_bits(l, 1, 1);
+            write_bits(l, 3, 4);
             e0.send(e0.jE, l)
         }
             ;
         this.nP = function (l) {
             var z = new Uint8Array(2);
             n = 0;
-            t(z, 1, 1);
-            t(z, 3, 5);
-            t(z, 7, l);
+            write_bits(z, 1, 1);
+            write_bits(z, 3, 5);
+            write_bits(z, 7, l);
             e0.send(e0.jE, z)
         }
             ;
@@ -12062,21 +12062,21 @@
             dw.mG(localPlayerID, z, l);
             var y = new Uint8Array(3);
             n = 0;
-            t(y, 1, 1);
-            t(y, 3, 6);
-            t(y, 2, 0);
-            t(y, 9, z);
-            t(y, 7, l);
+            write_bits(y, 1, 1);
+            write_bits(y, 3, 6);
+            write_bits(y, 2, 0);
+            write_bits(y, 9, z);
+            write_bits(y, 7, l);
             e0.send(e0.jE, y)
         }
             ;
         this.l8 = function (l) {
             var z = new Uint8Array(2);
             n = 0;
-            t(z, 1, 1);
-            t(z, 3, 6);
-            t(z, 2, 1);
-            t(z, 9, l);
+            write_bits(z, 1, 1);
+            write_bits(z, 3, 6);
+            write_bits(z, 2, 1);
+            write_bits(z, 9, l);
             e0.send(e0.jE, z)
         }
             ;
@@ -12085,29 +12085,29 @@
             var A = l.length;
             var C = new Uint8Array(bit_to_bytes(15 + 9 * A));
             n = 0;
-            t(C, 1, 1);
-            t(C, 3, 6);
-            t(C, 2, 2);
-            t(C, 9, z);
+            write_bits(C, 1, 1);
+            write_bits(C, 3, 6);
+            write_bits(C, 2, 2);
+            write_bits(C, 9, z);
             for (y = 0; y < A; y++)
-                t(C, 9, l[y]);
+                write_bits(C, 9, l[y]);
             e0.send(e0.jE, C)
         }
             ;
         this.ps = function (l) {
             var z = new Uint8Array(1);
             n = 0;
-            t(z, 1, 1);
-            t(z, 3, 7);
-            t(z, 1, l ? 1 : 0);
+            write_bits(z, 1, 1);
+            write_bits(z, 3, 7);
+            write_bits(z, 1, l ? 1 : 0);
             e0.send(e0.jE, z)
         }
             ;
         this.wa = function (l) {
             var z = new Uint8Array(4);
             n = 0;
-            t(z, 1, 0);
-            t(z, 3, 3);
+            write_bits(z, 1, 0);
+            write_bits(z, 3, 3);
             k(z);
             e0.send(l, z)
         }
