@@ -4212,7 +4212,7 @@
         }
             ;
         this.qw = function () {
-            I || iU.qx()
+            I || iU.menu_socket_welcome()
         }
             ;
         this.qy = function (N) {
@@ -6567,7 +6567,7 @@
                 var ea = A;
                 for (U = 0; U < y[0]; U++) {
                     if (N > ea && N < ea + l && S > pa && S < pa + l)
-                        return iU.wO(E[T].w9),
+                        return iU.join_game(E[T].w9),
                             G = E[T].w9 !== G ? E[T].w9 : -1,
                             bw.bx = true;
                     T++;
@@ -8894,7 +8894,7 @@
     var mainCanvas;
     var c9;
     var patchVersion;
-    var a0O;
+    var version;
     var r;
     var s;
     var oX;
@@ -8932,7 +8932,7 @@
     var a0W = "";
     function a0X() {
         a0U = 2;
-        a0O = 3427;
+        version = 3427;
         patchVersion = "1.81.2   14 October 2022";
         jY();
         cz();
@@ -11864,7 +11864,7 @@
             write_bits(l, 24, z - 16777216 * y)
         }
         function k(l) {
-            write_bits(l, 14, a0O);
+            write_bits(l, 14, version);
             write_bits(l, 4, b ? 2 : 12 <= d ? 1 : 0 < d ? 3 : 0);
             write_bits(l, 1, isURLTerritorialIo ? 1 : 0);
             write_bits(l, 1, a0R ? 1 : 0);
@@ -11885,22 +11885,22 @@
             n += length
         }
         var n;
-        this.qx = function () {
-            var l = new Uint8Array(3);
+        this.menu_socket_welcome = function () { // WebSocket opens when the page is loaded
+            var packet = new Uint8Array(3);
             n = 0;
-            write_bits(l, 1, 0);
-            write_bits(l, 3, 0);
-            write_bits(l, 14, a0O);
-            low_level_websocket.send(0, l)
+            write_bits(packet, 1, 0); // Game state (lobby / menu, 0)
+            write_bits(packet, 3, 0); // Packet id
+            write_bits(packet, 14, version);
+            low_level_websocket.send(0, packet)
         }
             ;
         this.join_lobby = function (l) {
             var nickname = m.encode_string(jG.nickname());
             var nickname_length = nickname.length;
             var packet = new Uint8Array(bit_to_bytes(105 + 10 * nickname_length)); // 105 bits for fields, 10 bits for each character in the nickname
-            n = 0;
-            write_bits(packet, 1, 0);
-            write_bits(packet, 3, 1);
+            n = 0; // Set array iterator to 0
+            write_bits(packet, 1, 0); // Game state (lobby)
+            write_bits(packet, 3, 1); // Packet id
             write_bits(packet, 10, a0T);
             var color = c4.lk[2].iL.color();
             write_bits(packet, 6, color[0]); // R, G, B, 18-bit color
@@ -11920,7 +11920,7 @@
             write_bits(y, 1, 0);
             write_bits(y, 3, 7);
             write_bits(y, 3, 0);
-            write_bits(y, 14, a0O);
+            write_bits(y, 14, version);
             write_bits(y, 1, z);
             write_bits(y, 16, Math.abs(4096 + c5.position[z] + c5.tU[z]) % 65536);
             low_level_websocket.send(l, y)
@@ -11968,13 +11968,15 @@
             low_level_websocket.send(l, y)
         }
             ;
-        this.wO = function (l) {
-            var z = new Uint8Array(1);
-            n = 0;
-            write_bits(z, 1, 0);
-            write_bits(z, 3, 2);
-            write_bits(z, 4, l);
-            low_level_websocket.send(low_level_websocket.mS, z)
+        this.join_game = function (game_id) { // game_id is a half-byte number (0-15); every new game id is 1 more than previous (0, 1, 2, ..., 14, 15 --> 0, 1...)
+            // First call to this method adds client to (game_id) queue, second call removes client from it if the game_id is the same as in first call, otherwise
+            // reassings client to (game_id) queue
+            var packet = new Uint8Array(1);
+            n = 0; // Set array iterator to 0
+            write_bits(packet, 1, 0); // Game state (lobby)
+            write_bits(packet, 3, 2); // Packet id
+            write_bits(packet, 4, game_id); // 4-bit (as written before) number
+            low_level_websocket.send(low_level_websocket.mS, packet)
         }
             ;
         this.a0F = function () {
@@ -11986,7 +11988,7 @@
             write_bits(l, 10, eK.vK);
             write_bits(l, 9, eK.vL);
             write_bits(l, 10, a0T);
-            write_bits(l, 14, a0O);
+            write_bits(l, 14, version);
             low_level_websocket.send(low_level_websocket.jE, l)
         }
             ;
