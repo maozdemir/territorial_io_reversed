@@ -673,7 +673,7 @@
         dw.d6();
         dx.d6();
         dy.dz();
-        e0.d6()
+        low_level_websocket.d6()
     }
     function e1() {
         aq.d6();
@@ -697,7 +697,7 @@
         eE.d6();
         as.d6();
         eF.d6();
-        e0.d6()
+        low_level_websocket.d6()
     }
     function eG() {
         eH.d6();
@@ -718,7 +718,7 @@
     }
     function eO() {
         dx.eN() && (bw.bx = true);
-        e0.d6()
+        low_level_websocket.d6()
     }
     function eP() {
         function g(A) {
@@ -1482,14 +1482,14 @@
             return n
         }
             ;
-        this.i7 = function (n) {
-            n = n.trim();
-            for (l = n.length, z = [], A = 0, void 0; A < l; A++) {
+        this.encode_string = function (string) {
+            string = string.trim();
+            for (l = string.length, z = [], A = 0, void 0; A < l; A++) {
                 var l;
                 var z;
                 var y;
                 var A;
-                y = n.charCodeAt(A);
+                y = string.charCodeAt(A);
                 var C = g(y);
                 z.push(t[C] + y - k[C])
             }
@@ -1513,7 +1513,7 @@
         }
             ;
         this.i9 = function (n) {
-            n = this.i7(n);
+            n = this.encode_string(n);
             for (l = "", z = 0, void 0; z < n.length; z++) {
                 var l;
                 var z;
@@ -1751,7 +1751,7 @@
         dx.eN()
     }
     function jD() {
-        e0.close(e0.jE, 3246);
+        low_level_websocket.close(low_level_websocket.jE, 3246);
         fK = 0;
         bw.jF();
         jG.bh();
@@ -1813,7 +1813,7 @@
     var jV;
     var eE;
     var eK;
-    var e0;
+    var low_level_websocket;
     var e4;
     var jW;
     var jX;
@@ -1870,14 +1870,14 @@
         jR = new kA;
         jS = new kB;
         eJ = new kC;
-        iU = new kD;
+        iU = new WebSocketAPI;
         jT = new kE;
         eA = new kF;
         jU = new kG;
         jV = new kH;
         eE = new kI;
         eK = new kJ;
-        e0 = new kK;
+        low_level_websocket = new LowLevelWebsocket;
         e4 = new kL;
         jW = new kM;
         jX = new kN;
@@ -2547,12 +2547,12 @@
         }
             ;
         this.hv = function (G, H, D, K) {
-            1 === e0.mS && (PrintTextIntoChat(0, G[0].mP + ": " + iN.ht(G[0].hq) + " -> " + H, 66, 0, colorWhite, K[0], -1, false),
+            1 === low_level_websocket.mS && (PrintTextIntoChat(0, G[0].mP + ": " + iN.ht(G[0].hq) + " -> " + H, 66, 0, colorWhite, K[0], -1, false),
                 PrintTextIntoChat(0, G[1].mP + ": " + iN.ht(G[1].hq) + " -> " + D, 66, 1, colorWhite, K[1], -1, false))
         }
             ;
         this.PrintVersusModeEnding = function (WinnerName) {
-            1 === e0.mS && PrintTextIntoChat(0, "[" + WinnerName + "] has won " + ci + (ir ? " x 2" : "") + " points!", 45, 0, "rgb(225,240,255)", colorBlack75opaque, -1, false)
+            1 === low_level_websocket.mS && PrintTextIntoChat(0, "[" + WinnerName + "] has won " + ci + (ir ? " x 2" : "") + " points!", 45, 0, "rgb(225,240,255)", colorBlack75opaque, -1, false)
         }
             ;
         this.PrintEventNonAggressionPact = function (eventPlayerID, H) {
@@ -3054,12 +3054,12 @@
     }
     function MouseDownListener(event) {
         event.preventDefault();
-        oF || (e0.oZ(e0.jE),
+        oF || (low_level_websocket.oZ(low_level_websocket.jE),
             oa(Math.floor(event.clientX), Math.floor(event.clientY)))
     }
     function TouchStartListener(event) {
         event.preventDefault();
-        e0.oZ(e0.jE);
+        low_level_websocket.oZ(low_level_websocket.jE);
         oF = true;
         0 < event.touches.length && (oG = Math.floor(event.touches[0].clientX),
             oH = Math.floor(event.touches[0].clientY),
@@ -3118,7 +3118,7 @@
     }
     function MouseWheelListener(event) {
         event.preventDefault();
-        e0.oZ(e0.jE);
+        low_level_websocket.oZ(low_level_websocket.jE);
         var k = Math.floor(event.clientX);
         var x = Math.floor(event.clientY);
         var t = event.deltaY;
@@ -4200,7 +4200,7 @@
             });
             l = [208644377, 208644377, 208644377, 206964709, 205156594, 250680803, 249089835, 234476552, 252346209, 263196406, 270821533, 291436400, 294907103, 288866179, 297960890, 310165928, 323215738, 326005712, 312078872, 282668674, 268883231, 261100885, 247870209, 240175828, 231697235, 240614202, 237647174, 230525212, 228239099, 226070733, 215992739, 216961676, 231079584, 235793502, 234032821, 228402462, 216942832, 211862670, 209792418, 220626495, 221020535, 228198633, 226910806, 227687295, 210969547, 197393506, 205629061, 215820135, 213694935, 209455870, 215822584, 215130299, 214034219, 229190414, 230055290, 225313791, 223398523, 231870169, 226224938, 218242706, 235891029, 210498444, 195329116, 187676007, 183432634, 175752106, 170096205, 173369342, 171454357, 185810310, 189616577, 190788861, 179291487, 179513980, 189122353, 188375572, 202060722, 203256609, 197948652, 191950448, 194693217, 196335490, 195911919, 202264283, 199251620, 193699336, 188441210, 183419345, 195919988, 198126823, 199780788, 197440550, 190144884, 179139362, 166469099, 178827877, 183801980, 197952484, 188875861, 185919783, 186237411, 182504952, 183532013, 174109004, 178159701, 161031347, 194622838, 205645645, 200496457, 194773327, 194546481, 207893217, 210920126, 213376144, 173859897, 154326886, 158943729, 166772975, 175066046, 177406405, 179018562, 185986119, 186747583, 200787939, 208959937, 161987576, 185512400, 185788899, 185957487, 194591063, 215634157, 230579314, 237637383, 240518707, 221398239, 225230795, 224891285, 211292916, 216944626, 219436299, 226523918, 232405568, 232166426, 216921782, 244767964, 257278946, 243548100, 237386943, 242802627, 229717622, 168149709, 259971896, 267057767, 257606635, 209857364, 126035568, 129833237, 151312703, 197006695, 73120657, 37551024, 39229432, 29517736, 29382631, 31512045, 42652097, 47363019, 49624906, 46687310, 33767120, 31230439, 34211643, 43094531, 53747053, 55380682, 49779117, 47748833, 21038802, 20406484, 24523793, 26566139, 25284142, 26825553, 23497443, 20291865, 17765022, 21291320, 21106123, 19050128, 18324426, 19044067, 19594721, 19347845, 23365124, 24186529, 19824881, 17952812, 17093838, 17328579, 17607296, 21284737, 22551012, 20471281, 19350848, 19654931, 18725460, 18641926, 23301269, 25178902, 21617041, 21433781, 21078957, 19526047, 18665064, 21394401, 21575049, 19286677, 18018450, 17550775, 17282428, 17055509, 19348704, 20177845, 19766211, 19088037, 18118802, 18269428, 18500614, 19130220, 19351798, 19205188, 19489961, 20233286, 20726811, 23245145, 26158741, 26096642, 24424181, 23690661, 22967492, 21098008, 20325973, 19431907, 17008295, 15583096, 14209752, 14307184, 13541498, 12822679, 13154311, 12161194, 12956543, 11435697, 13428928, 12262514, 12858519, 12405344, 12884309, 14410011, 15556681, 15260178, 14863807, 13861458, 15176144, 14089849, 13063987, 12378716, 13061867, 13118900, 13112653, 13137263, 13062253, 13126875, 14136833, 14711852, 14341250, 11888270, 13137006, 12830841, 12516937, 12783789, 13139393, 12931E3, 12857582, 13677329, 13892963, 13171528, 14135236, 14640750, 15677970, 16758399, 19125177, 17723446, 16469484, 17032884, 19792603, 21426397, 22032534, 20271251, 16190176, 16772813, 17675977, 18764026, 18346209, 19576834, 20989792, 21350839, 14696885, 14653075, 14677999, 14958759, 14210260, 15488352, 15623604, 14473144, 12823062, 14869909, 15142264, 15567014, 17896725, 20081347, 17765006, 12763925, 13523610, 13979983, 15080856, 17116394, 18483238, 18084320, 12100282, 12221529, 12441579, 12058220, 12441689, 12821546, 13401583, 13009895, 12271066, 12210094, 12355642, 13737115, 14257807, 14904897, 14072161, 15640387, 15721803, 16397970, 19254839, 21608906, 20527471, 16596206, 15550563, 14385591, 15547262, 13174302, 12462319, 13000669, 12832541, 12186376, 13150940, 14654379, 14299386, 14158528, 15185971, 12444117, 14253445, 15049053, 14123310, 16892853, 15963931, 11858727, 10012703, 9478191, 9193460, 8851082, 9298848, 9638204, 9442496, 8653593, 9093527, 8530977, 8809114, 9609612, 9906912, 9615756, 9477879, 9713075, 9126583, 8949378, 9577595, 10180186, 9858705, 9534213, 9184660, 8889455, 8311313, 9738346, 9772164, 9157791, 8445413, 8467279, 8756002, 9257951, 10213536, 10620530, 10352296, 9350531, 9118709, 9614237, 9692491, 10801215, 10984804, 9542309, 9609538, 9391430, 9515517, 10064494, 11061684, 10408005, 9794768, 9297643, 9275992, 9394076, 9716084, 10045958, 9715229, 9091248, 10010584, 9845528, 9532588, 8986320, 9037708, 9820996, 8953464, 9074064, 8644692, 8025308, 8832112, 10785788, 10539708, 8908744, 8331216, 8858100, 8626840, 7666284, 8503372, 8855308, 6762540, 6414076, 6786692, 6445532, 6262192, 5918176, 5864376, 5464928, 5384996, 5942760, 5261972, 5404612, 6184860, 6312948, 5815660, 5208552, 4734392, 4538784, 4661404, 5145524, 4819368, 4369224, 4458584, 4289956, 3538288, 3517544, 3871876, 3388048, 3344796, 3089228, 2863676, 2268964, 2160500, 2580004, 2244356, 2018408, 1688912, 1945368, 1796332, 1619260, 2060292, 1597656, 1472788, 1306208, 1171408, 1021096, 1109312, 1241276, 1305092, 1142748, 1157700, 991984, 786992, 786396, 1043956, 1029320, 860500, 834824, 841912, 736464, 690328, 878376, 907232, 794932, 646388, 752600, 672836, 636212, 794108, 746856, 642928, 671328, 493568, 458168, 428776, 464736, 371412, 314568, 225472, 252072, 227604, 251048, 269184, 174136, 825576, 536060, 165952, 153252, 180036, 149616, 138472, 157832, 188152, 180108, 134076, 70960, 89236, 111428, 60520, 74620, 73424, 74720, 71584, 94432, 62572, 66420, 32532, 34452, 41048, 51372, 61916, 43236, 55172, 26776, 47E3, 57424, 93100, 64980, 37288, 44296, 34588, 40700, 29200, 24604, 18184, 42660, 31404, 38096, 18556, 17388, 19568, 17604, 22328, 40300, 39392, 33440, 17960, 7984, 11612, 67700, 14108, 22444, 19756, 9436, 16864, 14400, 17216, 14436, 8612, 15952, 29764, 18748, 16348, 23976, 22080, 20268, 20984, 9480, 30736, 15996, 9484, 9392, 9716, 21540, 57428, 24788, 18728, 8528, 5972, 20560, 18268, 28088, 15364, 15300, 29348, 30992, 20564, 34420, 16716, 14424, 12360, 15124, 51172, 13176];
             this.lT();
-            e0.qu(0, 0)
+            low_level_websocket.qu(0, 0)
         }
             ;
         this.lT = function () {
@@ -4212,7 +4212,7 @@
         }
             ;
         this.qw = function () {
-            I || iU.qx()
+            I || iU.menu_socket_welcome()
         }
             ;
         this.qy = function (N) {
@@ -5269,7 +5269,7 @@
         this.bn = function () {
             bw.gL - 12E4 >= x[this.tF] && (x[this.tF] = bw.gL,
                 this.tU = [0, 0],
-                e0.qu(0, 1 + this.tF) && iU.tV(0, this.tF))
+                low_level_websocket.qu(0, 1 + this.tF) && iU.get_top(0, this.tF))
         }
             ;
         this.lT = function () {
@@ -5371,7 +5371,7 @@
             if (x[this.tF] + 50 > bw.gL)
                 return true;
             x[this.tF] = bw.gL;
-            e0.qu(0, 1 + this.tF) && iU.tV(0, this.tF);
+            low_level_websocket.qu(0, 1 + this.tF) && iU.get_top(0, this.tF);
             return true
         }
             ;
@@ -5814,7 +5814,7 @@
             this.uM()
         }
             ;
-        this.uN = function () {
+        this.color = function () {
             return [ak(this.colors[0][0], 4), ak(this.colors[0][1], 4), ak(this.colors[0][2], 4)]
         }
             ;
@@ -5920,11 +5920,11 @@
         function g() {
             H++;
             G = bw.gL;
-            e0.qu((H + D) % e0.ud, 4) && (K = true,
-                iU.ue((H + D) % e0.ud))
+            low_level_websocket.qu((H + D) % low_level_websocket.ud, 4) && (K = true,
+                iU.join_lobby((H + D) % low_level_websocket.ud))
         }
         function k() {
-            if (H >= e0.ud - 1)
+            if (H >= low_level_websocket.ud - 1)
                 H = -1;
             else if (0 === H) {
                 jM.uk(3249);
@@ -5986,7 +5986,7 @@
         }
             ;
         this.uf = function (I) {
-            I === (H + D) % e0.ud && (K = false,
+            I === (H + D) % low_level_websocket.ud && (K = false,
                 k())
         }
             ;
@@ -6001,7 +6001,7 @@
         this.qw = function (I) {
             6 !== jL.rG() || K || (G = bw.gL,
                 K = true,
-                iU.ue(I))
+                iU.join_lobby(I))
         }
             ;
         this.d6 = function () {
@@ -6274,8 +6274,8 @@
     function jp() {
         function g() {
             var l = jL.rG();
-            0 === l ? jG.sx() : 6 === l ? e0.vB(errorCode) : 7 === l ? (jU.sx(),
-                e0.close(e0.mS, 3240)) : 8 === l && (jD(),
+            0 === l ? jG.sx() : 6 === l ? low_level_websocket.vB(errorCode) : 7 === l ? (jU.sx(),
+                low_level_websocket.close(low_level_websocket.mS, 3240)) : 8 === l && (jD(),
                     jG.sx());
             jL.setState(3);
             jJ.r2();
@@ -6354,10 +6354,10 @@
                     return
                 }
             } else if (7 === y) {
-                if (l !== e0.mS)
+                if (l !== low_level_websocket.mS)
                     return
             } else {
-                8 === y && (l !== e0.jE || isSingleplayer || dw.mD(ThrowError(z)));
+                8 === y && (l !== low_level_websocket.jE || isSingleplayer || dw.mD(ThrowError(z)));
                 return
             }
             g()
@@ -6469,7 +6469,7 @@
         this.eL = function () {
             0 < t && bw.gL > x && (t--,
                 x += 4500,
-                0 === bw.vS && 0 === bw.vT && e0.qu(e0.jE, 5))
+                0 === bw.vS && 0 === bw.vT && low_level_websocket.qu(low_level_websocket.jE, 5))
         }
             ;
         this.vU = function () {
@@ -6567,7 +6567,7 @@
                 var ea = A;
                 for (U = 0; U < y[0]; U++) {
                     if (N > ea && N < ea + l && S > pa && S < pa + l)
-                        return iU.wO(E[T].w9),
+                        return iU.join_game(E[T].w9),
                             G = E[T].w9 !== G ? E[T].w9 : -1,
                             bw.bx = true;
                     T++;
@@ -6737,7 +6737,7 @@
             ;
         this.bz = function (N, S) {
             return 4 * ((N - P) * (N - P) + (S - W) * (S - W)) <= O * O ? (this.sx(),
-                e0.vB(3240),
+                low_level_websocket.vB(3240),
                 jG.bh(),
                 jJ.lK(N, S, false),
                 bw.bx = true) : n(N, S)
@@ -6942,15 +6942,15 @@
         }
             ;
         this.wZ = function () {
-            e0.jE = 0;
-            e0.qu(0, 3) && iU.wa(0);
+            low_level_websocket.jE = 0;
+            low_level_websocket.qu(0, 3) && iU.wa(0);
             jL.ut();
             var x = this.BOT_DATA_SP.length - 2;
             x = 0 > x ? 7 : x;
             it(Math.floor(16384 * Math.random()), 0, [{
-                mP: jG.wb(),
+                mP: jG.nickname(),
                 id: 0,
-                wc: c4.lk[2].iL.uN(),
+                wc: c4.lk[2].iL.color(),
                 wd: 0
             }], x, false)
         }
@@ -7244,7 +7244,7 @@
                 return false;
             jG.wo = l[1];
             k();
-            e0.qu(0, 7) && iU.wz(0);
+            low_level_websocket.qu(0, 7) && iU.wz(0);
             jM.uk(3252);
             return true
         }
@@ -7327,7 +7327,7 @@
             ;
         this.uw = function () {
             x() || g() || (a9(10),
-                void 0 !== n && m.i1(n) && 40 === n.charCodeAt(0) && 41 === n.charCodeAt(2) ? jK.ub((n.charCodeAt(1) + 1) % e0.ud) : jK.ub(jW.wx - 1),
+                void 0 !== n && m.i1(n) && 40 === n.charCodeAt(0) && 41 === n.charCodeAt(2) ? jK.ub((n.charCodeAt(1) + 1) % low_level_websocket.ud) : jK.ub(jW.wx - 1),
                 t() ? bo.bp() ? (this.sx(),
                     w(n),
                     jK.bh()) : jM.uk(3228) : jM.uk(4214))
@@ -8752,7 +8752,7 @@
             }
         }
     }
-    function kK() {
+    function LowLevelWebsocket() {
         function g(n) {
             return t[n].a05 && k[n].a0A()
         }
@@ -8811,7 +8811,7 @@
         }
             ;
         this.a0E = function (n, l) {
-            0 === l ? jI.qw() : 3 > l ? iU.tV(n, l - 1) : 3 === l ? iU.wa(n) : 4 === l ? jK.qw(n) : 5 === l ? n === this.jE && iU.a0F() : 6 === l ? iU.a0G(n) : 7 === l && iU.wz(n)
+            0 === l ? jI.qw() : 3 > l ? iU.get_top(n, l - 1) : 3 === l ? iU.wa(n) : 4 === l ? jK.qw(n) : 5 === l ? n === this.jE && iU.a0F() : 6 === l ? iU.a0G(n) : 7 === l && iU.wz(n)
         }
             ;
         this.uZ = function (n) {
@@ -8894,7 +8894,7 @@
     var mainCanvas;
     var c9;
     var patchVersion;
-    var a0O;
+    var version;
     var r;
     var s;
     var oX;
@@ -8932,7 +8932,7 @@
     var a0W = "";
     function a0X() {
         a0U = 2;
-        a0O = 3427;
+        version = 3427;
         patchVersion = "1.81.2   14 October 2022";
         jY();
         cz();
@@ -8996,7 +8996,7 @@
         j2.bh();
         jL.bh();
         jW.bh();
-        e0.bh();
+        low_level_websocket.bh();
         jI.bh();
         j4.bh();
         oM();
@@ -9017,7 +9017,7 @@
         a0Q || (a0Q = true,
             g.message ? (a0V = g.lineno,
                 a0W = g.message,
-                e0.qu(0, 6) && iU.a0G(0),
+                low_level_websocket.qu(0, 6) && iU.a0G(0),
                 g = "[A_ERROR " + a0V + "][" + a0W + "]",
                 a0l(g)) : (g = "[B_ERROR " + g.type + "][" + (g.srcElement || g.target) + "]",
                     console.log(g)))
@@ -9034,7 +9034,7 @@
     function a0a(g) {
         400 > bw.gL || (8 !== jL.rG() && jL.tx(g) ? bw.bx = true : "Escape" === g.key ? 1 <= fK ? gQ ? (gQ = !gQ,
             bw.bx = true) : hZ.kl ? hZ.ko() : fZ.lY() : 7 === jL.rG() ? (jU.sx(),
-                e0.vB(3240),
+                low_level_websocket.vB(3240),
                 jG.bh(),
                 bw.bx = true) : 2 === jL.rG() ? dk.vC() : 3 === jL.rG() && jM.vC(0, 0) : "ArrowLeft" === g.key ? gV.a0n(3) : "ArrowUp" === g.key ? gV.a0n(0) : "ArrowRight" === g.key ? gV.a0n(1) : "ArrowDown" === g.key ? gV.a0n(2) : "h" === g.key && 1 <= fK && (gQ = !gQ,
                     bw.bx = true))
@@ -10551,33 +10551,34 @@
     function a0D() {
         function g() { }
         function wsOnOpenListener() {
-            e0.a0E(z, y)
+            low_level_websocket.a0E(websocket_state, y)
         }
         function wsOnMessageListener(E) {
             A++;
-            1 === A ? fileReader.readAsArrayBuffer(E.data) : C.push(E.data)
+            A === 1 ? fileReader.readAsArrayBuffer(E.data) : processing_queue.push(E.data)
         }
         function loadEndListener() {
             A--;
-            jS.a3l(z, new Uint8Array(fileReader.result));
-            0 < A && (fileReader.readAsArrayBuffer(C[0]),
-                C.shift())
+            jS.a3l(websocket_state, new Uint8Array(fileReader.result));
+            if (A > 0){fileReader.readAsArrayBuffer(processing_queue[0]),
+                processing_queue.shift()}
         }
         function wsOnErrorListener() { }
         function wsOnCloseListener(E) {
-            e0.a0K(z, E)
+            low_level_websocket.a0K(websocket_state, E)
         }
-        var z;
+        var websocket_state;
         var y;
         var A;
-        var C;
+        var processing_queue;
         var fileReader;
         var webSocket;
         this.bh = function (E, J, G) {
-            z = E;
+            websocket_state = E;
+            // Note that websocket_state is different from game_state
             y = J;
             A = 0;
-            C = [];
+            processing_queue = [];
             fileReader = new FileReader;
             fileReader.addEventListener("loadend", loadEndListener);
             webSocket = new WebSocket(oI[0] + G + oI[1 + a0U]);
@@ -11360,7 +11361,7 @@
             jH.d6();
             jK.d6();
             jT.d6();
-            e0.d6();
+            low_level_websocket.d6();
             eK.vU();
             c5.d6();
             this.bx && (this.bx = false,
@@ -11563,40 +11564,40 @@
         }
         var x;
         var t;
-        this.a3l = function (n, l) {
+        this.on_message = function (websocket_state, content) {
             t = 0;
-            x = l.length;
-            if (0 === x)
-                e0.a0I(n, 3205);
+            content_length = content.length;
+            if (content_length === 0)
+                low_level_websocket.a0I(websocket_state, 3205);
             else {
-                var z = k(l, 1);
+                var z = k(content, 1);
                 if (0 === z)
-                    if (z = k(l, 2),
+                    if (z = k(content, 2),
                         0 === z)
-                        if (0 === k(l, 1)) {
-                            if (0 === n && 8 !== jL.rG() && !(4 > x)) {
-                                te.bj(0, g(k(l, 5), l));
-                                te.bj(1, "[" + g(k(l, 3), l) + "]");
-                                var y = k(l, 12);
-                                var A = k(l, 6);
+                        if (0 === k(content, 1)) {
+                            if (0 === websocket_state && 8 !== jL.rG() && !(4 > content_length)) {
+                                te.bj(0, g(k(content, 5), content));
+                                te.bj(1, "[" + g(k(content, 3), content) + "]");
+                                var y = k(content, 12);
+                                var A = k(content, 6);
                                 var C = Array(y);
                                 for (z = 0; z < y; z++)
-                                    C[z] = k(l, A);
+                                    C[z] = k(content, A);
                                 jI.qy(C)
                             }
                         } else {
                             if (8 !== jL.rG())
-                                if (3 > x)
-                                    e0.a0I(n, 3208);
+                                if (3 > content_length)
+                                    low_level_websocket.a0I(websocket_state, 3208);
                                 else {
-                                    y = k(l, 1);
-                                    A = k(l, 16);
-                                    C = k(l, 4);
+                                    y = k(content, 1);
+                                    A = k(content, 16);
+                                    C = k(content, 4);
                                     var B = [];
                                     for (z = 0; z < C; z++) {
-                                        var F = k(l, 14);
-                                        var E = k(l, 5);
-                                        E = g(E, l);
+                                        var F = k(content, 14);
+                                        var E = k(content, 5);
+                                        E = g(E, content);
                                         B.push({
                                             mP: E,
                                             hq: F
@@ -11606,43 +11607,43 @@
                                 }
                         }
                     else if (1 === z)
-                        if (n !== e0.mS)
-                            e0.close(n, 3239);
+                        if (websocket_state !== low_level_websocket.mS)
+                            low_level_websocket.close(websocket_state, 3239);
                         else if (6 === jL.rG() && jU.bh(),
                             7 !== jL.rG())
-                            e0.close(n, 3251);
+                            low_level_websocket.close(websocket_state, 3251);
                         else {
                             y = [0, 0, 0, 0];
-                            A = k(l, 6);
+                            A = k(content, 6);
                             for (z = 0; 4 > z; z++)
-                                y[z] = k(l, A);
-                            C = k(l, 4);
+                                y[z] = k(content, A);
+                            C = k(content, 4);
                             B = [];
                             for (z = 0; z < C; z++)
                                 B.push({
-                                    id: k(l, 5),
-                                    iw: k(l, 4),
-                                    wA: 1 === k(l, 1),
-                                    mc: k(l, 6),
-                                    w8: k(l, 14),
-                                    wD: k(l, A),
-                                    wE: k(l, 9) + 1,
-                                    un: k(l, 10)
+                                    id: k(content, 5),
+                                    iw: k(content, 4),
+                                    wA: 1 === k(content, 1),
+                                    mc: k(content, 6),
+                                    w8: k(content, 14),
+                                    wD: k(content, A),
+                                    wE: k(content, 9) + 1,
+                                    un: k(content, 10)
                                 });
                             jU.tf(y, B)
                         }
                     else
-                        2 !== z && 3 !== z || eK.bh(l);
+                        2 !== z && 3 !== z || eK.bh(content);
                 else
                     1 === z && (z = jL.rG(),
-                        8 !== z ? 10 === z && e0.a0I(n, 3243) : n !== e0.jE ? e0.a0I(n, 3244) : 0 === k(l, 1) ? bw.a4l.a4w(l) : (z = k(l, 2),
-                            0 === z ? 3 !== x ? e0.a0I(e0.jE, 3230) : (z = k(l, 9),
-                                y = k(l, 7),
+                        8 !== z ? 10 === z && low_level_websocket.a0I(websocket_state, 3243) : websocket_state !== low_level_websocket.jE ? low_level_websocket.a0I(websocket_state, 3244) : 0 === k(content, 1) ? bw.a4l.a4w(content) : (z = k(content, 2),
+                            0 === z ? 3 !== content_length ? low_level_websocket.a0I(low_level_websocket.jE, 3230) : (z = k(content, 9),
+                                y = k(content, 7),
                                 0 !== f1[z] && 0 !== f1[localPlayerID] && (y %= a5.a6,
                                     dw.mG(z, localPlayerID, y),
-                                    dx.mU(z, 1, y))) : 1 === z ? 2 !== x ? e0.a0I(e0.jE, 3235) : (z = k(l, 9),
-                                        0 !== f1[z] && 0 !== f1[localPlayerID] && (dw.l6(50, z) || dw.l6(52, z) || dw.l7(z, 1))) : 3 !== x ? e0.a0I(e0.jE, 3236) : (z = k(l, 9),
-                                            y = k(l, 9),
+                                    dx.mU(z, 1, y))) : 1 === z ? 2 !== content_length ? low_level_websocket.a0I(low_level_websocket.jE, 3235) : (z = k(content, 9),
+                                        0 !== f1[z] && 0 !== f1[localPlayerID] && (dw.l6(50, z) || dw.l6(52, z) || dw.l7(z, 1))) : 3 !== content_length ? low_level_websocket.a0I(low_level_websocket.jE, 3236) : (z = k(content, 9),
+                                            y = k(content, 9),
                                             0 === f1[z] || 0 === f1[y] || 0 === f1[localPlayerID] || dw.mW(50, z, y) || (dx.mU(z, 3, 96),
                                                 dx.mU(y, 4, 96),
                                                 dw.mV(z, y)))))
@@ -11711,15 +11712,15 @@
             x = n.length;
             var l = k(n, 2);
             var z = k(n, 10);
-            eK.vJ = e0.mS;
-            if (e0.mS === z)
-                return e0.jE = z,
+            eK.vJ = low_level_websocket.mS;
+            if (low_level_websocket.mS === z)
+                return low_level_websocket.jE = z,
                     false;
-            e0.close(e0.mS, 3247);
-            e0.jE = z;
+            low_level_websocket.close(low_level_websocket.mS, 3247);
+            low_level_websocket.jE = z;
             eK.vK = k(n, 10);
             eK.vL = k(n, 2 === l ? 9 : 1);
-            e0.qu(z, 5) && iU.a0F();
+            low_level_websocket.qu(z, 5) && iU.a0F();
             return true
         }
             ;
@@ -11727,7 +11728,7 @@
             t = 2;
             var z = 8 * n.length;
             if (k(n, 3) !== l)
-                e0.a0I(e0.jE, 3248);
+                low_level_websocket.a0I(low_level_websocket.jE, 3248);
             else
                 for (; t + 8 <= z;) {
                     var y = k(n, 3);
@@ -11856,90 +11857,91 @@
             c9.setTransform(1, 0, 0, 1, 0, 0)
         }
     }
-    function kD() {
+    function WebSocketAPI() {
         function g(l) {
             var z = j();
             var y = Math.floor(z / 16777216);
-            t(l, 24, y);
-            t(l, 24, z - 16777216 * y)
+            write_bits(l, 24, y);
+            write_bits(l, 24, z - 16777216 * y)
         }
         function k(l) {
-            t(l, 14, a0O);
-            t(l, 4, b ? 2 : 12 <= d ? 1 : 0 < d ? 3 : 0);
-            t(l, 1, isURLTerritorialIo ? 1 : 0);
-            t(l, 1, a0R ? 1 : 0);
-            t(l, 5, (new Date).getHours() % 24)
+            write_bits(l, 14, version);
+            write_bits(l, 4, b ? 2 : 12 <= d ? 1 : 0 < d ? 3 : 0);
+            write_bits(l, 1, isURLTerritorialIo ? 1 : 0);
+            write_bits(l, 1, a0R ? 1 : 0);
+            write_bits(l, 5, (new Date).getHours() % 24)
         }
-        function x(l) {
+        function bit_to_bytes(l) { // This is just a ceiling division
             return ak(l, 8) + (0 < l % 8 ? 1 : 0)
         }
-        function t(l, z, y) {
-            for (B = n, void 0; B < n + z; B++) {
+        function write_bits(array, length, bits) {
+            for (B = n, void 0; B < n + length; B++) {
                 var A;
                 var C;
                 var B;
                 A = ak(B, 8),
                     C = 7 - B % 8,
-                    l[A] |= (y >> z - (B - n + 1) & 1) << C;
+                    array[A] |= (bits >> length - (B - n + 1) & 1) << C;
             }
-            n += z
+            n += length
         }
         var n;
-        this.qx = function () {
-            var l = new Uint8Array(3);
+        this.menu_socket_welcome = function () { // WebSocket opens when the page is loaded
+            var packet = new Uint8Array(3);
             n = 0;
-            t(l, 1, 0);
-            t(l, 3, 0);
-            t(l, 14, a0O);
-            e0.send(0, l)
+            write_bits(packet, 1, 0); // Game state (lobby / menu, 0)
+            write_bits(packet, 3, 0); // Packet id
+            write_bits(packet, 14, version);
+            low_level_websocket.send(0, packet)
         }
             ;
-        this.ue = function (l) {
-            var z = m.i7(jG.wb());
-            var y = z.length;
-            var A = new Uint8Array(x(105 + 10 * y));
-            n = 0;
-            t(A, 1, 0);
-            t(A, 3, 1);
-            t(A, 10, a0T);
-            var C = c4.lk[2].iL.uN();
-            t(A, 6, C[0]);
-            t(A, 6, C[1]);
-            t(A, 6, C[2]);
-            g(A);
-            k(A);
-            for (C = 0; C < y; C++)
-                t(A, 10, z[C]);
-            e0.mS = l;
-            e0.send(l, A)
+        this.join_lobby = function (l) {
+            var nickname = m.encode_string(jG.nickname());
+            var nickname_length = nickname.length;
+            var packet = new Uint8Array(bit_to_bytes(105 + 10 * nickname_length)); // 105 bits for fields, 10 bits for each character in the nickname
+            n = 0; // Set array iterator to 0
+            write_bits(packet, 1, 0); // Game state (lobby)
+            write_bits(packet, 3, 1); // Packet id
+            write_bits(packet, 10, a0T);
+            var color = c4.lk[2].iL.color();
+            write_bits(packet, 6, color[0]); // R, G, B, 18-bit color
+            write_bits(packet, 6, color[1]);
+            write_bits(packet, 6, color[2]);
+            g(packet);
+            k(packet);
+            for (C = 0; C < nickname_length; C++)
+                write_bits(packet, 10, nickname[C]);
+            low_level_websocket.mS = l;
+            low_level_websocket.send(l, packet)
         }
             ;
-        this.tV = function (l, z) {
-            var y = new Uint8Array(5);
+        this.get_top = function (l, type) {
+            // Type: 0 -> players, 1 -> clans
+            var packet = new Uint8Array(5);
             n = 0;
-            t(y, 1, 0);
-            t(y, 3, 7);
-            t(y, 3, 0);
-            t(y, 14, a0O);
-            t(y, 1, z);
-            t(y, 16, Math.abs(4096 + c5.position[z] + c5.tU[z]) % 65536);
-            e0.send(l, y)
+            write_bits(packet, 1, 0); // Game state, lobby
+            write_bits(packet, 3, 7); // Packet id, 7
+            write_bits(packet, 3, 0);
+            write_bits(packet, 14, version);
+            write_bits(packet, 1, type);
+            write_bits(packet, 16, Math.abs(4096 + c5.position[type] + c5.tU[type]) % 65536);
+            low_level_websocket.send(l, packet)
         }
             ;
         this.a0G = function (l) {
             var z;
             var y = new Uint8Array(100);
             n = 0;
-            t(y, 1, 0);
-            t(y, 3, 7);
-            t(y, 3, 1);
-            t(y, 14, a0V);
-            var A = m.i7(a0W);
+            write_bits(y, 1, 0);
+            write_bits(y, 3, 7);
+            write_bits(y, 3, 1);
+            write_bits(y, 14, a0V);
+            var A = m.encode_string(a0W);
             var C = FindMin(A.length, 77);
-            t(y, 7, C);
+            write_bits(y, 7, C);
             for (z = 0; z < C; z++)
-                t(y, 10, A[z]);
-            e0.send(l, y)
+                write_bits(y, 10, A[z]);
+            low_level_websocket.send(l, y)
         }
             ;
         this.wz = function (l) {
@@ -11948,168 +11950,170 @@
                 jG.wp = bw.gL;
                 var y = new Uint8Array(17);
                 n = 0;
-                t(y, 1, 0);
-                t(y, 3, 7);
-                t(y, 3, 2);
+                write_bits(y, 1, 0);
+                write_bits(y, 3, 7);
+                write_bits(y, 3, 2);
                 g(y);
                 var A = FindMax(jG.wo.length - 20, 0);
                 for (z = jG.wo.length - 1; z >= A; z--)
-                    t(y, 4, Math.abs(jG.wo.charCodeAt(z) - 48) % 10);
-                e0.send(l, y)
+                    write_bits(y, 4, Math.abs(jG.wo.charCodeAt(z) - 48) % 10);
+                low_level_websocket.send(l, y)
             }
         }
             ;
         this.a07 = function (l, z) {
             var y = new Uint8Array(1);
             n = 0;
-            t(y, 1, 0);
-            t(y, 3, 5);
-            t(y, 1, z ? 1 : 0);
-            e0.send(l, y)
+            write_bits(y, 1, 0);
+            write_bits(y, 3, 5);
+            write_bits(y, 1, z ? 1 : 0);
+            low_level_websocket.send(l, y)
         }
             ;
-        this.wO = function (l) {
-            var z = new Uint8Array(1);
-            n = 0;
-            t(z, 1, 0);
-            t(z, 3, 2);
-            t(z, 4, l);
-            e0.send(e0.mS, z)
+        this.join_game = function (game_id) { // game_id is a half-byte number (0-15); every new game id is 1 more than previous (0, 1, 2, ..., 14, 15 --> 0, 1...)
+            // First call to this method adds client to (game_id) queue, second call removes client from it if the game_id is the same as in first call, otherwise
+            // reassings client to (game_id) queue
+            var packet = new Uint8Array(1);
+            n = 0; // Set array iterator to 0
+            write_bits(packet, 1, 0); // Game state (lobby)
+            write_bits(packet, 3, 2); // Packet id
+            write_bits(packet, 4, game_id); // 4-bit (as written before) number
+            low_level_websocket.send(low_level_websocket.mS, packet)
         }
             ;
         this.a0F = function () {
             var l = new Uint8Array(7);
             n = 0;
-            t(l, 1, 0);
-            t(l, 3, 6);
-            t(l, 8, eK.vJ);
-            t(l, 10, eK.vK);
-            t(l, 9, eK.vL);
-            t(l, 10, a0T);
-            t(l, 14, a0O);
-            e0.send(e0.jE, l)
+            write_bits(l, 1, 0);
+            write_bits(l, 3, 6);
+            write_bits(l, 8, eK.vJ);
+            write_bits(l, 10, eK.vK);
+            write_bits(l, 9, eK.vL);
+            write_bits(l, 10, a0T);
+            write_bits(l, 14, version);
+            low_level_websocket.send(low_level_websocket.jE, l)
         }
             ;
         this.l2 = function (l, z) {
             var y = new Uint8Array(3);
             n = 0;
-            t(y, 1, 1);
-            t(y, 3, 0);
-            t(y, 10, l);
-            t(y, 9, z);
-            e0.send(e0.jE, y)
+            write_bits(y, 1, 1);
+            write_bits(y, 3, 0);
+            write_bits(y, 10, l);
+            write_bits(y, 9, z);
+            low_level_websocket.send(low_level_websocket.jE, y)
         }
             ;
         this.l4 = function (l, z, y) {
             var A = new Uint8Array(5);
             n = 0;
-            t(A, 1, 1);
-            t(A, 3, 1);
-            t(A, 10, l);
-            t(A, 11, z);
-            t(A, 11, y);
-            e0.send(e0.jE, A)
+            write_bits(A, 1, 1);
+            write_bits(A, 3, 1);
+            write_bits(A, 10, l);
+            write_bits(A, 11, z);
+            write_bits(A, 11, y);
+            low_level_websocket.send(low_level_websocket.jE, A)
         }
             ;
         this.pH = function (l) {
             var z = new Uint8Array(2);
             n = 0;
-            t(z, 1, 1);
-            t(z, 3, 2);
-            t(z, 1, 0);
-            t(z, 9, l);
-            e0.send(e0.jE, z)
+            write_bits(z, 1, 1);
+            write_bits(z, 3, 2);
+            write_bits(z, 1, 0);
+            write_bits(z, 9, l);
+            low_level_websocket.send(low_level_websocket.jE, z)
         }
             ;
         this.pI = function (l) {
             var z = new Uint8Array(2);
             n = 0;
-            t(z, 1, 1);
-            t(z, 3, 2);
-            t(z, 1, 1);
-            t(z, 11, l - 1);
-            e0.send(e0.jE, z)
+            write_bits(z, 1, 1);
+            write_bits(z, 3, 2);
+            write_bits(z, 1, 1);
+            write_bits(z, 11, l - 1);
+            low_level_websocket.send(low_level_websocket.jE, z)
         }
             ;
         this.iV = function (l, z) {
             var y = new Uint8Array(4);
             n = 0;
-            t(y, 1, 1);
-            t(y, 3, 3);
-            t(y, 12, l);
-            t(y, 10, z);
-            e0.send(e0.jE, y)
+            write_bits(y, 1, 1);
+            write_bits(y, 3, 3);
+            write_bits(y, 12, l);
+            write_bits(y, 10, z);
+            low_level_websocket.send(low_level_websocket.jE, y)
         }
             ;
         this.lb = function () {
             var l = new Uint8Array(1);
             n = 0;
-            t(l, 1, 1);
-            t(l, 3, 4);
-            e0.send(e0.jE, l)
+            write_bits(l, 1, 1);
+            write_bits(l, 3, 4);
+            low_level_websocket.send(low_level_websocket.jE, l)
         }
             ;
         this.nP = function (l) {
             var z = new Uint8Array(2);
             n = 0;
-            t(z, 1, 1);
-            t(z, 3, 5);
-            t(z, 7, l);
-            e0.send(e0.jE, z)
+            write_bits(z, 1, 1);
+            write_bits(z, 3, 5);
+            write_bits(z, 7, l);
+            low_level_websocket.send(low_level_websocket.jE, z)
         }
             ;
         this.nQ = function (l, z) {
             dw.mG(localPlayerID, z, l);
             var y = new Uint8Array(3);
             n = 0;
-            t(y, 1, 1);
-            t(y, 3, 6);
-            t(y, 2, 0);
-            t(y, 9, z);
-            t(y, 7, l);
-            e0.send(e0.jE, y)
+            write_bits(y, 1, 1);
+            write_bits(y, 3, 6);
+            write_bits(y, 2, 0);
+            write_bits(y, 9, z);
+            write_bits(y, 7, l);
+            low_level_websocket.send(low_level_websocket.jE, y)
         }
             ;
         this.l8 = function (l) {
             var z = new Uint8Array(2);
             n = 0;
-            t(z, 1, 1);
-            t(z, 3, 6);
-            t(z, 2, 1);
-            t(z, 9, l);
-            e0.send(e0.jE, z)
+            write_bits(z, 1, 1);
+            write_bits(z, 3, 6);
+            write_bits(z, 2, 1);
+            write_bits(z, 9, l);
+            low_level_websocket.send(low_level_websocket.jE, z)
         }
             ;
         this.ky = function (l, z) {
             var y;
             var A = l.length;
-            var C = new Uint8Array(x(15 + 9 * A));
+            var C = new Uint8Array(bit_to_bytes(15 + 9 * A));
             n = 0;
-            t(C, 1, 1);
-            t(C, 3, 6);
-            t(C, 2, 2);
-            t(C, 9, z);
+            write_bits(C, 1, 1);
+            write_bits(C, 3, 6);
+            write_bits(C, 2, 2);
+            write_bits(C, 9, z);
             for (y = 0; y < A; y++)
-                t(C, 9, l[y]);
-            e0.send(e0.jE, C)
+                write_bits(C, 9, l[y]);
+            low_level_websocket.send(low_level_websocket.jE, C)
         }
             ;
         this.ps = function (l) {
             var z = new Uint8Array(1);
             n = 0;
-            t(z, 1, 1);
-            t(z, 3, 7);
-            t(z, 1, l ? 1 : 0);
-            e0.send(e0.jE, z)
+            write_bits(z, 1, 1);
+            write_bits(z, 3, 7);
+            write_bits(z, 1, l ? 1 : 0);
+            low_level_websocket.send(low_level_websocket.jE, z)
         }
             ;
         this.wa = function (l) {
             var z = new Uint8Array(4);
             n = 0;
-            t(z, 1, 0);
-            t(z, 3, 3);
+            write_bits(z, 1, 0);
+            write_bits(z, 3, 3);
             k(z);
-            e0.send(l, z)
+            low_level_websocket.send(l, z)
         }
     }
     a0X();
