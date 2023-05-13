@@ -1,0 +1,50 @@
+name: Check File Difference Percentage
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y jq
+
+    - name: Calculate file difference percentage
+      id: file_diff
+      run: |
+        FILE1="territorial.js"
+        FILE2="original.js"
+        DIFF=$(git diff --no-index --stat $FILE1 $FILE2 | awk '{print $4}')
+        LINES1=$(wc -l < $FILE1)
+        PERCENT=$(bc <<< "scale=2; $DIFF / $LINES1 * 100")
+        echo "::set-output name=percent_diff::$PERCENT"
+    - run: mkdir -p badge
+
+    - name: Generate Badges
+      uses: jaywcjlove/generated-badges@main
+      with:
+        label: progress
+        status: ${{ steps.file_diff.outputs.percent_diff }}%
+        output: badge/cyan.svg
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITKEY }}
+        publish_dir: ./badge
