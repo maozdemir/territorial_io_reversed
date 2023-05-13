@@ -39,8 +39,8 @@ jobs:
     - name: Generate Badges
       uses: jaywcjlove/generated-badges@main
       with:
-        label: color
-        status: cyan
+        label: progress
+        status: ${{ steps.file_diff.outputs.percent_diff }}%
         output: badge/cyan.svg
 
     - name: Deploy
