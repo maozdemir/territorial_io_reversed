@@ -1,4 +1,4 @@
-# Territorial.io Client Side Code Reversing Project
+# Territorial.io Client Side Code Reversing Project ![coverage](https://raw.githubusercontent.com/maozdemir/territorial_io_reversed/gh-pages/cyan.svg)
 
 ## License
 
