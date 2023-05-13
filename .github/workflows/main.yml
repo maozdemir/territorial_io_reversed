@@ -41,7 +41,7 @@ jobs:
       with:
         label: color
         status: cyan
-        output: build/cyan.svg
+        output: badge/cyan.svg
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
