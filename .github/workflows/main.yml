@@ -2,7 +2,7 @@ name: Check File Difference Percentage
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
     inputs:
       logLevel:
